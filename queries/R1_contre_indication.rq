@@ -1,0 +1,7 @@
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+CONSTRUCT { ?medicament po:estContreIndiquePour ?patient }
+WHERE {
+  ?patient a po:Patient ; po:prend ?medicament ; po:souffreDe ?condition .
+  ?medicament po:aPourContreIndication ?ci .
+  ?ci a po:CIAbsolue ; po:concerne ?condition .
+}

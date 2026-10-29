@@ -1,0 +1,86 @@
+@prefix po: <http://www.esprit.tn/pharmaonto#> .
+
+po:Amoxicilline a po:PrincipeActif .
+
+po:AngineStreptococcique a po:Pathologie ;
+    po:estTraitePar po:Amoxicilline_BGR_1g,
+        po:Clamoxyl_1g .
+
+po:CI_AllergiePenicillines a po:ContreIndication .
+
+po:CI_InsuffisanceRenaleSevere a po:ContreIndication .
+
+po:CI_UlcereEvolutif a po:ContreIndication .
+
+po:DiabeteType2 a po:Pathologie ;
+    po:estTraitePar po:Glucophage_850,
+        po:Metformine_BGR_850 .
+
+po:DouleurAigue po:estTraitePar po:Advil_400 .
+
+po:MaladieThromboembolique po:estTraitePar po:Coumadine_5 .
+
+po:Metformine a po:PrincipeActif .
+
+po:Patient_P001 a po:Patient .
+
+po:Patient_P002 a po:Patient .
+
+po:Patient_P003 a po:Patient .
+
+po:Patient_P004 a po:Adulte,
+        po:Patient .
+
+po:Patient_P005 a po:Adulte,
+        po:Patient .
+
+po:Warfarine a po:PrincipeActif ;
+    po:interagitAvec po:Ibuprofene .
+
+po:Advil_400 a po:MedicamentAntiInflammatoire ;
+    po:aObservationEffet po:Obs_Advil_400_TroublesDigestifs ;
+    po:provoque po:TroublesDigestifs .
+
+po:Amoxicilline_BGR_1g a po:Medicament,
+        po:MedicamentAntibiotique ;
+    po:aObservationEffet po:Obs_Amoxicilline_BGR_1g_Diarrhee ;
+    po:provoque po:Diarrhee .
+
+po:Clamoxyl_1g a po:Medicament,
+        po:MedicamentAntibiotique ;
+    po:aObservationEffet po:Obs_Clamoxyl_1g_Diarrhee ;
+    po:provoque po:Diarrhee .
+
+po:Coumadine_5 po:aObservationEffet po:Obs_Coumadine_5_Hemorragie ;
+    po:provoque po:Hemorragie .
+
+po:Glucophage_850 a po:Medicament,
+        po:MedicamentAntidiabetique ;
+    po:aObservationEffet po:Obs_Glucophage_850_AcidoseLactique,
+        po:Obs_Glucophage_850_TroublesDigestifs ;
+    po:provoque po:AcidoseLactique,
+        po:TroublesDigestifs .
+
+po:Ibuprofene a po:PrincipeActif .
+
+po:Metformine_BGR_850 a po:Medicament,
+        po:MedicamentAntidiabetique ;
+    po:aObservationEffet po:Obs_Metformine_BGR_850_AcidoseLactique,
+        po:Obs_Metformine_BGR_850_TroublesDigestifs ;
+    po:provoque po:AcidoseLactique,
+        po:TroublesDigestifs .
+
+po:Obs_Amoxicilline_BGR_1g_Diarrhee a po:ObservationEffet .
+
+po:Obs_Clamoxyl_1g_Diarrhee a po:ObservationEffet .
+
+po:Obs_Coumadine_5_Hemorragie a po:ObservationEffet .
+
+po:Obs_Glucophage_850_AcidoseLactique a po:ObservationEffet .
+
+po:Obs_Glucophage_850_TroublesDigestifs a po:ObservationEffet .
+
+po:Obs_Metformine_BGR_850_AcidoseLactique a po:ObservationEffet .
+
+po:Obs_Metformine_BGR_850_TroublesDigestifs a po:ObservationEffet .
+

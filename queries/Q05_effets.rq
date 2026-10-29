@@ -1,0 +1,9 @@
+# Effets possibles et fréquence par spécialité
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?medicament ?nom ?effet ?frequence ?source WHERE {
+ ?observation a po:ObservationEffet ; po:observationDe ?medicament ; po:effetObserve/rdfs:label ?effet ; po:frequence ?frequence ; dct:source ?source .
+ ?medicament po:nomCommercial ?nom . 
+ } ORDER BY ?nom ?effet
+LIMIT 200

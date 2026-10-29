@@ -1,0 +1,12 @@
+{
+  "sha256": "a806ff2ec9edb4c3c3386e2d79ff3f51f56d5abdc51e45b7babe779fb12c4ef9",
+  "slides": 16,
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "font_policy_passed": true,
+  "import_passed": true,
+  "native_tables": 3,
+  "visually_reviewed_slides": 16,
+  "native_powerpoint_execution": false,
+  "presentation_pdf": "Visual copy from verified slide renders; editable source is PPTX."
+}

@@ -1,0 +1,11 @@
+@prefix po: <http://www.esprit.tn/pharmaonto#> .
+
+po:Amoxicilline_BGR_1g po:estContreIndiquePour po:Patient_P003 .
+
+po:Metformine_BGR_850 po:estContreIndiquePour po:Patient_P005 .
+
+po:Advil_400 po:estContreIndiquePour po:Patient_P002 ;
+    po:interactionMedicamenteuseAvec po:Coumadine_5 .
+
+po:Coumadine_5 po:interactionMedicamenteuseAvec po:Advil_400 .
+

@@ -1,0 +1,8 @@
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+CONSTRUCT { ?m1 po:interactionMedicamenteuseAvec ?m2 }
+WHERE {
+  ?m1 po:contientPrincipeActif ?a1 .
+  ?m2 po:contientPrincipeActif ?a2 .
+  ?a1 po:interagitAvec ?a2 .
+  FILTER (?m1 != ?m2)
+}

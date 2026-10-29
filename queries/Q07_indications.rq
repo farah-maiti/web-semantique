@@ -1,0 +1,9 @@
+# Indications documentées
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?medicament ?nom ?condition ?indication ?source WHERE {
+ ?medicament po:traite ?condition ; po:nomCommercial ?nom ; dct:source ?source .
+ ?condition rdfs:label ?indication . 
+ } ORDER BY ?nom
+LIMIT 200

@@ -1,0 +1,9 @@
+# Catalogue des spécialités
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?medicament ?nom ?dosage ?substanceDosee ?forme ?molecule ?source WHERE {
+ ?medicament a po:Medicament ; po:nomCommercial ?nom ; po:dosageMg ?dosage ;
+ po:substanceDosee ?substanceDosee ; po:formeGalenique ?forme ; po:contientPrincipeActif ?a ; dct:source ?source .
+ ?a rdfs:label ?molecule . } ORDER BY ?nom
+LIMIT 200

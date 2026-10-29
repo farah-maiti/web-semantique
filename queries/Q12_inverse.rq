@@ -1,0 +1,8 @@
+# Relation inverse déduite
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?condition ?indication ?medicament ?nom WHERE {
+ ?condition po:estTraitePar ?medicament ; rdfs:label ?indication .
+ ?medicament po:nomCommercial ?nom . } ORDER BY ?indication ?nom
+LIMIT 200

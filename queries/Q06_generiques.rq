@@ -1,0 +1,9 @@
+# Génériques et références
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?generique ?nom ?reference ?nomReference ?source WHERE {
+ ?generique a po:Generique ; po:nomCommercial ?nom ; po:estGeneriqueDe ?reference ; dct:source ?source .
+ ?reference po:nomCommercial ?nomReference . 
+ } ORDER BY ?nom
+LIMIT 200

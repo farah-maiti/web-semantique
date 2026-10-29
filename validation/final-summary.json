@@ -1,0 +1,25 @@
+{
+  "validated_at_utc": "2026-10-29T16:36:22.228019+00:00",
+  "tests_passed": 51,
+  "tests_failed": 0,
+  "owl2dl_profile": true,
+  "consistent_main_and_swrl": true,
+  "unsatisfiable_named_classes": 0,
+  "shacl_conforms": true,
+  "fuseki_select_queries_compared": 12,
+  "patient_graphs_compared_and_isolated": 5,
+  "browser_checked": [
+    "French query P004 interaction",
+    "patient graph P002 and P004",
+    "SPARQL workshop catalogue",
+    "browser error log empty"
+  ],
+  "installer_repeat_run": "success",
+  "launcher_start_and_stop": "verified",
+  "preview_ports_closed_after_verification": [
+    8000,
+    3030
+  ],
+  "protege_gui_checked": false,
+  "scope": "Academic demonstration with a partial documented corpus and fictional patients."
+}

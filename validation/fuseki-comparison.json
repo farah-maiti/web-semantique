@@ -1,0 +1,92 @@
+[
+  {
+    "query": "catalogue",
+    "rows": 6,
+    "same_answers": true
+  },
+  {
+    "query": "patients",
+    "rows": 5,
+    "same_answers": true
+  },
+  {
+    "query": "contre_indications",
+    "rows": 3,
+    "same_answers": true
+  },
+  {
+    "query": "interactions_patient",
+    "rows": 1,
+    "same_answers": true
+  },
+  {
+    "query": "effets",
+    "rows": 8,
+    "same_answers": true
+  },
+  {
+    "query": "generiques",
+    "rows": 2,
+    "same_answers": true
+  },
+  {
+    "query": "indications",
+    "rows": 6,
+    "same_answers": true
+  },
+  {
+    "query": "composition",
+    "rows": 6,
+    "same_answers": true
+  },
+  {
+    "query": "classes_inferees",
+    "rows": 5,
+    "same_answers": true
+  },
+  {
+    "query": "interactions_molecules",
+    "rows": 2,
+    "same_answers": true
+  },
+  {
+    "query": "statistiques",
+    "rows": 4,
+    "same_answers": true
+  },
+  {
+    "query": "inverse",
+    "rows": 6,
+    "same_answers": true
+  },
+  {
+    "graph": "Patient_P001",
+    "edges": 5,
+    "same_answers": true,
+    "patient_isolated": true
+  },
+  {
+    "graph": "Patient_P002",
+    "edges": 6,
+    "same_answers": true,
+    "patient_isolated": true
+  },
+  {
+    "graph": "Patient_P003",
+    "edges": 7,
+    "same_answers": true,
+    "patient_isolated": true
+  },
+  {
+    "graph": "Patient_P004",
+    "edges": 10,
+    "same_answers": true,
+    "patient_isolated": true
+  },
+  {
+    "graph": "Patient_P005",
+    "edges": 7,
+    "same_answers": true,
+    "patient_isolated": true
+  }
+]

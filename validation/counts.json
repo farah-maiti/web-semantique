@@ -1,0 +1,15 @@
+{
+  "classes": 32,
+  "object_properties": 15,
+  "data_properties": 8,
+  "individuals": 37,
+  "asserted_triples": 701,
+  "medicines": 6,
+  "patients": 5,
+  "owl_inferred_triples": 55,
+  "rule_inferred_triples": 5,
+  "materialized_triples": 761,
+  "contraindication_alerts": 3,
+  "source_sha256": "f39daf645f4d4b874cb73e0aa1258bb7f32f8feacbfd164b5a43ac6955c3ca2b",
+  "swrl_equivalence": true
+}

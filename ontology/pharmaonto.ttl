@@ -1,0 +1,678 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://www.esprit.tn/pharmaonto#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:date a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+<http://www.esprit.tn/pharmaonto> a owl:Ontology ;
+    rdfs:label "PharmaOnto"@fr ;
+    dcterms:creator "Ahmed Saidani",
+        "Farah Maiti",
+        "Fedi Ben Khalifa" ;
+    rdfs:comment "Projet pédagogique Web Sémantique, ESPRIT 5 TWIN 2026-2027. Corpus partiel français, patients fictifs. Les alertes illustrent le raisonnement et ne constituent pas un avis médical."@fr ;
+    owl:versionInfo "2.0.0" .
+
+po:FemmeEnceinte a owl:Class ;
+    rdfs:label "Patiente enceinte"@fr ;
+    rdfs:comment "Catégorie indépendante de la classe d’âge. Aucun scénario de grossesse dans le corpus."@fr ;
+    rdfs:subClassOf po:Patient .
+
+po:MedicamentAntiInflammatoire a owl:Class ;
+    rdfs:label "Médicament anti-inflammatoire"@fr ;
+    rdfs:comment "Classe définie par la présence d’un principe actif anti-inflammatoire."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:AntiInflammatoire ] ) ] .
+
+po:MedicamentAntibiotique a owl:Class ;
+    rdfs:label "Médicament antibiotique"@fr ;
+    rdfs:comment "Classe définie par la présence d’un principe actif antibiotique."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antibiotique ] ) ] .
+
+po:MedicamentAntidiabetique a owl:Class ;
+    rdfs:label "Médicament antidiabétique"@fr ;
+    rdfs:comment "Classe définie par la présence d’un principe actif antidiabétique."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antidiabetique ] ) ] .
+
+po:aPourContreIndication a owl:ObjectProperty ;
+    rdfs:label "a pour contre-indication"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:ContreIndication .
+
+po:age a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "âge fictif en années"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range xsd:integer .
+
+po:codeCIS a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "code CIS français"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range xsd:string .
+
+po:concerne a owl:ObjectProperty ;
+    rdfs:label "concerne l’état clinique"@fr ;
+    rdfs:domain po:ContreIndication ;
+    rdfs:range po:Pathologie .
+
+po:description a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "description de la condition"@fr ;
+    rdfs:domain po:ContreIndication ;
+    rdfs:range xsd:string .
+
+po:donneeFictive a owl:AnnotationProperty .
+
+po:dosageMg a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "masse par unité en mg"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range xsd:decimal .
+
+po:estContreIndiquePour a owl:ObjectProperty ;
+    rdfs:label "alerte de contre-indication pour"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:Patient .
+
+po:formeGalenique a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "forme galénique"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range xsd:string .
+
+po:frequence a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "fréquence pour cette spécialité"@fr ;
+    rdfs:domain po:ObservationEffet ;
+    rdfs:range xsd:string .
+
+po:interactionMedicamenteuseAvec a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "interaction entre spécialités"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:Medicament .
+
+po:nomCommercial a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "nom de la spécialité"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range xsd:string .
+
+po:notePortee a owl:AnnotationProperty .
+
+po:prend a owl:ObjectProperty ;
+    rdfs:label "prend dans le scénario"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range po:Medicament .
+
+po:provoque a owl:ObjectProperty ;
+    rdfs:label "peut provoquer"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:EffetSecondaire ;
+    owl:propertyChainAxiom ( po:aObservationEffet po:effetObserve ) .
+
+po:souffreDe a owl:ObjectProperty ;
+    rdfs:label "présente l’état clinique"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range po:Pathologie .
+
+po:substanceDosee a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "substance correspondant à la masse"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range xsd:string .
+
+po:traite a owl:ObjectProperty ;
+    rdfs:label "a une indication documentée pour"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:Pathologie ;
+    owl:inverseOf po:estTraitePar .
+
+po:Analgesique a owl:Class ;
+    rdfs:label "Analgésique"@fr ;
+    rdfs:comment "Substance utilisée pour soulager la douleur."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:Anticoagulant a owl:Class ;
+    rdfs:label "Anticoagulant"@fr ;
+    rdfs:comment "Substance anticoagulante."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:CIRelative a owl:Class ;
+    rdfs:label "Précaution relative"@fr ;
+    rdfs:comment "Catégorie conservée pour extension. Elle ne déclenche pas la règle de contre-indication absolue."@fr ;
+    rdfs:subClassOf po:ContreIndication .
+
+po:Enfant a owl:Class ;
+    rdfs:label "Enfant"@fr ;
+    rdfs:comment "Patient de moins de 18 ans, selon la convention du projet."@fr ;
+    rdfs:subClassOf po:Patient .
+
+po:MaladieChronique a owl:Class ;
+    rdfs:label "Maladie chronique"@fr ;
+    rdfs:comment "Affection chronique."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:MaladieInfectieuse a owl:Class ;
+    rdfs:label "Maladie infectieuse"@fr ;
+    rdfs:comment "Affection infectieuse."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:Obs_Advil_400_TroublesDigestifs a po:ObservationEffet,
+        owl:NamedIndividual ;
+    rdfs:label "Advil_400 : TroublesDigestifs"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    po:effetObserve po:TroublesDigestifs ;
+    po:frequence "non quantifiée dans cet extrait"^^xsd:string ;
+    po:observationDe po:Advil_400 .
+
+po:Obs_Amoxicilline_BGR_1g_Diarrhee a po:ObservationFrequente,
+        owl:NamedIndividual ;
+    rdfs:label "Amoxicilline_BGR_1g : Diarrhee"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait> ;
+    po:effetObserve po:Diarrhee ;
+    po:frequence "fréquent"^^xsd:string ;
+    po:observationDe po:Amoxicilline_BGR_1g .
+
+po:Obs_Clamoxyl_1g_Diarrhee a po:ObservationFrequente,
+        owl:NamedIndividual ;
+    rdfs:label "Clamoxyl_1g : Diarrhee"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    po:effetObserve po:Diarrhee ;
+    po:frequence "fréquent"^^xsd:string ;
+    po:observationDe po:Clamoxyl_1g .
+
+po:Obs_Coumadine_5_Hemorragie a po:ObservationGrave,
+        owl:NamedIndividual ;
+    rdfs:label "Coumadine_5 : Hemorragie"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> ;
+    po:effetObserve po:Hemorragie ;
+    po:frequence "non quantifiée dans cet extrait"^^xsd:string ;
+    po:observationDe po:Coumadine_5 .
+
+po:Obs_Glucophage_850_AcidoseLactique a po:ObservationGrave,
+        po:ObservationTresRare,
+        owl:NamedIndividual ;
+    rdfs:label "Glucophage_850 : AcidoseLactique"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    po:effetObserve po:AcidoseLactique ;
+    po:frequence "très rare"^^xsd:string ;
+    po:observationDe po:Glucophage_850 .
+
+po:Obs_Glucophage_850_TroublesDigestifs a po:ObservationTresFrequente,
+        owl:NamedIndividual ;
+    rdfs:label "Glucophage_850 : TroublesDigestifs"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    po:effetObserve po:TroublesDigestifs ;
+    po:frequence "très fréquent"^^xsd:string ;
+    po:observationDe po:Glucophage_850 .
+
+po:Obs_Metformine_BGR_850_AcidoseLactique a po:ObservationGrave,
+        po:ObservationTresRare,
+        owl:NamedIndividual ;
+    rdfs:label "Metformine_BGR_850 : AcidoseLactique"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait> ;
+    po:effetObserve po:AcidoseLactique ;
+    po:frequence "très rare"^^xsd:string ;
+    po:observationDe po:Metformine_BGR_850 .
+
+po:Obs_Metformine_BGR_850_TroublesDigestifs a po:ObservationTresFrequente,
+        owl:NamedIndividual ;
+    rdfs:label "Metformine_BGR_850 : TroublesDigestifs"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait> ;
+    po:effetObserve po:TroublesDigestifs ;
+    po:frequence "très fréquent"^^xsd:string ;
+    po:observationDe po:Metformine_BGR_850 .
+
+po:ObservationRare a owl:Class ;
+    rdfs:label "Effet rare pour ce médicament"@fr ;
+    rdfs:comment "Fréquence entre 1/10000 inclus et 1/1000 exclu selon le RCP."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
+
+po:Patient_P001 a po:Adulte,
+        owl:NamedIndividual ;
+    rdfs:label "Patient fictif P001"@fr ;
+    po:age 58 ;
+    po:donneeFictive true ;
+    po:prend po:Glucophage_850 ;
+    po:souffreDe po:DiabeteType2 .
+
+po:Patient_P002 a po:Adulte,
+        owl:NamedIndividual ;
+    rdfs:label "Patient fictif P002"@fr ;
+    po:age 45 ;
+    po:donneeFictive true ;
+    po:prend po:Advil_400 ;
+    po:souffreDe po:UlcereGastroduodenalEvolutif .
+
+po:Patient_P003 a po:Adulte,
+        owl:NamedIndividual ;
+    rdfs:label "Patient fictif P003"@fr ;
+    po:age 29 ;
+    po:donneeFictive true ;
+    po:prend po:Amoxicilline_BGR_1g ;
+    po:souffreDe po:AllergiePenicillines,
+        po:AngineStreptococcique .
+
+po:Patient_P004 a po:PersonneAgee,
+        owl:NamedIndividual ;
+    rdfs:label "Patient fictif P004"@fr ;
+    po:age 70 ;
+    po:donneeFictive true ;
+    po:prend po:Advil_400,
+        po:Coumadine_5 ;
+    po:souffreDe po:DouleurAigue,
+        po:MaladieThromboembolique .
+
+po:Patient_P005 a po:PersonneAgee,
+        owl:NamedIndividual ;
+    rdfs:label "Patient fictif P005"@fr ;
+    po:age 67 ;
+    po:donneeFictive true ;
+    po:prend po:Metformine_BGR_850 ;
+    po:souffreDe po:DiabeteType2,
+        po:InsuffisanceRenaleSevere .
+
+po:aObservationEffet a owl:ObjectProperty ;
+    rdfs:label "a une association avec un effet"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:ObservationEffet ;
+    owl:inverseOf po:observationDe .
+
+po:effetObserve a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "effet associé"@fr ;
+    rdfs:domain po:ObservationEffet ;
+    rdfs:range po:EffetSecondaire .
+
+po:estGeneriqueDe a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "est générique de"@fr ;
+    rdfs:domain po:Generique ;
+    rdfs:range po:Princeps .
+
+po:estTraitePar a owl:ObjectProperty ;
+    rdfs:label "a pour médicament indiqué"@fr ;
+    rdfs:domain po:Pathologie ;
+    rdfs:range po:Medicament .
+
+po:interagitAvec a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "interaction documentée avec"@fr ;
+    rdfs:domain po:PrincipeActif ;
+    rdfs:range po:PrincipeActif .
+
+po:observationDe a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "spécialité concernée"@fr ;
+    rdfs:domain po:ObservationEffet ;
+    rdfs:range po:Medicament .
+
+po:AntiInflammatoire a owl:Class ;
+    rdfs:label "Anti-inflammatoire"@fr ;
+    rdfs:comment "Substance à activité anti-inflammatoire."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:Antibiotique a owl:Class ;
+    rdfs:label "Antibiotique"@fr ;
+    rdfs:comment "Substance à activité antibactérienne dans ce corpus."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:Antidiabetique a owl:Class ;
+    rdfs:label "Antidiabétique"@fr ;
+    rdfs:comment "Substance utilisée dans le traitement du diabète."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:CI_UlcereEvolutif a po:CIAbsolue,
+        owl:NamedIndividual ;
+    rdfs:label "Ulcère gastroduodénal en évolution"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    po:concerne po:UlcereGastroduodenalEvolutif ;
+    po:description "Ulcère gastroduodénal en évolution"^^xsd:string .
+
+po:Hemorragie a po:EffetSecondaire,
+        owl:NamedIndividual ;
+    rdfs:label "Hémorragie"@fr .
+
+po:PersonneAgee a owl:Class ;
+    rdfs:label "Personne âgée"@fr ;
+    rdfs:comment "Patient âgé de 65 ans ou plus, convention de démonstration."@fr ;
+    rdfs:subClassOf po:Adulte .
+
+po:SansOrdonnance a owl:Class ;
+    rdfs:label "Sans ordonnance obligatoire"@fr ;
+    rdfs:comment "Statut français relevé à la date de consultation."@fr ;
+    rdfs:subClassOf po:Medicament .
+
+po:AcidoseLactique a po:EffetSecondaire,
+        owl:NamedIndividual ;
+    rdfs:label "Acidose lactique"@fr .
+
+po:AllergiePenicillines a po:Pathologie,
+        owl:NamedIndividual ;
+    rdfs:label "Allergie aux pénicillines"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
+
+po:Amoxicilline a po:Antibiotique,
+        owl:NamedIndividual ;
+    rdfs:label "Amoxicilline"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
+
+po:Amoxicilline_BGR_1g a po:Generique,
+        po:SurOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "AMOXICILLINE BGR 1 g"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait> ;
+    po:aPourContreIndication po:CI_AllergiePenicillines ;
+    po:codeCIS "66511789"^^xsd:string ;
+    po:contientPrincipeActif po:Amoxicilline ;
+    po:dosageMg 1000.0 ;
+    po:estGeneriqueDe po:Clamoxyl_1g ;
+    po:formeGalenique "comprimé dispersible"^^xsd:string ;
+    po:nomCommercial "AMOXICILLINE BGR 1 g"^^xsd:string ;
+    po:notePortee "Appartenance au groupe AMOXICILLINE 1 g / CLAMOXYL 1 g selon la fiche officielle."@fr ;
+    po:substanceDosee "amoxicilline"^^xsd:string ;
+    po:traite po:AngineStreptococcique .
+
+po:CI_AllergiePenicillines a po:CIAbsolue,
+        owl:NamedIndividual ;
+    rdfs:label "Hypersensibilité aux pénicillines"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    po:concerne po:AllergiePenicillines ;
+    po:description "Hypersensibilité aux pénicillines"^^xsd:string .
+
+po:CI_InsuffisanceRenaleSevere a po:CIAbsolue,
+        owl:NamedIndividual ;
+    rdfs:label "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    po:concerne po:InsuffisanceRenaleSevere ;
+    po:description "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min"^^xsd:string .
+
+po:Clamoxyl_1g a po:Princeps,
+        po:SurOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "CLAMOXYL 1 g"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    po:aPourContreIndication po:CI_AllergiePenicillines ;
+    po:codeCIS "64539416"^^xsd:string ;
+    po:contientPrincipeActif po:Amoxicilline ;
+    po:dosageMg 1000.0 ;
+    po:formeGalenique "comprimé dispersible"^^xsd:string ;
+    po:nomCommercial "CLAMOXYL 1 g"^^xsd:string ;
+    po:notePortee "Angine/pharyngite documentée à streptocoque, et non toute angine."@fr ;
+    po:substanceDosee "amoxicilline"^^xsd:string ;
+    po:traite po:AngineStreptococcique .
+
+po:Coumadine_5 a po:Medicament,
+        po:SurOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "COUMADINE 5 mg"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> ;
+    po:codeCIS "63245753"^^xsd:string ;
+    po:contientPrincipeActif po:Warfarine ;
+    po:dosageMg 5.0 ;
+    po:formeGalenique "comprimé sécable"^^xsd:string ;
+    po:nomCommercial "COUMADINE 5 mg"^^xsd:string ;
+    po:notePortee "Indication modélisée : traitement des thromboses veineuses profondes et embolies pulmonaires. Les contre-indications ne sont pas exhaustivement saisies."@fr ;
+    po:substanceDosee "warfarine sodique"^^xsd:string ;
+    po:traite po:MaladieThromboembolique .
+
+po:Diarrhee a po:EffetSecondaire,
+        owl:NamedIndividual ;
+    rdfs:label "Diarrhée"@fr .
+
+po:DouleurAigue a po:Pathologie,
+        owl:NamedIndividual ;
+    rdfs:label "Douleur aiguë"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> .
+
+po:Ibuprofene a po:Analgesique,
+        po:AntiInflammatoire,
+        owl:NamedIndividual ;
+    rdfs:label "Ibuprofène"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    po:interagitAvec po:Warfarine .
+
+po:InsuffisanceRenaleSevere a po:Pathologie,
+        owl:NamedIndividual ;
+    rdfs:label "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> .
+
+po:MaladieThromboembolique a po:Pathologie,
+        owl:NamedIndividual ;
+    rdfs:label "Thrombose veineuse profonde ou embolie pulmonaire"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> .
+
+po:Metformine a po:Antidiabetique,
+        owl:NamedIndividual ;
+    rdfs:label "Metformine"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> .
+
+po:ObservationFrequente a owl:Class ;
+    rdfs:label "Effet fréquent pour ce médicament"@fr ;
+    rdfs:comment "Fréquence entre 1/100 inclus et 1/10 exclu selon le RCP de cette spécialité."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
+
+po:ObservationGrave a owl:Class ;
+    rdfs:label "Effet potentiellement grave"@fr ;
+    rdfs:comment "Gravité indépendante de la fréquence. Les catégories de gravité et fréquence peuvent se recouvrir."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
+
+po:ObservationTresFrequente a owl:Class ;
+    rdfs:label "Effet très fréquent pour ce médicament"@fr ;
+    rdfs:comment "Fréquence au moins égale à 1/10 selon le RCP."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
+
+po:ObservationTresRare a owl:Class ;
+    rdfs:label "Effet très rare pour ce médicament"@fr ;
+    rdfs:comment "Fréquence inférieure à 1/10000 selon le RCP."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
+
+po:UlcereGastroduodenalEvolutif a po:Pathologie,
+        owl:NamedIndividual ;
+    rdfs:label "Ulcère gastroduodénal en évolution"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> .
+
+po:Advil_400 a po:Medicament,
+        po:SansOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "ADVIL 400 mg"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    po:aPourContreIndication po:CI_UlcereEvolutif ;
+    po:codeCIS "63646874"^^xsd:string ;
+    po:contientPrincipeActif po:Ibuprofene ;
+    po:dosageMg 400.0 ;
+    po:formeGalenique "comprimé enrobé"^^xsd:string ;
+    po:nomCommercial "ADVIL 400 mg"^^xsd:string ;
+    po:notePortee "Indication limitée aux conditions d’âge, de poids et de durée du RCP. Aucun statut de princeps affirmé : la fiche ne référence pas de groupe générique."@fr ;
+    po:substanceDosee "ibuprofène"^^xsd:string ;
+    po:traite po:DouleurAigue .
+
+po:AngineStreptococcique a po:MaladieInfectieuse,
+        owl:NamedIndividual ;
+    rdfs:label "Angine documentée à streptocoque"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
+
+po:CIAbsolue a owl:Class ;
+    rdfs:label "Contre-indication absolue"@fr ;
+    rdfs:comment "Situation explicitement présentée comme une contre-indication dans la source."@fr ;
+    rdfs:subClassOf po:ContreIndication .
+
+po:Generique a owl:Class ;
+    rdfs:label "Médicament générique"@fr ;
+    rdfs:comment "Spécialité rattachée à exactement une référence dans ce corpus."@fr ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass po:Princeps ;
+            owl:onProperty po:estGeneriqueDe ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        po:Medicament .
+
+po:Metformine_BGR_850 a po:Generique,
+        po:SurOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "METFORMINE BGR 850 mg"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait> ;
+    po:aPourContreIndication po:CI_InsuffisanceRenaleSevere ;
+    po:codeCIS "60754492"^^xsd:string ;
+    po:contientPrincipeActif po:Metformine ;
+    po:dosageMg 850.0 ;
+    po:estGeneriqueDe po:Glucophage_850 ;
+    po:formeGalenique "comprimé pelliculé"^^xsd:string ;
+    po:nomCommercial "METFORMINE BGR 850 mg"^^xsd:string ;
+    po:notePortee "Groupe METFORMINE (CHLORHYDRATE DE) 850 mg / GLUCOPHAGE 850 mg. Masse exprimée en chlorhydrate."@fr ;
+    po:substanceDosee "chlorhydrate de metformine"^^xsd:string ;
+    po:traite po:DiabeteType2 .
+
+po:TroublesDigestifs a po:EffetSecondaire,
+        owl:NamedIndividual ;
+    rdfs:label "Troubles digestifs"@fr .
+
+po:Warfarine a po:Anticoagulant,
+        owl:NamedIndividual ;
+    rdfs:label "Warfarine"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> .
+
+po:contientPrincipeActif a owl:ObjectProperty ;
+    rdfs:label "contient le principe actif"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:PrincipeActif .
+
+po:Adulte a owl:Class ;
+    rdfs:label "Adulte"@fr ;
+    rdfs:comment "Patient âgé de 18 ans ou plus, selon la convention du projet."@fr ;
+    rdfs:subClassOf po:Patient .
+
+po:DiabeteType2 a po:MaladieChronique,
+        owl:NamedIndividual ;
+    rdfs:label "Diabète de type 2"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> .
+
+po:Glucophage_850 a po:Princeps,
+        po:SurOrdonnance,
+        owl:NamedIndividual ;
+    rdfs:label "GLUCOPHAGE 850 mg"@fr ;
+    dcterms:date "2026-10-29"^^xsd:date ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    po:aPourContreIndication po:CI_InsuffisanceRenaleSevere ;
+    po:codeCIS "67547090"^^xsd:string ;
+    po:contientPrincipeActif po:Metformine ;
+    po:dosageMg 850.0 ;
+    po:formeGalenique "comprimé pelliculé"^^xsd:string ;
+    po:nomCommercial "GLUCOPHAGE 850 mg"^^xsd:string ;
+    po:notePortee "850 mg de chlorhydrate correspondent à 662,9 mg de metformine base. Le modèle conserve la masse de la dénomination."@fr ;
+    po:substanceDosee "chlorhydrate de metformine"^^xsd:string ;
+    po:traite po:DiabeteType2 .
+
+po:Princeps a owl:Class ;
+    rdfs:label "Médicament de référence"@fr ;
+    rdfs:comment "Référence du groupe générique considéré dans le corpus français."@fr ;
+    rdfs:subClassOf po:Medicament .
+
+po:ContreIndication a owl:Class ;
+    rdfs:label "Contre-indication"@fr ;
+    rdfs:comment "Condition documentée pour une spécialité. Le corpus ne couvre pas toutes les conditions du RCP."@fr .
+
+po:SurOrdonnance a owl:Class ;
+    rdfs:label "Sur ordonnance"@fr ;
+    rdfs:comment "Statut français relevé à la date de consultation."@fr ;
+    rdfs:subClassOf po:Medicament .
+
+po:EffetSecondaire a owl:Class ;
+    rdfs:label "Effet indésirable"@fr ;
+    rdfs:comment "Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet."@fr .
+
+po:Patient a owl:Class ;
+    rdfs:label "Patient fictif"@fr ;
+    rdfs:comment "Personne fictive utilisée exclusivement dans les scénarios de démonstration."@fr .
+
+po:PrincipeActif a owl:Class ;
+    rdfs:label "Principe actif"@fr ;
+    rdfs:comment "Substance active. La masse déclarée peut correspondre à un sel précisé par substanceDosee."@fr .
+
+po:ObservationEffet a owl:Class ;
+    rdfs:label "Association médicament effet"@fr ;
+    rdfs:comment "Association documentée entre une spécialité et un effet possible, avec fréquence contextualisée."@fr .
+
+po:Pathologie a owl:Class ;
+    rdfs:label "État clinique"@fr ;
+    rdfs:comment "Maladie, symptôme ou état clinique pertinent dans ce modèle simplifié."@fr .
+
+po:Medicament a owl:Class ;
+    rdfs:label "Médicament"@fr ;
+    rdfs:comment "Spécialité pharmaceutique, à dosage et forme déterminés. Périmètre réglementaire français."@fr ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty po:contientPrincipeActif ;
+            owl:someValuesFrom po:PrincipeActif ] .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Adulte po:Enfant ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( po:AcidoseLactique po:Advil_400 po:AllergiePenicillines po:Amoxicilline po:Amoxicilline_BGR_1g po:AngineStreptococcique po:CI_AllergiePenicillines po:CI_InsuffisanceRenaleSevere po:CI_UlcereEvolutif po:Clamoxyl_1g po:Coumadine_5 po:DiabeteType2 po:Diarrhee po:DouleurAigue po:Glucophage_850 po:Hemorragie po:Ibuprofene po:InsuffisanceRenaleSevere po:MaladieThromboembolique po:Metformine po:Metformine_BGR_850 po:Obs_Advil_400_TroublesDigestifs po:Obs_Amoxicilline_BGR_1g_Diarrhee po:Obs_Clamoxyl_1g_Diarrhee po:Obs_Coumadine_5_Hemorragie po:Obs_Glucophage_850_AcidoseLactique po:Obs_Glucophage_850_TroublesDigestifs po:Obs_Metformine_BGR_850_AcidoseLactique po:Obs_Metformine_BGR_850_TroublesDigestifs po:Patient_P001 po:Patient_P002 po:Patient_P003 po:Patient_P004 po:Patient_P005 po:TroublesDigestifs po:UlcereGastroduodenalEvolutif po:Warfarine ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:SurOrdonnance po:SansOrdonnance ) .
+
+[] a owl:Axiom ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    owl:annotatedProperty po:interagitAvec ;
+    owl:annotatedSource po:Ibuprofene ;
+    owl:annotatedTarget po:Warfarine .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Medicament po:PrincipeActif po:EffetSecondaire po:ContreIndication po:Patient po:Pathologie po:ObservationEffet ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:ObservationFrequente po:ObservationTresFrequente po:ObservationRare po:ObservationTresRare ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:CIAbsolue po:CIRelative ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Princeps po:Generique ) .
+

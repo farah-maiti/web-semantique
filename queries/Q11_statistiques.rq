@@ -1,0 +1,8 @@
+# Nombre de spécialités par principe actif
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?molecule (COUNT(DISTINCT ?medicament) AS ?nombre) WHERE {
+ ?medicament a po:Medicament ; po:contientPrincipeActif/rdfs:label ?molecule .
+ } GROUP BY ?molecule ORDER BY DESC(?nombre) ?molecule
+LIMIT 200

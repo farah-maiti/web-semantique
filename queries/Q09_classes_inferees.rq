@@ -1,0 +1,9 @@
+# Classification sémantique des médicaments
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?medicament ?nom ?classe ?libelle WHERE {
+ VALUES ?classe { po:MedicamentAntiInflammatoire po:MedicamentAntibiotique po:MedicamentAntidiabetique }
+ ?medicament a ?classe ; po:nomCommercial ?nom . ?classe rdfs:label ?libelle . 
+ } ORDER BY ?nom
+LIMIT 200

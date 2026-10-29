@@ -1,0 +1,12 @@
+# Co-prises avec interaction documentée
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?patient ?medicament1 ?nom1 ?medicament2 ?nom2 ?source WHERE {
+ ?patient a po:Patient ; po:prend ?medicament1, ?medicament2 .
+ ?medicament1 po:interactionMedicamenteuseAvec ?medicament2 ; po:nomCommercial ?nom1 ; dct:source ?source .
+ ?medicament2 po:nomCommercial ?nom2 .
+ FILTER(STR(?medicament1) < STR(?medicament2))
+ 
+ } ORDER BY ?patient ?nom1
+LIMIT 200

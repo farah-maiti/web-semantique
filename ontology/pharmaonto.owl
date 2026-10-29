@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:po="http://www.esprit.tn/pharmaonto#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Coumadine_5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdfs:label xml:lang="fr">COUMADINE 5 mg</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COUMADINE 5 mg</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">warfarine sodique</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé sécable</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">63245753</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Warfarine"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#MaladieThromboembolique"/>
+    <po:notePortee xml:lang="fr">Indication modélisée : traitement des thromboses veineuses profondes et embolies pulmonaires. Les contre-indications ne sont pas exhaustivement saisies.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient_P004">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#PersonneAgee"/>
+    <rdfs:label xml:lang="fr">Patient fictif P004</rdfs:label>
+    <po:donneeFictive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</po:donneeFictive>
+    <po:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</po:age>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Advil_400"/>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Coumadine_5"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#DouleurAigue"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#MaladieThromboembolique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Generique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament générique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Spécialité rattachée à exactement une référence dans ce corpus.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:subClassOf rdf:nodeID="N6009a788cc674067b350ed5e2b3fe947"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6d1214b5d8e446d18de40d3eda2690e6">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#UlcereGastroduodenalEvolutif"/>
+    <rdf:rest rdf:nodeID="Nb7e6fd8359f844dda477d1feb77427bb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#CIAbsolue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Contre-indication absolue</rdfs:label>
+    <rdfs:comment xml:lang="fr">Situation explicitement présentée comme une contre-indication dans la source.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionInfo>2.0.0</owl:versionInfo>
+    <rdfs:label xml:lang="fr">PharmaOnto</rdfs:label>
+    <rdfs:comment xml:lang="fr">Projet pédagogique Web Sémantique, ESPRIT 5 TWIN 2026-2027. Corpus partiel français, patients fictifs. Les alertes illustrent le raisonnement et ne constituent pas un avis médical.</rdfs:comment>
+    <dcterms:creator>Ahmed Saidani</dcterms:creator>
+    <dcterms:creator>Fedi Ben Khalifa</dcterms:creator>
+    <dcterms:creator>Farah Maiti</dcterms:creator>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MedicamentAntidiabetique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament antidiabétique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Classe définie par la présence d’un principe actif antidiabétique.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <owl:equivalentClass rdf:nodeID="Nb474fc3953b2461bae385c9fe8aeec8e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationFrequente">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet fréquent pour ce médicament</rdfs:label>
+    <rdfs:comment xml:lang="fr">Fréquence entre 1/100 inclus et 1/10 exclu selon le RCP de cette spécialité.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Princeps">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament de référence</rdfs:label>
+    <rdfs:comment xml:lang="fr">Référence du groupe générique considéré dans le corpus français.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#CI_UlcereEvolutif">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#CIAbsolue"/>
+    <rdfs:label xml:lang="fr">Ulcère gastroduodénal en évolution</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:concerne rdf:resource="http://www.esprit.tn/pharmaonto#UlcereGastroduodenalEvolutif"/>
+    <po:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ulcère gastroduodénal en évolution</po:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#age">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="fr">âge fictif en années</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient_P003">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Adulte"/>
+    <rdfs:label xml:lang="fr">Patient fictif P003</rdfs:label>
+    <po:donneeFictive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</po:donneeFictive>
+    <po:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</po:age>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline_BGR_1g"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#AngineStreptococcique"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#AllergiePenicillines"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationGrave">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet potentiellement grave</rdfs:label>
+    <rdfs:comment xml:lang="fr">Gravité indépendante de la fréquence. Les catégories de gravité et fréquence peuvent se recouvrir.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Amoxicilline_BGR_1g">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Generique"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdfs:label xml:lang="fr">AMOXICILLINE BGR 1 g</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AMOXICILLINE BGR 1 g</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1000.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">amoxicilline</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé dispersible</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">66511789</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#AngineStreptococcique"/>
+    <po:aPourContreIndication rdf:resource="http://www.esprit.tn/pharmaonto#CI_AllergiePenicillines"/>
+    <po:estGeneriqueDe rdf:resource="http://www.esprit.tn/pharmaonto#Clamoxyl_1g"/>
+    <po:notePortee xml:lang="fr">Appartenance au groupe AMOXICILLINE 1 g / CLAMOXYL 1 g selon la fiche officielle.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Advil_400_TroublesDigestifs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdfs:label xml:lang="fr">Advil_400 : TroublesDigestifs</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Advil_400"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#TroublesDigestifs"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non quantifiée dans cet extrait</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient_P005">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#PersonneAgee"/>
+    <rdfs:label xml:lang="fr">Patient fictif P005</rdfs:label>
+    <po:donneeFictive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</po:donneeFictive>
+    <po:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</po:age>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Metformine_BGR_850"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#DiabeteType2"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#InsuffisanceRenaleSevere"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MedicamentAntiInflammatoire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament anti-inflammatoire</rdfs:label>
+    <rdfs:comment xml:lang="fr">Classe définie par la présence d’un principe actif anti-inflammatoire.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <owl:equivalentClass rdf:nodeID="Nee76e1974728420c9817259fd0a9ed2f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbfc982531914467da55bc3c5e935641f">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#CIAbsolue"/>
+    <rdf:rest rdf:nodeID="N0333f5c0d97c44e0bb8bb15d946d586d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#effetObserve">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">effet associé</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#interagitAvec">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+    <rdfs:label xml:lang="fr">interaction documentée avec</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Antidiabetique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Antidiabétique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance utilisée dans le traitement du diabète.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Adulte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Adulte</rdfs:label>
+    <rdfs:comment xml:lang="fr">Patient âgé de 18 ans ou plus, selon la convention du projet.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfa75c69f665542e4a4842732b8c4e8e0">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ObservationFrequente"/>
+    <rdf:rest rdf:nodeID="Nbcaa0ddfc3bb4704a2dc027be78b1787"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Advil_400">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SansOrdonnance"/>
+    <rdfs:label xml:lang="fr">ADVIL 400 mg</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ADVIL 400 mg</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">400.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ibuprofène</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé enrobé</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">63646874</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Ibuprofene"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#DouleurAigue"/>
+    <po:aPourContreIndication rdf:resource="http://www.esprit.tn/pharmaonto#CI_UlcereEvolutif"/>
+    <po:notePortee xml:lang="fr">Indication limitée aux conditions d’âge, de poids et de durée du RCP. Aucun statut de princeps affirmé : la fiche ne référence pas de groupe générique.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf792f280adc24aaeb76f27f8ba724887">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Advil_400_TroublesDigestifs"/>
+    <rdf:rest rdf:nodeID="N97ed5efed0ed44338659feddf4ad1def"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patient fictif</rdfs:label>
+    <rdfs:comment xml:lang="fr">Personne fictive utilisée exclusivement dans les scénarios de démonstration.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MedicamentAntibiotique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament antibiotique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Classe définie par la présence d’un principe actif antibiotique.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <owl:equivalentClass rdf:nodeID="Nc6a898821f4142d189ab920189a5e530"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient_P001">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Adulte"/>
+    <rdfs:label xml:lang="fr">Patient fictif P001</rdfs:label>
+    <po:donneeFictive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</po:donneeFictive>
+    <po:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</po:age>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Glucophage_850"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#DiabeteType2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ContreIndication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Contre-indication</rdfs:label>
+    <rdfs:comment xml:lang="fr">Condition documentée pour une spécialité. Le corpus ne couvre pas toutes les conditions du RCP.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Medicament">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Médicament</rdfs:label>
+    <rdfs:comment xml:lang="fr">Spécialité pharmaceutique, à dosage et forme déterminés. Périmètre réglementaire français.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="N4b8cb402fb1e4375a3393a246520f1c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Clamoxyl_1g">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Princeps"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdfs:label xml:lang="fr">CLAMOXYL 1 g</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAMOXYL 1 g</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1000.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">amoxicilline</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé dispersible</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">64539416</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#AngineStreptococcique"/>
+    <po:aPourContreIndication rdf:resource="http://www.esprit.tn/pharmaonto#CI_AllergiePenicillines"/>
+    <po:notePortee xml:lang="fr">Angine/pharyngite documentée à streptocoque, et non toute angine.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Amoxicilline_BGR_1g_Diarrhee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationFrequente"/>
+    <rdfs:label xml:lang="fr">Amoxicilline_BGR_1g : Diarrhee</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline_BGR_1g"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#Diarrhee"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fréquent</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nafe06624a328465282b7e41630d99420">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+    <rdf:rest rdf:nodeID="N796ce0b37d0e48f38a9482069df22188"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#substanceDosee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">substance correspondant à la masse</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Metformine_BGR_850">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Generique"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdfs:label xml:lang="fr">METFORMINE BGR 850 mg</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">METFORMINE BGR 850 mg</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">850.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chlorhydrate de metformine</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé pelliculé</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60754492</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Metformine"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#DiabeteType2"/>
+    <po:aPourContreIndication rdf:resource="http://www.esprit.tn/pharmaonto#CI_InsuffisanceRenaleSevere"/>
+    <po:estGeneriqueDe rdf:resource="http://www.esprit.tn/pharmaonto#Glucophage_850"/>
+    <po:notePortee xml:lang="fr">Groupe METFORMINE (CHLORHYDRATE DE) 850 mg / GLUCOPHAGE 850 mg. Masse exprimée en chlorhydrate.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MaladieThromboembolique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">Thrombose veineuse profonde ou embolie pulmonaire</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Patient_P002">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Adulte"/>
+    <rdfs:label xml:lang="fr">Patient fictif P002</rdfs:label>
+    <po:donneeFictive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</po:donneeFictive>
+    <po:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</po:age>
+    <po:prend rdf:resource="http://www.esprit.tn/pharmaonto#Advil_400"/>
+    <po:souffreDe rdf:resource="http://www.esprit.tn/pharmaonto#UlcereGastroduodenalEvolutif"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0333f5c0d97c44e0bb8bb15d946d586d">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#CIRelative"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#frequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">fréquence pour cette spécialité</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8cc3a46d64fb44e1b31b2e619b2c3d36">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#CI_InsuffisanceRenaleSevere"/>
+    <rdf:rest rdf:nodeID="N4fcd6bd1d2454f519064c95ccdb91a95"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Glucophage_850">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Princeps"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdfs:label xml:lang="fr">GLUCOPHAGE 850 mg</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:nomCommercial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GLUCOPHAGE 850 mg</po:nomCommercial>
+    <po:dosageMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">850.0</po:dosageMg>
+    <po:substanceDosee rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chlorhydrate de metformine</po:substanceDosee>
+    <po:formeGalenique rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprimé pelliculé</po:formeGalenique>
+    <po:codeCIS rdf:datatype="http://www.w3.org/2001/XMLSchema#string">67547090</po:codeCIS>
+    <po:contientPrincipeActif rdf:resource="http://www.esprit.tn/pharmaonto#Metformine"/>
+    <po:traite rdf:resource="http://www.esprit.tn/pharmaonto#DiabeteType2"/>
+    <po:aPourContreIndication rdf:resource="http://www.esprit.tn/pharmaonto#CI_InsuffisanceRenaleSevere"/>
+    <po:notePortee xml:lang="fr">850 mg de chlorhydrate correspondent à 662,9 mg de metformine base. Le modèle conserve la masse de la dénomination.</po:notePortee>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Analgesique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Analgésique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance utilisée pour soulager la douleur.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#souffreDe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">présente l’état clinique</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#provoque">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">peut provoquer</rdfs:label>
+    <owl:propertyChainAxiom rdf:nodeID="N9bb698e5cb2b48c9a0deca73ba784e76"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#CIRelative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Précaution relative</rdfs:label>
+    <rdfs:comment xml:lang="fr">Catégorie conservée pour extension. Elle ne déclenche pas la règle de contre-indication absolue.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e142fc5f40643ecacd0913d1a74a8d8">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+    <rdf:rest rdf:nodeID="N2bb6e82233d140ee9e442c1f76e9d167"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#CI_InsuffisanceRenaleSevere">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#CIAbsolue"/>
+    <rdfs:label xml:lang="fr">Insuffisance rénale sévère avec DFG inférieur à 30 mL/min</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:concerne rdf:resource="http://www.esprit.tn/pharmaonto#InsuffisanceRenaleSevere"/>
+    <po:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Insuffisance rénale sévère avec DFG inférieur à 30 mL/min</po:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc0e46e426ae940c98b3f34b0b0c8d928">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Ibuprofene"/>
+    <rdf:rest rdf:nodeID="Nf9a4f9a9b5d34418bd48511b487bf460"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#estTraitePar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:label xml:lang="fr">a pour médicament indiqué</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd4dc1905e622467c87dfbea26cb241e9">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:rest rdf:nodeID="N0e1e49e715cd45e19217cb6f9b4e8ceb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#AntiInflammatoire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Anti-inflammatoire</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance à activité anti-inflammatoire.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N796ce0b37d0e48f38a9482069df22188">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdf:rest rdf:nodeID="N9e142fc5f40643ecacd0913d1a74a8d8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Glucophage_850_TroublesDigestifs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresFrequente"/>
+    <rdfs:label xml:lang="fr">Glucophage_850 : TroublesDigestifs</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Glucophage_850"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#TroublesDigestifs"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">très fréquent</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc001733165204a37a33d660f26924000">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient_P001"/>
+    <rdf:rest rdf:nodeID="Nb07f63d52e744e6bbc8f1297f374911e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#InsuffisanceRenaleSevere">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">Insuffisance rénale sévère avec DFG inférieur à 30 mL/min</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf3777853393d4e63ab21b9538121975a">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Metformine_BGR_850_AcidoseLactique"/>
+    <rdf:rest rdf:nodeID="Nddfb91e42cc8402f9c6cdcbe02f5763a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#estContreIndiquePour">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+    <rdfs:label xml:lang="fr">alerte de contre-indication pour</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc804ff82adf4322bce91a71e6308f7a">
+    <rdf:first rdf:nodeID="N164db9ca3c814aa6b5b3c9671c3425a3"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Glucophage_850_AcidoseLactique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresRare"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationGrave"/>
+    <rdfs:label xml:lang="fr">Glucophage_850 : AcidoseLactique</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Glucophage_850"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#AcidoseLactique"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">très rare</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0c7c980d55a443f189536de89db330d0">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Hemorragie"/>
+    <rdf:rest rdf:nodeID="Nc0e46e426ae940c98b3f34b0b0c8d928"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Metformine_BGR_850_AcidoseLactique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresRare"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationGrave"/>
+    <rdfs:label xml:lang="fr">Metformine_BGR_850 : AcidoseLactique</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Metformine_BGR_850"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#AcidoseLactique"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">très rare</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#concerne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">concerne l’état clinique</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5b1a29c7aa0843d09844fbc779b000bb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Ne015492b84fe4aadb4e7993ac988dfa2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationTresFrequente">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet très fréquent pour ce médicament</rdfs:label>
+    <rdfs:comment xml:lang="fr">Fréquence au moins égale à 1/10 selon le RCP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf6fb4d64439b43468b7ff60d597ed9cd">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Metformine"/>
+    <rdf:rest rdf:nodeID="Nbe89923107a646a78267fb5ac99baae5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#SurOrdonnance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Sur ordonnance</rdfs:label>
+    <rdfs:comment xml:lang="fr">Statut français relevé à la date de consultation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N98cf7d98582e488383bccebb96e26a79">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N4c42d9b6ff3648f8bcd978587bb05e2e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc47c319701aa48398906e0aacd67b007">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#DiabeteType2"/>
+    <rdf:rest rdf:nodeID="N8cc8f839b276467e9232b7e76b58db37"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb474fc3953b2461bae385c9fe8aeec8e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nd4dc1905e622467c87dfbea26cb241e9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#formeGalenique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">forme galénique</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Clamoxyl_1g_Diarrhee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationFrequente"/>
+    <rdfs:label xml:lang="fr">Clamoxyl_1g : Diarrhee</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Clamoxyl_1g"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#Diarrhee"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fréquent</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#estGeneriqueDe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Generique"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Princeps"/>
+    <rdfs:label xml:lang="fr">est générique de</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#codeCIS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">code CIS français</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MaladieChronique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Maladie chronique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Affection chronique.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbcaa0ddfc3bb4704a2dc027be78b1787">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresFrequente"/>
+    <rdf:rest rdf:nodeID="Nc756e6b2a5564fe4b86ad3f5d32aa101"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nddfb91e42cc8402f9c6cdcbe02f5763a">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Metformine_BGR_850_TroublesDigestifs"/>
+    <rdf:rest rdf:nodeID="Nc001733165204a37a33d660f26924000"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#nomCommercial">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">nom de la spécialité</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#observationDe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:label xml:lang="fr">spécialité concernée</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N40f6338fa6b942868637f73bb08ea6d3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.esprit.tn/pharmaonto#contientPrincipeActif"/>
+    <owl:someValuesFrom rdf:resource="http://www.esprit.tn/pharmaonto#Antibiotique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7224aaddeda248bcbf3f57408ffc34e1">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#DouleurAigue"/>
+    <rdf:rest rdf:nodeID="N7ca20be6e5e84311822378b3da2083b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#UlcereGastroduodenalEvolutif">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">Ulcère gastroduodénal en évolution</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Diarrhee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">Diarrhée</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7ca20be6e5e84311822378b3da2083b9">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Glucophage_850"/>
+    <rdf:rest rdf:nodeID="N0c7c980d55a443f189536de89db330d0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7c235ea2874643c28b49a21dc3e37625">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#AcidoseLactique"/>
+    <rdf:rest rdf:nodeID="N2e9f554477a24437b3d4772e7b38d1f1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8937bffff05449d2805deb937b8f1c53">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:rest rdf:nodeID="Nc05b99519a8041b086d77289cb41f4d6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#AngineStreptococcique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#MaladieInfectieuse"/>
+    <rdfs:label xml:lang="fr">Angine documentée à streptocoque</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Ibuprofene">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#AntiInflammatoire"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Analgesique"/>
+    <rdfs:label xml:lang="fr">Ibuprofène</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:interagitAvec rdf:resource="http://www.esprit.tn/pharmaonto#Warfarine"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncb0ad3acf5184017b5ac82a250eea993">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nbfc982531914467da55bc3c5e935641f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na40d28e3f2b9457da19f56e878794d9a">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient_P004"/>
+    <rdf:rest rdf:nodeID="Ne2aacb425ca5423fa1b28bcc4ee756ec"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbf8fd7abb67941eab45246d6b0112cb1">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdf:rest rdf:nodeID="Nc907bbe90a53479d9fdf8aced5f3ab90"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Hemorragie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">Hémorragie</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#dosageMg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="fr">masse par unité en mg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#prend">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:label xml:lang="fr">prend dans le scénario</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b8cb402fb1e4375a3393a246520f1c8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.esprit.tn/pharmaonto#contientPrincipeActif"/>
+    <owl:someValuesFrom rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6009a788cc674067b350ed5e2b3fe947">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.esprit.tn/pharmaonto#estGeneriqueDe"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://www.esprit.tn/pharmaonto#Princeps"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc71845a02a3e487ca4c0171cdcf20194">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#MaladieThromboembolique"/>
+    <rdf:rest rdf:nodeID="Nf6fb4d64439b43468b7ff60d597ed9cd"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7affe466595547de8affce9e79028ae0">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Coumadine_5"/>
+    <rdf:rest rdf:nodeID="Nc47c319701aa48398906e0aacd67b007"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N03fad80c02bd443fa438743220b9c9e8">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Clamoxyl_1g"/>
+    <rdf:rest rdf:nodeID="N7affe466595547de8affce9e79028ae0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#aObservationEffet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdfs:label xml:lang="fr">a une association avec un effet</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.esprit.tn/pharmaonto#observationDe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#FemmeEnceinte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Patiente enceinte</rdfs:label>
+    <rdfs:comment xml:lang="fr">Catégorie indépendante de la classe d’âge. Aucun scénario de grossesse dans le corpus.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9242067089564a19bb904b0596e1a12b">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:rest rdf:nodeID="Ncc804ff82adf4322bce91a71e6308f7a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Metformine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Antidiabetique"/>
+    <rdfs:label xml:lang="fr">Metformine</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#interactionMedicamenteuseAvec">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:label xml:lang="fr">interaction entre spécialités</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc756e6b2a5564fe4b86ad3f5d32aa101">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ObservationRare"/>
+    <rdf:rest rdf:nodeID="Na46984511fd94443b375220a04c9d4bf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#PrincipeActif">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Principe actif</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance active. La masse déclarée peut correspondre à un sel précisé par substanceDosee.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4c42d9b6ff3648f8bcd978587bb05e2e">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdf:rest rdf:nodeID="Nafe06624a328465282b7e41630d99420"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationTresRare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet très rare pour ce médicament</rdfs:label>
+    <rdfs:comment xml:lang="fr">Fréquence inférieure à 1/10000 selon le RCP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc907bbe90a53479d9fdf8aced5f3ab90">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nedef60ed673e47a9a84f4a76966a8bc1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.esprit.tn/pharmaonto#contientPrincipeActif"/>
+    <owl:someValuesFrom rdf:resource="http://www.esprit.tn/pharmaonto#Antidiabetique"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee76e1974728420c9817259fd0a9ed2f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N9242067089564a19bb904b0596e1a12b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e1e49e715cd45e19217cb6f9b4e8ceb">
+    <rdf:first rdf:nodeID="Nedef60ed673e47a9a84f4a76966a8bc1"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Coumadine_5_Hemorragie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationGrave"/>
+    <rdfs:label xml:lang="fr">Coumadine_5 : Hemorragie</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Coumadine_5"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#Hemorragie"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non quantifiée dans cet extrait</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6b907fc9f2694c9683bd356eedf84ae6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://www.esprit.tn/pharmaonto#Ibuprofene"/>
+    <owl:annotatedProperty rdf:resource="http://www.esprit.tn/pharmaonto#interagitAvec"/>
+    <owl:annotatedTarget rdf:resource="http://www.esprit.tn/pharmaonto#Warfarine"/>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#DiabeteType2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#MaladieChronique"/>
+    <rdfs:label xml:lang="fr">Diabète de type 2</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf9a4f9a9b5d34418bd48511b487bf460">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#InsuffisanceRenaleSevere"/>
+    <rdf:rest rdf:nodeID="Nc71845a02a3e487ca4c0171cdcf20194"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nec2b88e61a6d40328b20487bf3fae410">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#TroublesDigestifs"/>
+    <rdf:rest rdf:nodeID="N6d1214b5d8e446d18de40d3eda2690e6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc6a898821f4142d189ab920189a5e530">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N8937bffff05449d2805deb937b8f1c53"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2e9f554477a24437b3d4772e7b38d1f1">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Advil_400"/>
+    <rdf:rest rdf:nodeID="N02800d6c4c05455faa2372cf2036d06b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4a68f5a288434234815dec650dce4e6d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N4674714bb8c4458e958f6be4b86b2070"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb07f63d52e744e6bbc8f1297f374911e">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient_P002"/>
+    <rdf:rest rdf:nodeID="Nf7efca3a8b34409480c49f46b77987df"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8cc8f839b276467e9232b7e76b58db37">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Diarrhee"/>
+    <rdf:rest rdf:nodeID="N7224aaddeda248bcbf3f57408ffc34e1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Pathologie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">État clinique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Maladie, symptôme ou état clinique pertinent dans ce modèle simplifié.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#AcidoseLactique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">Acidose lactique</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#DouleurAigue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">Douleur aiguë</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="fr">description de la condition</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc05b99519a8041b086d77289cb41f4d6">
+    <rdf:first rdf:nodeID="N40f6338fa6b942868637f73bb08ea6d3"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N61c53c6e0c144683953030a4f4319fd1">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Enfant"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#traite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">a une indication documentée pour</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.esprit.tn/pharmaonto#estTraitePar"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N02800d6c4c05455faa2372cf2036d06b">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#AllergiePenicillines"/>
+    <rdf:rest rdf:nodeID="N81938e1974314d3c89da2856c293a131"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne015492b84fe4aadb4e7993ac988dfa2">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#SurOrdonnance"/>
+    <rdf:rest rdf:nodeID="N7417d8402f634f9eb63cacde74cd6dc5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Antibiotique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Antibiotique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance à activité antibactérienne dans ce corpus.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationRare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet rare pour ce médicament</rdfs:label>
+    <rdfs:comment xml:lang="fr">Fréquence entre 1/10000 inclus et 1/1000 exclu selon le RCP.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#ObservationEffet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Anticoagulant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Anticoagulant</rdfs:label>
+    <rdfs:comment xml:lang="fr">Substance anticoagulante.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#contientPrincipeActif">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#PrincipeActif"/>
+    <rdfs:label xml:lang="fr">contient le principe actif</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4674714bb8c4458e958f6be4b86b2070">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Adulte"/>
+    <rdf:rest rdf:nodeID="N61c53c6e0c144683953030a4f4319fd1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#PersonneAgee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Personne âgée</rdfs:label>
+    <rdfs:comment xml:lang="fr">Patient âgé de 65 ans ou plus, convention de démonstration.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Adulte"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2bb6e82233d140ee9e442c1f76e9d167">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+    <rdf:rest rdf:nodeID="Nbf8fd7abb67941eab45246d6b0112cb1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbe89923107a646a78267fb5ac99baae5">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Metformine_BGR_850"/>
+    <rdf:rest rdf:nodeID="Nf792f280adc24aaeb76f27f8ba724887"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4ce09ea32883493b9303647eb41c79dd">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Clamoxyl_1g_Diarrhee"/>
+    <rdf:rest rdf:nodeID="Nd6c9d67e243e42a88100e8b16c716d9a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb76aa022a9a840c390dd86a646eeed26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nfa75c69f665542e4a4842732b8c4e8e0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Warfarine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Anticoagulant"/>
+    <rdfs:label xml:lang="fr">Warfarine</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#MaladieInfectieuse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Maladie infectieuse</rdfs:label>
+    <rdfs:comment xml:lang="fr">Affection infectieuse.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfcb65417c6484cb3b5b8aa8c79019825">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Generique"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N97ed5efed0ed44338659feddf4ad1def">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Amoxicilline_BGR_1g_Diarrhee"/>
+    <rdf:rest rdf:nodeID="N4ce09ea32883493b9303647eb41c79dd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#CI_AllergiePenicillines">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#CIAbsolue"/>
+    <rdfs:label xml:lang="fr">Hypersensibilité aux pénicillines</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:concerne rdf:resource="http://www.esprit.tn/pharmaonto#AllergiePenicillines"/>
+    <po:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hypersensibilité aux pénicillines</po:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N77d8fe333aa84057af8890aa2cc4f7df">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline_BGR_1g"/>
+    <rdf:rest rdf:nodeID="Na8ea83e392c8498f9d9c22769abf5fa3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb7e6fd8359f844dda477d1feb77427bb">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Warfarine"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na46984511fd94443b375220a04c9d4bf">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresRare"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Obs_Metformine_BGR_850_TroublesDigestifs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#ObservationTresFrequente"/>
+    <rdfs:label xml:lang="fr">Metformine_BGR_850 : TroublesDigestifs</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+    <po:observationDe rdf:resource="http://www.esprit.tn/pharmaonto#Metformine_BGR_850"/>
+    <po:effetObserve rdf:resource="http://www.esprit.tn/pharmaonto#TroublesDigestifs"/>
+    <po:frequence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">très fréquent</po:frequence>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na8ea83e392c8498f9d9c22769abf5fa3">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#AngineStreptococcique"/>
+    <rdf:rest rdf:nodeID="N0cb811590dbc467c963ef53daed083b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7417d8402f634f9eb63cacde74cd6dc5">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#SansOrdonnance"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1693bc51a31d4327b281d6aa6cad60b8">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Princeps"/>
+    <rdf:rest rdf:nodeID="Nfcb65417c6484cb3b5b8aa8c79019825"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#SansOrdonnance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Sans ordonnance obligatoire</rdfs:label>
+    <rdfs:comment xml:lang="fr">Statut français relevé à la date de consultation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#EffetSecondaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Effet indésirable</rdfs:label>
+    <rdfs:comment xml:lang="fr">Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#aPourContreIndication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.esprit.tn/pharmaonto#Medicament"/>
+    <rdfs:range rdf:resource="http://www.esprit.tn/pharmaonto#ContreIndication"/>
+    <rdfs:label xml:lang="fr">a pour contre-indication</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4fcd6bd1d2454f519064c95ccdb91a95">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#CI_UlcereEvolutif"/>
+    <rdf:rest rdf:nodeID="N03fad80c02bd443fa438743220b9c9e8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#TroublesDigestifs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#EffetSecondaire"/>
+    <rdfs:label xml:lang="fr">Troubles digestifs</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne2aacb425ca5423fa1b28bcc4ee756ec">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient_P005"/>
+    <rdf:rest rdf:nodeID="Nec2b88e61a6d40328b20487bf3fae410"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4a85ed817e93432996be033a8b26df74">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="N7c235ea2874643c28b49a21dc3e37625"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Enfant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Enfant</rdfs:label>
+    <rdfs:comment xml:lang="fr">Patient de moins de 18 ans, selon la convention du projet.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.esprit.tn/pharmaonto#Patient"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf7efca3a8b34409480c49f46b77987df">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Patient_P003"/>
+    <rdf:rest rdf:nodeID="Na40d28e3f2b9457da19f56e878794d9a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0df73ca163c84367af5041c3a67a35d2">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#effetObserve"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N164db9ca3c814aa6b5b3c9671c3425a3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.esprit.tn/pharmaonto#contientPrincipeActif"/>
+    <owl:someValuesFrom rdf:resource="http://www.esprit.tn/pharmaonto#AntiInflammatoire"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#AllergiePenicillines">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Pathologie"/>
+    <rdfs:label xml:lang="fr">Allergie aux pénicillines</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne60bb89a0b994b47849948702c87ca36">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N1693bc51a31d4327b281d6aa6cad60b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N81938e1974314d3c89da2856c293a131">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Amoxicilline"/>
+    <rdf:rest rdf:nodeID="N77d8fe333aa84057af8890aa2cc4f7df"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#donneeFictive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndb6d59735d73458bb4fb592a7079e4ec">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Glucophage_850_AcidoseLactique"/>
+    <rdf:rest rdf:nodeID="N2e53dbab00f74629aa59bf24e536b70e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9bb698e5cb2b48c9a0deca73ba784e76">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#aObservationEffet"/>
+    <rdf:rest rdf:nodeID="N0df73ca163c84367af5041c3a67a35d2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#Amoxicilline">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.esprit.tn/pharmaonto#Antibiotique"/>
+    <rdfs:label xml:lang="fr">Amoxicilline</rdfs:label>
+    <dcterms:source rdf:resource="https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"/>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:date>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd6c9d67e243e42a88100e8b16c716d9a">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Coumadine_5_Hemorragie"/>
+    <rdf:rest rdf:nodeID="Ndb6d59735d73458bb4fb592a7079e4ec"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#ObservationEffet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="fr">Association médicament effet</rdfs:label>
+    <rdfs:comment xml:lang="fr">Association documentée entre une spécialité et un effet possible, avec fréquence contextualisée.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0cb811590dbc467c963ef53daed083b3">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#CI_AllergiePenicillines"/>
+    <rdf:rest rdf:nodeID="N8cc3a46d64fb44e1b31b2e619b2c3d36"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2e53dbab00f74629aa59bf24e536b70e">
+    <rdf:first rdf:resource="http://www.esprit.tn/pharmaonto#Obs_Glucophage_850_TroublesDigestifs"/>
+    <rdf:rest rdf:nodeID="Nf3777853393d4e63ab21b9538121975a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.esprit.tn/pharmaonto#notePortee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+</rdf:RDF>

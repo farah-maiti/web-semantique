@@ -1,0 +1,27 @@
+PHARMAONTO — LIVRAISON FINALE
+
+Équipe : Ahmed Saidani, Fedi Ben Khalifa, Farah Maiti.
+Équipe de trois approuvée, selon votre confirmation.
+
+1. Lire docs/PharmaOnto_Rapport_et_Guide.pdf.
+2. Ouvrir docs/PharmaOnto_Presentation_Finale.pptx pour la soutenance.
+   Les notes des diapositives contiennent les explications et les sources.
+   Le PDF de présentation est une copie visuelle de secours.
+3. Sur cette machine, lancer DEMARRER.cmd depuis le dossier complet.
+   Après extraction du ZIP sur une autre machine, lancer INSTALLER.cmd
+   une fois avec Internet, Python 3.11 et un JDK 17 disponibles.
+4. Ouvrir ontology/pharmaonto.owl dans Protégé et lancer HermiT.
+   Pour la règle SWRL, ouvrir pharmaonto-swrl.owl séparément.
+5. Répéter la démonstration du guide avec chaque membre de l'équipe.
+
+Vérifications réalisées : 51 tests réussis, ontologies cohérentes,
+aucune classe nommée insatisfiable, SHACL conforme, 12 requêtes et
+5 graphes de patients comparés entre RDFLib et un vrai serveur Fuseki.
+HermiT a été exécuté par programme. L'interface de votre installation
+de Protégé reste à vérifier pendant la répétition.
+
+Les patients sont fictifs et le corpus pharmaceutique est partiel.
+Les résultats servent à la démonstration du Web sémantique.
+
+README.md contient les commandes, l'architecture et les détails.
+validation/ contient les résultats de contrôle.

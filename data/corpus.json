@@ -1,0 +1,447 @@
+{
+  "consulted": "2026-10-29",
+  "jurisdiction": "France",
+  "scope": "Sélection pédagogique de six spécialités. Les indications, effets et contre-indications sont volontairement partiels. Aucun calcul de posologie ni recommandation de traitement. Patients entièrement fictifs.",
+  "medicines": [
+    {
+      "id": "Advil_400",
+      "name": "ADVIL 400 mg",
+      "cis": "63646874",
+      "strength_mg": "400",
+      "strength_substance": "ibuprofène",
+      "form": "comprimé enrobé",
+      "active": "Ibuprofene",
+      "classes": [
+        "Medicament",
+        "SansOrdonnance"
+      ],
+      "indications": [
+        "DouleurAigue"
+      ],
+      "contraindications": [
+        "CI_UlcereEvolutif"
+      ],
+      "reference": null,
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
+      "scope": "Indication limitée aux conditions d’âge, de poids et de durée du RCP. Aucun statut de princeps affirmé : la fiche ne référence pas de groupe générique."
+    },
+    {
+      "id": "Clamoxyl_1g",
+      "name": "CLAMOXYL 1 g",
+      "cis": "64539416",
+      "strength_mg": "1000",
+      "strength_substance": "amoxicilline",
+      "form": "comprimé dispersible",
+      "active": "Amoxicilline",
+      "classes": [
+        "Princeps",
+        "SurOrdonnance"
+      ],
+      "indications": [
+        "AngineStreptococcique"
+      ],
+      "contraindications": [
+        "CI_AllergiePenicillines"
+      ],
+      "reference": null,
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait",
+      "scope": "Angine/pharyngite documentée à streptocoque, et non toute angine."
+    },
+    {
+      "id": "Glucophage_850",
+      "name": "GLUCOPHAGE 850 mg",
+      "cis": "67547090",
+      "strength_mg": "850",
+      "strength_substance": "chlorhydrate de metformine",
+      "form": "comprimé pelliculé",
+      "active": "Metformine",
+      "classes": [
+        "Princeps",
+        "SurOrdonnance"
+      ],
+      "indications": [
+        "DiabeteType2"
+      ],
+      "contraindications": [
+        "CI_InsuffisanceRenaleSevere"
+      ],
+      "reference": null,
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait",
+      "scope": "850 mg de chlorhydrate correspondent à 662,9 mg de metformine base. Le modèle conserve la masse de la dénomination."
+    },
+    {
+      "id": "Coumadine_5",
+      "name": "COUMADINE 5 mg",
+      "cis": "63245753",
+      "strength_mg": "5",
+      "strength_substance": "warfarine sodique",
+      "form": "comprimé sécable",
+      "active": "Warfarine",
+      "classes": [
+        "Medicament",
+        "SurOrdonnance"
+      ],
+      "indications": [
+        "MaladieThromboembolique"
+      ],
+      "contraindications": [],
+      "reference": null,
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait",
+      "scope": "Indication modélisée : traitement des thromboses veineuses profondes et embolies pulmonaires. Les contre-indications ne sont pas exhaustivement saisies."
+    },
+    {
+      "id": "Amoxicilline_BGR_1g",
+      "name": "AMOXICILLINE BGR 1 g",
+      "cis": "66511789",
+      "strength_mg": "1000",
+      "strength_substance": "amoxicilline",
+      "form": "comprimé dispersible",
+      "active": "Amoxicilline",
+      "classes": [
+        "Generique",
+        "SurOrdonnance"
+      ],
+      "indications": [
+        "AngineStreptococcique"
+      ],
+      "contraindications": [
+        "CI_AllergiePenicillines"
+      ],
+      "reference": "Clamoxyl_1g",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait",
+      "scope": "Appartenance au groupe AMOXICILLINE 1 g / CLAMOXYL 1 g selon la fiche officielle."
+    },
+    {
+      "id": "Metformine_BGR_850",
+      "name": "METFORMINE BGR 850 mg",
+      "cis": "60754492",
+      "strength_mg": "850",
+      "strength_substance": "chlorhydrate de metformine",
+      "form": "comprimé pelliculé",
+      "active": "Metformine",
+      "classes": [
+        "Generique",
+        "SurOrdonnance"
+      ],
+      "indications": [
+        "DiabeteType2"
+      ],
+      "contraindications": [
+        "CI_InsuffisanceRenaleSevere"
+      ],
+      "reference": "Glucophage_850",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait",
+      "scope": "Groupe METFORMINE (CHLORHYDRATE DE) 850 mg / GLUCOPHAGE 850 mg. Masse exprimée en chlorhydrate."
+    }
+  ],
+  "actives": [
+    {
+      "id": "Ibuprofene",
+      "label": "Ibuprofène",
+      "classes": [
+        "AntiInflammatoire",
+        "Analgesique"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+    },
+    {
+      "id": "Amoxicilline",
+      "label": "Amoxicilline",
+      "classes": [
+        "Antibiotique"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+    },
+    {
+      "id": "Metformine",
+      "label": "Metformine",
+      "classes": [
+        "Antidiabetique"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+    },
+    {
+      "id": "Warfarine",
+      "label": "Warfarine",
+      "classes": [
+        "Anticoagulant"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "DiabeteType2",
+      "label": "Diabète de type 2",
+      "classes": [
+        "MaladieChronique"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+    },
+    {
+      "id": "UlcereGastroduodenalEvolutif",
+      "label": "Ulcère gastroduodénal en évolution",
+      "classes": [
+        "Pathologie"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+    },
+    {
+      "id": "AngineStreptococcique",
+      "label": "Angine documentée à streptocoque",
+      "classes": [
+        "MaladieInfectieuse"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+    },
+    {
+      "id": "DouleurAigue",
+      "label": "Douleur aiguë",
+      "classes": [
+        "Pathologie"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+    },
+    {
+      "id": "AllergiePenicillines",
+      "label": "Allergie aux pénicillines",
+      "classes": [
+        "Pathologie"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+    },
+    {
+      "id": "InsuffisanceRenaleSevere",
+      "label": "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min",
+      "classes": [
+        "Pathologie"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+    },
+    {
+      "id": "MaladieThromboembolique",
+      "label": "Thrombose veineuse profonde ou embolie pulmonaire",
+      "classes": [
+        "Pathologie"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"
+    }
+  ],
+  "effects": [
+    {
+      "id": "TroublesDigestifs",
+      "label": "Troubles digestifs"
+    },
+    {
+      "id": "Diarrhee",
+      "label": "Diarrhée"
+    },
+    {
+      "id": "AcidoseLactique",
+      "label": "Acidose lactique"
+    },
+    {
+      "id": "Hemorragie",
+      "label": "Hémorragie"
+    }
+  ],
+  "contraindications": [
+    {
+      "id": "CI_UlcereEvolutif",
+      "class": "CIAbsolue",
+      "label": "Ulcère gastroduodénal en évolution",
+      "condition": "UlcereGastroduodenalEvolutif",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+    },
+    {
+      "id": "CI_AllergiePenicillines",
+      "class": "CIAbsolue",
+      "label": "Hypersensibilité aux pénicillines",
+      "condition": "AllergiePenicillines",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+    },
+    {
+      "id": "CI_InsuffisanceRenaleSevere",
+      "class": "CIAbsolue",
+      "label": "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min",
+      "condition": "InsuffisanceRenaleSevere",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+    }
+  ],
+  "observations": [
+    {
+      "id": "Obs_Advil_400_TroublesDigestifs",
+      "medicine": "Advil_400",
+      "effect": "TroublesDigestifs",
+      "frequency": "non quantifiée dans cet extrait",
+      "classes": [
+        "ObservationEffet"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
+      "label": "Advil_400 : TroublesDigestifs"
+    },
+    {
+      "id": "Obs_Clamoxyl_1g_Diarrhee",
+      "medicine": "Clamoxyl_1g",
+      "effect": "Diarrhee",
+      "frequency": "fréquent",
+      "classes": [
+        "ObservationFrequente"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait",
+      "label": "Clamoxyl_1g : Diarrhee"
+    },
+    {
+      "id": "Obs_Amoxicilline_BGR_1g_Diarrhee",
+      "medicine": "Amoxicilline_BGR_1g",
+      "effect": "Diarrhee",
+      "frequency": "fréquent",
+      "classes": [
+        "ObservationFrequente"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait",
+      "label": "Amoxicilline_BGR_1g : Diarrhee"
+    },
+    {
+      "id": "Obs_Glucophage_850_TroublesDigestifs",
+      "medicine": "Glucophage_850",
+      "effect": "TroublesDigestifs",
+      "frequency": "très fréquent",
+      "classes": [
+        "ObservationTresFrequente"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait",
+      "label": "Glucophage_850 : TroublesDigestifs"
+    },
+    {
+      "id": "Obs_Metformine_BGR_850_TroublesDigestifs",
+      "medicine": "Metformine_BGR_850",
+      "effect": "TroublesDigestifs",
+      "frequency": "très fréquent",
+      "classes": [
+        "ObservationTresFrequente"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait",
+      "label": "Metformine_BGR_850 : TroublesDigestifs"
+    },
+    {
+      "id": "Obs_Glucophage_850_AcidoseLactique",
+      "medicine": "Glucophage_850",
+      "effect": "AcidoseLactique",
+      "frequency": "très rare",
+      "classes": [
+        "ObservationTresRare",
+        "ObservationGrave"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait",
+      "label": "Glucophage_850 : AcidoseLactique"
+    },
+    {
+      "id": "Obs_Metformine_BGR_850_AcidoseLactique",
+      "medicine": "Metformine_BGR_850",
+      "effect": "AcidoseLactique",
+      "frequency": "très rare",
+      "classes": [
+        "ObservationTresRare",
+        "ObservationGrave"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait",
+      "label": "Metformine_BGR_850 : AcidoseLactique"
+    },
+    {
+      "id": "Obs_Coumadine_5_Hemorragie",
+      "medicine": "Coumadine_5",
+      "effect": "Hemorragie",
+      "frequency": "non quantifiée dans cet extrait",
+      "classes": [
+        "ObservationGrave"
+      ],
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait",
+      "label": "Coumadine_5 : Hemorragie"
+    }
+  ],
+  "interactions": [
+    {
+      "a": "Ibuprofene",
+      "b": "Warfarine",
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
+      "section": "RCP 4.5, anticoagulants oraux : augmentation du risque hémorragique, notamment warfarine."
+    }
+  ],
+  "patients": [
+    {
+      "id": "Patient_P001",
+      "label": "Patient fictif P001",
+      "age": 58,
+      "classes": [
+        "Adulte"
+      ],
+      "conditions": [
+        "DiabeteType2"
+      ],
+      "medicines": [
+        "Glucophage_850"
+      ]
+    },
+    {
+      "id": "Patient_P002",
+      "label": "Patient fictif P002",
+      "age": 45,
+      "classes": [
+        "Adulte"
+      ],
+      "conditions": [
+        "UlcereGastroduodenalEvolutif"
+      ],
+      "medicines": [
+        "Advil_400"
+      ]
+    },
+    {
+      "id": "Patient_P003",
+      "label": "Patient fictif P003",
+      "age": 29,
+      "classes": [
+        "Adulte"
+      ],
+      "conditions": [
+        "AngineStreptococcique",
+        "AllergiePenicillines"
+      ],
+      "medicines": [
+        "Amoxicilline_BGR_1g"
+      ]
+    },
+    {
+      "id": "Patient_P004",
+      "label": "Patient fictif P004",
+      "age": 70,
+      "classes": [
+        "PersonneAgee"
+      ],
+      "conditions": [
+        "DouleurAigue",
+        "MaladieThromboembolique"
+      ],
+      "medicines": [
+        "Advil_400",
+        "Coumadine_5"
+      ]
+    },
+    {
+      "id": "Patient_P005",
+      "label": "Patient fictif P005",
+      "age": 67,
+      "classes": [
+        "PersonneAgee"
+      ],
+      "conditions": [
+        "DiabeteType2",
+        "InsuffisanceRenaleSevere"
+      ],
+      "medicines": [
+        "Metformine_BGR_850"
+      ]
+    }
+  ]
+}

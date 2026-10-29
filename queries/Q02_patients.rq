@@ -1,0 +1,9 @@
+# Patients fictifs et prises
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?patient ?nom ?age (GROUP_CONCAT(DISTINCT ?med; separator=", ") AS ?medicaments) WHERE {
+ ?patient a po:Patient ; rdfs:label ?nom ; po:age ?age .
+ OPTIONAL { ?patient po:prend/po:nomCommercial ?med . }
+ } GROUP BY ?patient ?nom ?age ORDER BY ?patient
+LIMIT 200

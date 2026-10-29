@@ -1,0 +1,36 @@
+@prefix po: <http://www.esprit.tn/pharmaonto#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+po:MedicamentShape a sh:NodeShape ; sh:targetClass po:Medicament ;
+ sh:property [ sh:path po:nomCommercial ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path po:dosageMg ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ; sh:minExclusive 0 ] ;
+ sh:property [ sh:path po:substanceDosee ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path po:formeGalenique ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path po:codeCIS ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]{8}$" ] ;
+ sh:property [ sh:path po:contientPrincipeActif ; sh:minCount 1 ; sh:class po:PrincipeActif ] ;
+ sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
+po:GeneriqueShape a sh:NodeShape ; sh:targetClass po:Generique ;
+ sh:property [ sh:path po:estGeneriqueDe ; sh:minCount 1 ; sh:maxCount 1 ; sh:class po:Princeps ] .
+po:PatientShape a sh:NodeShape ; sh:targetClass po:Patient ;
+ sh:property [ sh:path po:age ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 0 ; sh:maxInclusive 120 ] ;
+ sh:property [ sh:path po:donneeFictive ; sh:hasValue true ] ;
+ sh:property [ sh:path po:prend ; sh:class po:Medicament ] ;
+ sh:property [ sh:path po:souffreDe ; sh:class po:Pathologie ] .
+po:AdulteShape a sh:NodeShape ; sh:targetClass po:Adulte ;
+ sh:property [ sh:path po:age ; sh:minInclusive 18 ] .
+po:EnfantShape a sh:NodeShape ; sh:targetClass po:Enfant ;
+ sh:property [ sh:path po:age ; sh:maxExclusive 18 ] .
+po:PersonneAgeeShape a sh:NodeShape ; sh:targetClass po:PersonneAgee ;
+ sh:property [ sh:path po:age ; sh:minInclusive 65 ] .
+po:ObservationShape a sh:NodeShape ; sh:targetClass po:ObservationEffet ;
+ sh:property [ sh:path po:observationDe ; sh:minCount 1 ; sh:maxCount 1 ; sh:class po:Medicament ] ;
+ sh:property [ sh:path po:effetObserve ; sh:minCount 1 ; sh:maxCount 1 ; sh:class po:EffetSecondaire ] ;
+ sh:property [ sh:path po:frequence ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
+po:CIShape a sh:NodeShape ; sh:targetClass po:ContreIndication ;
+ sh:property [ sh:path po:concerne ; sh:minCount 1 ; sh:class po:Pathologie ] ;
+ sh:property [ sh:path po:description ; sh:minCount 1 ; sh:datatype xsd:string ] .
+
