@@ -1,0 +1,1037 @@
+{
+  "version": "3.0.0",
+  "reviewed": "2026-10-30",
+  "notes": "Hiérarchies pédagogiques, alignements documentaires sans import OWL externe. Les catégories thérapeutiques, la forme et le statut réglementaire peuvent se recouvrir.",
+  "classes": {
+    "Medicament": {
+      "parents": [],
+      "label": "Médicament",
+      "definition": "Spécialité pharmaceutique, à dosage et forme déterminés. Périmètre réglementaire français.",
+      "sources": []
+    },
+    "PrincipeActif": {
+      "parents": [],
+      "label": "Principe actif",
+      "definition": "Substance active. La masse déclarée peut correspondre à un sel précisé par substanceDosee.",
+      "sources": []
+    },
+    "EffetSecondaire": {
+      "parents": [],
+      "label": "Effet indésirable",
+      "definition": "Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet.",
+      "sources": []
+    },
+    "ContreIndication": {
+      "parents": [],
+      "label": "Contre-indication",
+      "definition": "Condition documentée pour une spécialité. Le corpus ne couvre pas toutes les conditions du RCP.",
+      "sources": []
+    },
+    "Patient": {
+      "parents": [],
+      "label": "Patient fictif",
+      "definition": "Personne fictive utilisée exclusivement dans les scénarios de démonstration.",
+      "sources": []
+    },
+    "Pathologie": {
+      "parents": [],
+      "label": "État clinique",
+      "definition": "Maladie, symptôme ou état clinique pertinent dans ce modèle simplifié.",
+      "sources": []
+    },
+    "ObservationEffet": {
+      "parents": [],
+      "label": "Association médicament effet",
+      "definition": "Association documentée entre une spécialité et un effet possible, avec fréquence contextualisée.",
+      "sources": []
+    },
+    "Princeps": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament de référence",
+      "definition": "Référence du groupe générique considéré dans le corpus français.",
+      "sources": []
+    },
+    "Generique": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament générique",
+      "definition": "Spécialité rattachée à exactement une référence dans ce corpus.",
+      "sources": []
+    },
+    "SurOrdonnance": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Sur ordonnance",
+      "definition": "Statut français relevé à la date de consultation.",
+      "sources": []
+    },
+    "SansOrdonnance": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Sans ordonnance obligatoire",
+      "definition": "Statut français relevé à la date de consultation.",
+      "sources": []
+    },
+    "Antibiotique": {
+      "parents": [
+        "Antibacterien"
+      ],
+      "label": "Antibiotique",
+      "definition": "Substance à activité antibactérienne dans ce corpus.",
+      "sources": []
+    },
+    "Analgesique": {
+      "parents": [
+        "PrincipeActif"
+      ],
+      "label": "Analgésique",
+      "definition": "Substance utilisée pour soulager la douleur.",
+      "sources": []
+    },
+    "AntiInflammatoire": {
+      "parents": [
+        "PrincipeActif"
+      ],
+      "label": "Anti-inflammatoire",
+      "definition": "Substance à activité anti-inflammatoire.",
+      "sources": []
+    },
+    "Anticoagulant": {
+      "parents": [
+        "Antithrombotique"
+      ],
+      "label": "Anticoagulant",
+      "definition": "Substance anticoagulante.",
+      "sources": []
+    },
+    "Antidiabetique": {
+      "parents": [
+        "PrincipeActif"
+      ],
+      "label": "Antidiabétique",
+      "definition": "Substance utilisée dans le traitement du diabète.",
+      "sources": []
+    },
+    "ObservationFrequente": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet fréquent pour ce médicament",
+      "definition": "Fréquence entre 1/100 inclus et 1/10 exclu selon le RCP de cette spécialité.",
+      "sources": []
+    },
+    "ObservationTresFrequente": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet très fréquent pour ce médicament",
+      "definition": "Fréquence au moins égale à 1/10 selon le RCP.",
+      "sources": []
+    },
+    "ObservationRare": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet rare pour ce médicament",
+      "definition": "Fréquence entre 1/10000 inclus et 1/1000 exclu selon le RCP.",
+      "sources": []
+    },
+    "ObservationTresRare": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet très rare pour ce médicament",
+      "definition": "Fréquence inférieure à 1/10000 selon le RCP.",
+      "sources": []
+    },
+    "ObservationGrave": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet potentiellement grave",
+      "definition": "Gravité indépendante de la fréquence. Les catégories de gravité et fréquence peuvent se recouvrir.",
+      "sources": []
+    },
+    "CIAbsolue": {
+      "parents": [
+        "ContreIndication"
+      ],
+      "label": "Contre-indication absolue",
+      "definition": "Situation explicitement présentée comme une contre-indication dans la source.",
+      "sources": []
+    },
+    "CIRelative": {
+      "parents": [
+        "ContreIndication"
+      ],
+      "label": "Précaution relative",
+      "definition": "Catégorie conservée pour extension. Elle ne déclenche pas la règle de contre-indication absolue.",
+      "sources": []
+    },
+    "Adulte": {
+      "parents": [
+        "Patient"
+      ],
+      "label": "Adulte",
+      "definition": "Classe définie par l’âge entier : 18 ans ou plus. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        18,
+        null
+      ]
+    },
+    "Enfant": {
+      "parents": [
+        "Patient"
+      ],
+      "label": "Enfant",
+      "definition": "Classe définie par l’âge entier : 0 à 17 ans. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        0,
+        17
+      ]
+    },
+    "PersonneAgee": {
+      "parents": [
+        "Adulte"
+      ],
+      "label": "Personne âgée",
+      "definition": "Classe définie par l’âge entier : 65 ans ou plus. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        65,
+        null
+      ]
+    },
+    "FemmeEnceinte": {
+      "parents": [
+        "Patient"
+      ],
+      "label": "Patiente enceinte",
+      "definition": "Catégorie indépendante de la classe d’âge. Aucun scénario de grossesse dans le corpus.",
+      "sources": []
+    },
+    "MaladieChronique": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Maladie chronique",
+      "definition": "Affection chronique.",
+      "sources": []
+    },
+    "MaladieInfectieuse": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Maladie infectieuse",
+      "definition": "Affection infectieuse.",
+      "sources": []
+    },
+    "MedicamentAntiInflammatoire": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament anti-inflammatoire",
+      "definition": "Spécialité contenant au moins une substance de la famille anti-inflammatoire. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "AntiInflammatoire"
+      }
+    },
+    "MedicamentAntibiotique": {
+      "parents": [
+        "MedicamentAntibacterien"
+      ],
+      "label": "Médicament antibiotique",
+      "definition": "Spécialité contenant au moins une substance de la famille antibiotique. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Antibiotique"
+      }
+    },
+    "MedicamentAntidiabetique": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament antidiabétique",
+      "definition": "Spécialité contenant au moins une substance de la famille antidiabétique. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Antidiabetique"
+      }
+    },
+    "AntiInfectieux": {
+      "parents": [
+        "PrincipeActif"
+      ],
+      "label": "Anti-infectieux",
+      "definition": "Substance active dirigée contre un agent infectieux.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ]
+    },
+    "Antibacterien": {
+      "parents": [
+        "AntiInfectieux"
+      ],
+      "label": "Antibactérien",
+      "definition": "Substance active dirigée contre les bactéries.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ]
+    },
+    "BetaLactamine": {
+      "parents": [
+        "Antibiotique"
+      ],
+      "label": "Bêta-lactamine",
+      "definition": "Famille d’antibiotiques à noyau bêta-lactame.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+      ]
+    },
+    "Penicilline": {
+      "parents": [
+        "BetaLactamine"
+      ],
+      "label": "Pénicilline",
+      "definition": "Sous-famille des antibiotiques bêta-lactamines.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+      ]
+    },
+    "PenicillineLargeSpectre": {
+      "parents": [
+        "Penicilline"
+      ],
+      "label": "Pénicilline à spectre élargi",
+      "definition": "Sous-famille comprenant l’amoxicilline dans la classification de référence.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ]
+    },
+    "AntiInflammatoireNonSteroidien": {
+      "parents": [
+        "AntiInflammatoire"
+      ],
+      "label": "Anti-inflammatoire non stéroïdien",
+      "definition": "AINS : famille non stéroïdienne de substances anti-inflammatoires.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
+      ]
+    },
+    "DeriveAcidePropionique": {
+      "parents": [
+        "AntiInflammatoireNonSteroidien"
+      ],
+      "label": "Dérivé de l’acide propionique",
+      "definition": "Sous-famille des AINS comprenant l’ibuprofène.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
+      ]
+    },
+    "Antithrombotique": {
+      "parents": [
+        "PrincipeActif"
+      ],
+      "label": "Antithrombotique",
+      "definition": "Substance intervenant dans la prévention ou le traitement des thromboses.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
+      ]
+    },
+    "AntivitamineK": {
+      "parents": [
+        "Anticoagulant"
+      ],
+      "label": "Antivitamine K",
+      "definition": "Anticoagulant antagoniste de la vitamine K ; comprend la warfarine.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
+      ]
+    },
+    "Biguanide": {
+      "parents": [
+        "Antidiabetique"
+      ],
+      "label": "Biguanide",
+      "definition": "Famille antidiabétique comprenant la metformine.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+      ]
+    },
+    "MedicamentAntiInfectieux": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament anti-infectieux",
+      "definition": "Spécialité contenant au moins une substance de la famille anti-infectieux. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "AntiInfectieux"
+      }
+    },
+    "MedicamentAntibacterien": {
+      "parents": [
+        "MedicamentAntiInfectieux"
+      ],
+      "label": "Médicament antibactérien",
+      "definition": "Spécialité contenant au moins une substance de la famille antibactérien. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Antibacterien"
+      }
+    },
+    "MedicamentBetaLactamine": {
+      "parents": [
+        "MedicamentAntibiotique"
+      ],
+      "label": "Médicament bêta-lactamine",
+      "definition": "Spécialité contenant au moins une substance de la famille bêta-lactamine. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "BetaLactamine"
+      }
+    },
+    "MedicamentPenicilline": {
+      "parents": [
+        "MedicamentBetaLactamine"
+      ],
+      "label": "Médicament pénicilline",
+      "definition": "Spécialité contenant au moins une substance de la famille pénicilline. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Penicilline"
+      }
+    },
+    "MedicamentPenicillineLargeSpectre": {
+      "parents": [
+        "MedicamentPenicilline"
+      ],
+      "label": "Médicament pénicilline à spectre élargi",
+      "definition": "Spécialité contenant au moins une substance de la famille pénicilline à spectre élargi. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "PenicillineLargeSpectre"
+      }
+    },
+    "MedicamentAINS": {
+      "parents": [
+        "MedicamentAntiInflammatoire"
+      ],
+      "label": "Médicament AINS",
+      "definition": "Spécialité contenant au moins une substance de la famille anti-inflammatoire non stéroïdien. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "AntiInflammatoireNonSteroidien"
+      }
+    },
+    "MedicamentDerivePropionique": {
+      "parents": [
+        "MedicamentAINS"
+      ],
+      "label": "Médicament à dérivé propionique",
+      "definition": "Spécialité contenant au moins une substance de la famille dérivé de l’acide propionique. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "DeriveAcidePropionique"
+      }
+    },
+    "MedicamentAnalgesique": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament analgésique",
+      "definition": "Spécialité contenant au moins une substance de la famille analgésique. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Analgesique"
+      }
+    },
+    "MedicamentAntithrombotique": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament antithrombotique",
+      "definition": "Spécialité contenant au moins une substance de la famille antithrombotique. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Antithrombotique"
+      }
+    },
+    "MedicamentAnticoagulant": {
+      "parents": [
+        "MedicamentAntithrombotique"
+      ],
+      "label": "Médicament anticoagulant",
+      "definition": "Spécialité contenant au moins une substance de la famille anticoagulant. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Anticoagulant"
+      }
+    },
+    "MedicamentAntivitamineK": {
+      "parents": [
+        "MedicamentAnticoagulant"
+      ],
+      "label": "Médicament antivitamine K",
+      "definition": "Spécialité contenant au moins une substance de la famille antivitamine k. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "AntivitamineK"
+      }
+    },
+    "MedicamentBiguanide": {
+      "parents": [
+        "MedicamentAntidiabetique"
+      ],
+      "label": "Médicament biguanide",
+      "definition": "Spécialité contenant au moins une substance de la famille biguanide. Classe définie : appartenance calculable par HermiT.",
+      "sources": [
+        "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+      ],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "contientPrincipeActif",
+        "filler": "Biguanide"
+      }
+    },
+    "AffectionMetabolique": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Affection métabolique",
+      "definition": "État clinique affectant le métabolisme.",
+      "sources": []
+    },
+    "TroubleGlycemique": {
+      "parents": [
+        "AffectionMetabolique"
+      ],
+      "label": "Trouble glycémique",
+      "definition": "Affection métabolique portant sur la régulation de la glycémie.",
+      "sources": []
+    },
+    "InfectionBacterienne": {
+      "parents": [
+        "MaladieInfectieuse"
+      ],
+      "label": "Infection bactérienne",
+      "definition": "Affection infectieuse attribuée à une bactérie.",
+      "sources": []
+    },
+    "InfectionORLBacterienne": {
+      "parents": [
+        "InfectionBacterienne"
+      ],
+      "label": "Infection ORL bactérienne",
+      "definition": "Infection bactérienne de la sphère ORL ; l’angine streptococcique du corpus en est un exemple.",
+      "sources": []
+    },
+    "AffectionDigestive": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Affection digestive",
+      "definition": "État clinique du système digestif.",
+      "sources": []
+    },
+    "AffectionGastroDuodenale": {
+      "parents": [
+        "AffectionDigestive"
+      ],
+      "label": "Affection gastroduodénale",
+      "definition": "Affection de l’estomac ou du duodénum.",
+      "sources": []
+    },
+    "AffectionUlcereuse": {
+      "parents": [
+        "AffectionGastroDuodenale"
+      ],
+      "label": "Affection ulcéreuse gastroduodénale",
+      "definition": "Atteinte ulcéreuse gastroduodénale.",
+      "sources": []
+    },
+    "AffectionRenale": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Affection rénale",
+      "definition": "État clinique affectant les reins.",
+      "sources": []
+    },
+    "DeficitFonctionRenale": {
+      "parents": [
+        "AffectionRenale"
+      ],
+      "label": "Déficit de fonction rénale",
+      "definition": "Altération de la fonction rénale.",
+      "sources": []
+    },
+    "DeficitRenalSevere": {
+      "parents": [
+        "DeficitFonctionRenale"
+      ],
+      "label": "Déficit rénal sévère",
+      "definition": "Catégorie accueillant le scénario de DFG inférieur à 30 mL/min du corpus.",
+      "sources": []
+    },
+    "TroubleImmunitaire": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Trouble immunitaire",
+      "definition": "État clinique impliquant le système immunitaire.",
+      "sources": []
+    },
+    "HypersensibiliteMedicamenteuse": {
+      "parents": [
+        "TroubleImmunitaire"
+      ],
+      "label": "Hypersensibilité médicamenteuse",
+      "definition": "État d’hypersensibilité à un médicament ou à une famille.",
+      "sources": []
+    },
+    "HypersensibiliteBetaLactamines": {
+      "parents": [
+        "HypersensibiliteMedicamenteuse"
+      ],
+      "label": "Hypersensibilité aux bêta-lactamines",
+      "definition": "Hypersensibilité documentée à une bêta-lactamine ; ne généralise pas les réactions croisées.",
+      "sources": []
+    },
+    "HypersensibilitePenicillines": {
+      "parents": [
+        "HypersensibiliteBetaLactamines"
+      ],
+      "label": "Hypersensibilité aux pénicillines",
+      "definition": "Hypersensibilité spécifiquement documentée aux pénicillines.",
+      "sources": []
+    },
+    "AffectionVasculaire": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Affection vasculaire",
+      "definition": "Affection des vaisseaux ou de la circulation.",
+      "sources": []
+    },
+    "AffectionThromboembolique": {
+      "parents": [
+        "AffectionVasculaire"
+      ],
+      "label": "Affection thromboembolique",
+      "definition": "Affection liée à un thrombus ou une embolie.",
+      "sources": []
+    },
+    "Symptome": {
+      "parents": [
+        "Pathologie"
+      ],
+      "label": "Symptôme",
+      "definition": "Manifestation clinique ; Pathologie est utilisé ici au sens large d’état clinique.",
+      "sources": []
+    },
+    "SymptomeDouloureux": {
+      "parents": [
+        "Symptome"
+      ],
+      "label": "Symptôme douloureux",
+      "definition": "Symptôme caractérisé par une douleur.",
+      "sources": []
+    },
+    "EffetDigestif": {
+      "parents": [
+        "EffetSecondaire"
+      ],
+      "label": "Effet digestif",
+      "definition": "Effet indésirable touchant le système digestif.",
+      "sources": []
+    },
+    "TroubleTransit": {
+      "parents": [
+        "EffetDigestif"
+      ],
+      "label": "Trouble du transit",
+      "definition": "Effet digestif portant sur le transit intestinal.",
+      "sources": []
+    },
+    "EffetMetabolique": {
+      "parents": [
+        "EffetSecondaire"
+      ],
+      "label": "Effet métabolique",
+      "definition": "Effet indésirable touchant le métabolisme.",
+      "sources": []
+    },
+    "TroubleAcidoBasique": {
+      "parents": [
+        "EffetMetabolique"
+      ],
+      "label": "Trouble acido-basique",
+      "definition": "Effet métabolique portant sur l’équilibre acido-basique.",
+      "sources": []
+    },
+    "EffetHemorragique": {
+      "parents": [
+        "EffetSecondaire"
+      ],
+      "label": "Effet hémorragique",
+      "definition": "Effet indésirable caractérisé par un saignement.",
+      "sources": []
+    },
+    "CIDigestive": {
+      "parents": [
+        "CIAbsolue"
+      ],
+      "label": "Contre-indication digestive",
+      "definition": "Contre-indication absolue portant sur affection digestive.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "CIAbsolue",
+        "property": "concerne",
+        "filler": "AffectionDigestive"
+      }
+    },
+    "CIRenale": {
+      "parents": [
+        "CIAbsolue"
+      ],
+      "label": "Contre-indication rénale",
+      "definition": "Contre-indication absolue portant sur affection rénale.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "CIAbsolue",
+        "property": "concerne",
+        "filler": "AffectionRenale"
+      }
+    },
+    "CIHypersensibilite": {
+      "parents": [
+        "CIAbsolue"
+      ],
+      "label": "Contre-indication d’hypersensibilité",
+      "definition": "Contre-indication absolue portant sur hypersensibilité médicamenteuse.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "CIAbsolue",
+        "property": "concerne",
+        "filler": "HypersensibiliteMedicamenteuse"
+      }
+    },
+    "Adolescent": {
+      "parents": [
+        "Enfant"
+      ],
+      "label": "Adolescent",
+      "definition": "Classe définie par l’âge entier : 12 à 17 ans. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        12,
+        17
+      ]
+    },
+    "JeuneEnfant": {
+      "parents": [
+        "Enfant"
+      ],
+      "label": "Enfant de moins de 12 ans",
+      "definition": "Classe définie par l’âge entier : 0 à 11 ans. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        0,
+        11
+      ]
+    },
+    "AdulteJeune": {
+      "parents": [
+        "Adulte"
+      ],
+      "label": "Adulte de 18 à 44 ans",
+      "definition": "Classe définie par l’âge entier : 18 à 44 ans. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        18,
+        44
+      ]
+    },
+    "AdulteMoyenAge": {
+      "parents": [
+        "Adulte"
+      ],
+      "label": "Adulte de 45 à 64 ans",
+      "definition": "Classe définie par l’âge entier : 45 à 64 ans. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        45,
+        64
+      ]
+    },
+    "PersonneTresAgee": {
+      "parents": [
+        "PersonneAgee"
+      ],
+      "label": "Personne de 80 ans ou plus",
+      "definition": "Classe définie par l’âge entier : 80 ans ou plus. Convention pédagogique du projet, sans règle de prescription.",
+      "sources": [],
+      "age_range": [
+        80,
+        null
+      ]
+    },
+    "PatientAvecMaladieChronique": {
+      "parents": [
+        "Patient"
+      ],
+      "label": "Patient avec maladie chronique",
+      "definition": "Profil défini par au moins un état clinique appartenant à MaladieChronique.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "Patient",
+        "property": "souffreDe",
+        "filler": "MaladieChronique"
+      }
+    },
+    "PatientAvecPlusieursMedicaments": {
+      "parents": [
+        "Patient"
+      ],
+      "label": "Patient avec plusieurs médicaments",
+      "definition": "Profil de démonstration : au moins deux spécialités distinctes enregistrées. Ce seuil ne prétend pas définir la polymédication clinique.",
+      "sources": [],
+      "min_takes": 2
+    },
+    "FormePharmaceutique": {
+      "parents": [],
+      "label": "Forme pharmaceutique",
+      "definition": "Concept de forme du médicament, distinct de la spécialité.",
+      "sources": []
+    },
+    "FormeSolide": {
+      "parents": [
+        "FormePharmaceutique"
+      ],
+      "label": "Forme solide",
+      "definition": "Forme pharmaceutique solide.",
+      "sources": []
+    },
+    "Comprime": {
+      "parents": [
+        "FormeSolide"
+      ],
+      "label": "Comprimé",
+      "definition": "Unité pharmaceutique solide sous forme de comprimé.",
+      "sources": []
+    },
+    "ComprimeEnrobe": {
+      "parents": [
+        "Comprime"
+      ],
+      "label": "Comprimé enrobé",
+      "definition": "Comprimé avec enrobage ; la nature de l’enrobage n’est pas présumée.",
+      "sources": []
+    },
+    "ComprimePellicule": {
+      "parents": [
+        "ComprimeEnrobe"
+      ],
+      "label": "Comprimé pelliculé",
+      "definition": "Comprimé avec un enrobage sous forme de film.",
+      "sources": []
+    },
+    "ComprimeDispersible": {
+      "parents": [
+        "Comprime"
+      ],
+      "label": "Comprimé dispersible",
+      "definition": "Comprimé destiné à être dispersé selon les conditions de son RCP.",
+      "sources": []
+    },
+    "ComprimeSecable": {
+      "parents": [
+        "Comprime"
+      ],
+      "label": "Comprimé sécable",
+      "definition": "Forme décrite comme sécable dans la fiche ; ne présume pas une adaptation de dose.",
+      "sources": []
+    },
+    "VoieAdministration": {
+      "parents": [],
+      "label": "Voie d’administration",
+      "definition": "Concept de voie d’administration ; n’est pas une recommandation au patient.",
+      "sources": []
+    },
+    "VoieEnterale": {
+      "parents": [
+        "VoieAdministration"
+      ],
+      "label": "Voie entérale",
+      "definition": "Administration passant par le tube digestif.",
+      "sources": []
+    },
+    "VoieOrale": {
+      "parents": [
+        "VoieEnterale"
+      ],
+      "label": "Voie orale",
+      "definition": "Administration par la bouche selon le RCP de la spécialité.",
+      "sources": []
+    },
+    "MedicamentOral": {
+      "parents": [
+        "Medicament"
+      ],
+      "label": "Médicament par voie orale",
+      "definition": "Spécialité ayant une voie d’administration appartenant à VoieOrale.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "Medicament",
+        "property": "aVoieAdministration",
+        "filler": "VoieOrale"
+      }
+    },
+    "MedicamentComprime": {
+      "parents": [
+        "MedicamentOral"
+      ],
+      "label": "Médicament en comprimé oral",
+      "definition": "Spécialité orale possédant une forme appartenant à Comprime.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "MedicamentOral",
+        "property": "aFormePharmaceutique",
+        "filler": "Comprime"
+      }
+    },
+    "MedicamentComprimeEnrobe": {
+      "parents": [
+        "MedicamentComprime"
+      ],
+      "label": "Médicament en comprimé enrobé",
+      "definition": "Classe définie par la voie orale et la forme pharmaceutique.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "MedicamentOral",
+        "property": "aFormePharmaceutique",
+        "filler": "ComprimeEnrobe"
+      }
+    },
+    "MedicamentComprimePellicule": {
+      "parents": [
+        "MedicamentComprimeEnrobe"
+      ],
+      "label": "Médicament en comprimé pelliculé",
+      "definition": "Classe définie par la voie orale et la forme pharmaceutique.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "MedicamentOral",
+        "property": "aFormePharmaceutique",
+        "filler": "ComprimePellicule"
+      }
+    },
+    "MedicamentComprimeDispersible": {
+      "parents": [
+        "MedicamentComprime"
+      ],
+      "label": "Médicament en comprimé dispersible",
+      "definition": "Classe définie par la voie orale et la forme pharmaceutique.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "MedicamentOral",
+        "property": "aFormePharmaceutique",
+        "filler": "ComprimeDispersible"
+      }
+    },
+    "MedicamentComprimeSecable": {
+      "parents": [
+        "MedicamentComprime"
+      ],
+      "label": "Médicament en comprimé sécable",
+      "definition": "Classe définie par la voie orale et la forme pharmaceutique.",
+      "sources": [],
+      "equivalent_some": {
+        "base": "MedicamentOral",
+        "property": "aFormePharmaceutique",
+        "filler": "ComprimeSecable"
+      }
+    },
+    "ObservationPeuFrequente": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Effet peu fréquent pour ce médicament",
+      "definition": "Fréquence entre 1/1000 inclus et 1/100 exclu. Catégorie disponible, non renseignée dans le corpus actuel.",
+      "sources": []
+    },
+    "ObservationFrequenceNonQuantifiee": {
+      "parents": [
+        "ObservationEffet"
+      ],
+      "label": "Fréquence non quantifiée dans le corpus",
+      "definition": "La fréquence n’est pas chiffrée dans l’extrait retenu ; ce statut n’est pas une catégorie réglementaire de fréquence.",
+      "sources": []
+    }
+  }
+}

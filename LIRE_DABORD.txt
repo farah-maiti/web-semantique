@@ -1,27 +1,35 @@
-PHARMAONTO — LIVRAISON FINALE
+PHARMAONTO — VERSION 3.0.0 — 30 OCTOBRE 2026
 
 Équipe : Ahmed Saidani, Fedi Ben Khalifa, Farah Maiti.
 Équipe de trois approuvée, selon votre confirmation.
 
-1. Lire docs/PharmaOnto_Rapport_et_Guide.pdf.
-2. Ouvrir docs/PharmaOnto_Presentation_Finale.pptx pour la soutenance.
-   Les notes des diapositives contiennent les explications et les sources.
-   Le PDF de présentation est une copie visuelle de secours.
-3. Sur cette machine, lancer DEMARRER.cmd depuis le dossier complet.
-   Après extraction du ZIP sur une autre machine, lancer INSTALLER.cmd
-   une fois avec Internet, Python 3.11 et un JDK 17 disponibles.
-4. Ouvrir ontology/pharmaonto.owl dans Protégé et lancer HermiT.
-   Pour la règle SWRL, ouvrir pharmaonto-swrl.owl séparément.
-5. Répéter la démonstration du guide avec chaque membre de l'équipe.
+105 classes · 7 niveaux maximum · 34 classes définies · 9 racines
+19 propriétés objet · 8 propriétés de données · 42 individus
+16 requêtes SELECT · 81 tests réussis avec Fuseki réel
 
-Vérifications réalisées : 51 tests réussis, ontologies cohérentes,
-aucune classe nommée insatisfiable, SHACL conforme, 12 requêtes et
-5 graphes de patients comparés entre RDFLib et un vrai serveur Fuseki.
-HermiT a été exécuté par programme. L'interface de votre installation
-de Protégé reste à vérifier pendant la répétition.
+1. Lire docs/PharmaOnto_Rapport_Pro_v3.pdf (12 pages).
+   Le chapitre 10 explique Protégé pas à pas.
+2. Ouvrir ontology/pharmaonto.owl dans Protégé.
+   Déplier la branche PrincipeActif et lancer HermiT.
+   Pour SWRL, ouvrir pharmaonto-swrl.owl séparément : même IRI,
+   donc ne pas charger ou importer les deux fichiers ensemble.
+3. Voir docs/HIERARCHIE_COMPLETE.txt pour l’arbre des 105 classes.
+   taxonomy.json décrit les classes ; corpus.json décrit les individus.
+4. Sur une nouvelle machine, extraire tout le ZIP puis lancer
+   INSTALLER.cmd avec Python 3.11, JDK 17+ et Internet.
+   Lancer ensuite DEMARRER.cmd et garder la console ouverte.
+5. Dans l’application, essayer Ontologie et hiérarchie,
+   les dossiers des médicaments et les requêtes Q13 à Q16.
+6. Utiliser docs/PharmaOnto_Presentation_Pro_v3.pptx pour la soutenance.
+   Les notes contiennent les explications et les sources.
+   Le PDF de présentation est une copie visuelle de secours.
+
+Vérifications : 81 tests réussis, zéro test ignoré, HermiT cohérent,
+zéro classe insatisfiable et SHACL conforme. Les 16 requêtes,
+5 graphes patient, explorateur et dossier ont été comparés entre
+RDFLib et un serveur Fuseki réel. L’interface de votre installation
+Protégé reste à vérifier lors de la répétition.
 
 Les patients sont fictifs et le corpus pharmaceutique est partiel.
-Les résultats servent à la démonstration du Web sémantique.
-
-README.md contient les commandes, l'architecture et les détails.
-validation/ contient les résultats de contrôle.
+Le projet sert à la démonstration du Web sémantique.
+Consulter README.md et validation/ pour les détails.

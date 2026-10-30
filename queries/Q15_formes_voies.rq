@@ -1,0 +1,9 @@
+# Formes pharmaceutiques et voies d’administration
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?medicament ?nom ?forme ?voie ?source WHERE {
+ ?medicament a po:Medicament ; po:nomCommercial ?nom ;
+ po:aFormePharmaceutique/rdfs:label ?forme ; po:aVoieAdministration/rdfs:label ?voie ; dct:source ?source .
+ } ORDER BY ?nom
+LIMIT 200

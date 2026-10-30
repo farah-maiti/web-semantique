@@ -140,4 +140,13 @@ def test_fuseki_matches_rdflib_for_every_query(materialized,monkeypatch):
         assert normalize(local)==normalize(remote),patient
         assert {v for e in remote for v in (e['s'],e['o']) if '#Patient_' in v}=={str(P[patient])}
         results.append({'graph':patient,'edges':len(remote),'same_answers':True,'patient_isolated':True})
+    from webapp.explorer import ontology_snapshot, medicine_detail
+    for name, call in [('ontology_explorer', ontology_snapshot),
+                       ('medicine_dossier', lambda: medicine_detail('Glucophage_850'))]:
+        monkeypatch.setenv('PHARMA_BACKEND','rdflib')
+        local=call()
+        monkeypatch.setenv('PHARMA_BACKEND','fuseki')
+        remote=call()
+        assert local==remote,name
+        results.append({'view':name,'same_answers':True})
     (ROOT/'validation/fuseki-comparison.json').write_text(json.dumps(results,indent=2),encoding='utf-8')

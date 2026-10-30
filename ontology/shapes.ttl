@@ -11,6 +11,8 @@ po:MedicamentShape a sh:NodeShape ; sh:targetClass po:Medicament ;
  sh:property [ sh:path po:formeGalenique ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
  sh:property [ sh:path po:codeCIS ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:pattern "^[0-9]{8}$" ] ;
  sh:property [ sh:path po:contientPrincipeActif ; sh:minCount 1 ; sh:class po:PrincipeActif ] ;
+ sh:property [ sh:path po:aFormePharmaceutique ; sh:minCount 1 ; sh:maxCount 1 ; sh:class po:FormePharmaceutique ] ;
+ sh:property [ sh:path po:aVoieAdministration ; sh:minCount 1 ; sh:class po:VoieAdministration ] ;
  sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
 po:GeneriqueShape a sh:NodeShape ; sh:targetClass po:Generique ;
  sh:property [ sh:path po:estGeneriqueDe ; sh:minCount 1 ; sh:maxCount 1 ; sh:class po:Princeps ] .
@@ -32,5 +34,11 @@ po:ObservationShape a sh:NodeShape ; sh:targetClass po:ObservationEffet ;
  sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
 po:CIShape a sh:NodeShape ; sh:targetClass po:ContreIndication ;
  sh:property [ sh:path po:concerne ; sh:minCount 1 ; sh:class po:Pathologie ] ;
- sh:property [ sh:path po:description ; sh:minCount 1 ; sh:datatype xsd:string ] .
+ sh:property [ sh:path po:description ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+ sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
+
+po:FormeShape a sh:NodeShape ; sh:targetClass po:FormePharmaceutique ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ] .
+po:VoieShape a sh:NodeShape ; sh:targetClass po:VoieAdministration ;
+ sh:property [ sh:path rdfs:label ; sh:minCount 1 ] .
 

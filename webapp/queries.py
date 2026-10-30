@@ -55,6 +55,24 @@ QUERIES={
 'inverse':('Relation inverse déduite', '''SELECT ?condition ?indication ?medicament ?nom WHERE {
  ?condition po:estTraitePar ?medicament ; rdfs:label ?indication .
  ?medicament po:nomCommercial ?nom . } ORDER BY ?indication ?nom'''),
+'hierarchie':('Hiérarchie des classes nommées', '''SELECT ?classe ?libelle ?parent ?libelleParent WHERE {
+ ?classe rdfs:subClassOf ?parent ; rdfs:label ?libelle .
+ ?parent rdfs:label ?libelleParent . FILTER(isIRI(?parent))
+ } ORDER BY ?libelleParent ?libelle'''),
+'familles_substances':('Familles les plus précises des substances', '''SELECT ?actif ?molecule ?classe ?libelle WHERE {
+ ?actif a po:PrincipeActif, ?classe ; rdfs:label ?molecule .
+ ?classe rdfs:subClassOf+ po:PrincipeActif ; rdfs:label ?libelle .
+ FILTER NOT EXISTS { ?actif a ?fine . ?fine rdfs:subClassOf+ ?classe . FILTER(?fine != ?classe) }
+ } ORDER BY ?molecule ?libelle'''),
+'formes_voies':('Formes pharmaceutiques et voies d’administration', '''SELECT ?medicament ?nom ?forme ?voie ?source WHERE {
+ ?medicament a po:Medicament ; po:nomCommercial ?nom ;
+ po:aFormePharmaceutique/rdfs:label ?forme ; po:aVoieAdministration/rdfs:label ?voie ; dct:source ?source .
+ } ORDER BY ?nom'''),
+'profils_patients':('Profils des patients déduits par HermiT', '''SELECT ?patient ?nom ?age ?classe ?libelle WHERE {
+ VALUES ?classe { po:AdulteJeune po:AdulteMoyenAge po:PersonneAgee po:PersonneTresAgee po:PatientAvecMaladieChronique po:PatientAvecPlusieursMedicaments }
+ ?patient a ?classe ; rdfs:label ?nom ; po:age ?age . ?classe rdfs:label ?libelle .
+ FILTER NOT EXISTS { ?patient a ?fine . ?fine rdfs:subClassOf+ ?classe . FILTER(?fine != ?classe) }
+ } ORDER BY ?patient ?libelle'''),
 }
 
 def query(key,filters=''):

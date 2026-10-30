@@ -1,10 +1,23 @@
-# PharmaOnto
+# PharmaOnto · Version 3.0.0
 
 Projet Web Sémantique, ESPRIT, 5 TWIN, année universitaire 2026–2027.
 
 **Équipe : Ahmed Saidani, Fedi Ben Khalifa, Farah Maiti.**
 
 Le projet relie six spécialités françaises, leurs substances actives, des indications, des effets possibles et des contre-indications à cinq patients fictifs. Il comprend une ontologie OWL, une extension SWRL, un import RDFLib, des contrôles HermiT et SHACL, un serveur Fuseki et une application Django avec TALN spaCy.
+
+## Nouveautés de la version 3
+
+- **105 classes**, **9 racines**, **7 niveaux au maximum**, **34 classes définies**.
+- **19 propriétés objet**, **8 propriétés de données**, **42 individus**.
+- Familles pharmacologiques détaillées, formes et voie, états cliniques, effets et profils patients calculés.
+- Explorateur de hiérarchie avec recherche, définitions et distinction entre appartenance déclarée et inférée.
+- Dossiers des médicaments, navigation vers les classes et exports CSV.
+- **16 requêtes SELECT** et **81 tests réussis**, avec Fuseki réel.
+
+Exemple de branche : PrincipeActif → AntiInfectieux → Antibacterien → Antibiotique → BetaLactamine → Penicilline → PenicillineLargeSpectre. La profondeur compte la racine du domaine, sans owl:Thing. Amoxicilline est un individu de la dernière classe. Les deux spécialités contenant cet actif sont classées par HermiT dans la famille de médicaments correspondante.
+
+La hiérarchie complète est dans `docs/HIERARCHIE_COMPLETE.txt`. Le dictionnaire des classes, avec parents, définitions et sources, est dans `data/taxonomy.json`. Les neuf racines sont disjointes ; les axes thérapeutique, réglementaire et pharmaceutique peuvent se recouvrir. Les seuils d’âge et le profil « plusieurs médicaments » sont des conventions pédagogiques documentées, pas des critères de décision médicale.
 
 ## Démarrage sous Windows
 
@@ -28,10 +41,11 @@ Les ports 8000 et 3030 doivent être libres. Le lanceur refuse de reprendre un s
 | Graphe utilisé par Fuseki | `ontology/pharmaonto-materialized.ttl` |
 | Contraintes de complétude | `ontology/shapes.ttl` |
 | Corpus et sources | `data/corpus.json` |
-| 12 requêtes SELECT et 2 règles CONSTRUCT | `queries/` |
-| Présentation avec notes de prise de parole | `docs/PharmaOnto_Presentation_Finale.pptx` |
-| Présentation PDF | `docs/PharmaOnto_Presentation_Finale.pdf` |
-| Rapport, installation et guide de soutenance | `docs/PharmaOnto_Rapport_et_Guide.pdf` |
+| Hiérarchie et définitions | `data/taxonomy.json` et `docs/HIERARCHIE_COMPLETE.txt` |
+| 16 requêtes SELECT et 2 règles CONSTRUCT | `queries/` |
+| Présentation avec notes de prise de parole | `docs/PharmaOnto_Presentation_Pro_v3.pptx` |
+| Présentation PDF | `docs/PharmaOnto_Presentation_Pro_v3.pdf` |
+| Rapport, installation et guide de soutenance | `docs/PharmaOnto_Rapport_Pro_v3.pdf` |
 | Résultats et preuves | `validation/` |
 
 Ouvrir **un seul des deux fichiers OWL à la fois** pour la démonstration. Les deux utilisent volontairement la même IRI d’ontologie et la version SWRL est autonome. Ne pas les importer l’un dans l’autre. Le graphe matérialisé sert à la recherche, pas à montrer quelles assertions étaient présentes avant raisonnement.
@@ -44,7 +58,8 @@ Ouvrir **un seul des deux fichiers OWL à la fois** pour la démonstration. Les 
 4. Cliquer **Interactions du patient P004**. Résultat attendu : ADVIL 400 mg et COUMADINE 5 mg.
 5. Consulter les génériques de Clamoxyl : AMOXICILLINE BGR 1 g. Afficher le SPARQL produit.
 6. Explorer le graphe d’un patient et montrer les relations déduites en couleur.
-7. Présenter les logs HermiT, SHACL et les tests. Expliquer pourquoi une référence manquante peut être cohérente en OWL mais invalide en SHACL.
+7. Ouvrir **Ontologie et hiérarchie**, rechercher « pénicilline », puis afficher la définition de MedicamentPenicillineLargeSpectre et ses deux individus inférés. Ouvrir le dossier GLUCOPHAGE et naviguer vers ses classes.
+8. Présenter les logs HermiT, SHACL et les tests. Expliquer pourquoi une référence manquante peut être cohérente en OWL mais invalide en SHACL.
 
 L’équipe de trois membres est approuvée par l’encadrant, selon la confirmation reçue le 29 octobre 2026. Chacun doit pouvoir expliquer le modèle, ses requêtes et les choix de validation.
 
@@ -74,7 +89,7 @@ Les commandes suivantes se lancent depuis la racine du projet, avec l’environn
 .\.venv\Scripts\python.exe -m pytest -q --disable-warnings --basetemp runtime\test-temp
 ```
 
-`VALIDER.cmd` enchaîne ces commandes. La reconstruction remplace les exports générés. Modifier `data/corpus.json` pour les données et `scripts/build_ontology.py` pour le schéma avant de reconstruire. Une modification manuelle de l’OWL ne sera pas conservée lors de la prochaine reconstruction.
+`VALIDER.cmd` enchaîne ces commandes. La reconstruction remplace les exports générés. Modifier `data/corpus.json` pour les individus, `data/taxonomy.json` pour les classes et `scripts/build_ontology.py` pour les axiomes formels avant de reconstruire. Une modification manuelle de l’OWL ne sera pas conservée lors de la prochaine reconstruction.
 
 Pour tester aussi le serveur Fuseki réel, le démarrer avec le graphe courant, puis dans une autre console PowerShell :
 
@@ -83,7 +98,7 @@ $env:RUN_FUSEKI_TESTS = '1'
 .\.venv\Scripts\python.exe -m pytest -q --disable-warnings --basetemp runtime\test-fuseki --junitxml=validation\tests.xml
 ```
 
-Sans cette variable, le test d’intégration Fuseki est explicitement ignoré. La campagne livrée a exécuté ce test. Après toute reconstruction du corpus, redémarrer Fuseki pour qu’il recharge le graphe matérialisé.
+Sans cette variable, le test d’intégration Fuseki est explicitement ignoré. La campagne livrée a exécuté ce test. Après toute reconstruction, redémarrer l’application et Fuseki pour recharger le graphe matérialisé et les caches du schéma.
 
 HermiT est appelé via les classes Java incluses dans Owlready2. Le programme Java contrôle le profil OWL 2 DL, la cohérence et les classes insatisfiables, puis extrait les types et relations entre individus nommés. Le fichier SWRL est également exécuté par HermiT et ses alertes sont comparées avec la règle CONSTRUCT. Les tests automatisés ne commandent pas l’interface graphique de Protégé.
 
@@ -95,7 +110,7 @@ Sous Linux ou macOS : `python3 scripts/setup.py`, puis `.venv/bin/python -m scri
 
 ## Portée des données
 
-Les fiches officielles françaises ont été consultées le 29 octobre 2026. Le JSON conserve la source de chaque spécialité, condition, contre-indication et association médicament-effet. Les champs conservés sont une sélection structurée, pas une copie complète des RCP. Les masses correspondent à la substance précisée, notamment les sels. Les données de remboursement et les codes CIM-10 du brouillon n’ont pas été reconduits sans cadrage documentaire suffisant.
+Les fiches officielles françaises ont été consultées le 29 octobre 2026. Les classifications complémentaires ont été revues le 30 octobre 2026 à partir des RCP et de l’index ATC du Centre collaborateur OMS. Les sources ATC justifient des familles de substances ; aucun import OWL externe ni code ATC de produit n’est ajouté automatiquement. Le JSON conserve la source de chaque spécialité, condition, contre-indication et association médicament-effet. Les champs conservés sont une sélection structurée, pas une copie complète des RCP. Les masses correspondent à la substance précisée, notamment les sels. Les données de remboursement et les codes CIM-10 du brouillon n’ont pas été reconduits sans cadrage documentaire suffisant.
 
 Tous les patients sont fictifs. L’absence d’un résultat ou d’une alerte signifie seulement qu’aucun fait ou règle du corpus ne répond à la requête. Elle ne démontre pas qu’un traitement est sûr. Le projet ne calcule pas de posologie, ne prescrit aucun traitement et ne prétend pas à une validation clinique.
 
@@ -107,8 +122,9 @@ Tous les patients sont fictifs. L’absence d’un résultat ou d’une alerte s
 - `webapp/nlp.py` : reconnaissance française, contrôle du vocabulaire et construction SPARQL.
 - `webapp/semantic.py` : exécution Fuseki ou RDFLib explicitement choisie.
 - `webapp/views.py` : API Django, validation des entrées et protection CSRF.
+- `webapp/explorer.py` : hiérarchie issue de l’OWL, appartenances matérialisées et dossiers médicament.
 - `webapp/static/` : interface accessible, tableaux, sources et graphe SVG.
-- `tests/test_project.py` : tests positifs, négatifs, API et intégration.
+- `tests/test_project.py` et `tests/test_ontology_upgrade.py` : tests positifs, négatifs, frontières d’âge, hiérarchie, API et intégration.
 
 ## Dépendances et licences
 

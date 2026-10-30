@@ -1,74 +1,94 @@
 @prefix po: <http://www.esprit.tn/pharmaonto#> .
 
-po:Amoxicilline a po:PrincipeActif .
+po:AdministrationOrale a po:VoieAdministration,
+        po:VoieEnterale .
 
-po:AngineStreptococcique a po:Pathologie ;
+po:AllergiePenicillines a po:HypersensibiliteBetaLactamines,
+        po:HypersensibiliteMedicamenteuse,
+        po:Pathologie,
+        po:TroubleImmunitaire .
+
+po:Amoxicilline a po:AntiInfectieux,
+        po:Antibacterien,
+        po:Antibiotique,
+        po:BetaLactamine,
+        po:Penicilline,
+        po:PrincipeActif ;
+    po:estPrincipeActifDe po:Amoxicilline_BGR_1g,
+        po:Clamoxyl_1g .
+
+po:AngineStreptococcique a po:InfectionBacterienne,
+        po:MaladieInfectieuse,
+        po:Pathologie ;
     po:estTraitePar po:Amoxicilline_BGR_1g,
         po:Clamoxyl_1g .
 
-po:CI_AllergiePenicillines a po:ContreIndication .
+po:CI_AllergiePenicillines a po:CIHypersensibilite,
+        po:ContreIndication .
 
-po:CI_InsuffisanceRenaleSevere a po:ContreIndication .
+po:CI_InsuffisanceRenaleSevere a po:CIRenale,
+        po:ContreIndication .
 
-po:CI_UlcereEvolutif a po:ContreIndication .
+po:CI_UlcereEvolutif a po:CIDigestive,
+        po:ContreIndication .
 
-po:DiabeteType2 a po:Pathologie ;
+po:DiabeteType2 a po:AffectionMetabolique,
+        po:Pathologie ;
     po:estTraitePar po:Glucophage_850,
         po:Metformine_BGR_850 .
 
-po:DouleurAigue po:estTraitePar po:Advil_400 .
+po:DouleurAigue a po:Pathologie,
+        po:Symptome ;
+    po:estTraitePar po:Advil_400 .
 
-po:MaladieThromboembolique po:estTraitePar po:Coumadine_5 .
+po:FormeComprimeDispersible a po:Comprime,
+        po:FormePharmaceutique,
+        po:FormeSolide .
 
-po:Metformine a po:PrincipeActif .
+po:FormeComprimeEnrobe a po:Comprime,
+        po:FormePharmaceutique,
+        po:FormeSolide .
 
-po:Patient_P001 a po:Patient .
+po:FormeComprimePellicule a po:Comprime,
+        po:ComprimeEnrobe,
+        po:FormePharmaceutique,
+        po:FormeSolide .
 
-po:Patient_P002 a po:Patient .
+po:FormeComprimeSecable a po:Comprime,
+        po:FormePharmaceutique,
+        po:FormeSolide .
 
-po:Patient_P003 a po:Patient .
+po:InsuffisanceRenaleSevere a po:AffectionRenale,
+        po:DeficitFonctionRenale,
+        po:Pathologie .
 
-po:Patient_P004 a po:Adulte,
-        po:Patient .
+po:MaladieThromboembolique a po:AffectionVasculaire,
+        po:Pathologie ;
+    po:estTraitePar po:Coumadine_5 .
 
-po:Patient_P005 a po:Adulte,
-        po:Patient .
+po:Metformine a po:Antidiabetique,
+        po:PrincipeActif ;
+    po:estPrincipeActifDe po:Glucophage_850,
+        po:Metformine_BGR_850 .
 
-po:Warfarine a po:PrincipeActif ;
+po:UlcereGastroduodenalEvolutif a po:AffectionDigestive,
+        po:AffectionGastroDuodenale,
+        po:Pathologie .
+
+po:Warfarine a po:Anticoagulant,
+        po:Antithrombotique,
+        po:PrincipeActif ;
+    po:estPrincipeActifDe po:Coumadine_5 ;
     po:interagitAvec po:Ibuprofene .
 
-po:Advil_400 a po:MedicamentAntiInflammatoire ;
-    po:aObservationEffet po:Obs_Advil_400_TroublesDigestifs ;
-    po:provoque po:TroublesDigestifs .
+po:Hemorragie a po:EffetSecondaire .
 
-po:Amoxicilline_BGR_1g a po:Medicament,
-        po:MedicamentAntibiotique ;
-    po:aObservationEffet po:Obs_Amoxicilline_BGR_1g_Diarrhee ;
-    po:provoque po:Diarrhee .
+po:Ibuprofene a po:AntiInflammatoire,
+        po:AntiInflammatoireNonSteroidien,
+        po:PrincipeActif ;
+    po:estPrincipeActifDe po:Advil_400 .
 
-po:Clamoxyl_1g a po:Medicament,
-        po:MedicamentAntibiotique ;
-    po:aObservationEffet po:Obs_Clamoxyl_1g_Diarrhee ;
-    po:provoque po:Diarrhee .
-
-po:Coumadine_5 po:aObservationEffet po:Obs_Coumadine_5_Hemorragie ;
-    po:provoque po:Hemorragie .
-
-po:Glucophage_850 a po:Medicament,
-        po:MedicamentAntidiabetique ;
-    po:aObservationEffet po:Obs_Glucophage_850_AcidoseLactique,
-        po:Obs_Glucophage_850_TroublesDigestifs ;
-    po:provoque po:AcidoseLactique,
-        po:TroublesDigestifs .
-
-po:Ibuprofene a po:PrincipeActif .
-
-po:Metformine_BGR_850 a po:Medicament,
-        po:MedicamentAntidiabetique ;
-    po:aObservationEffet po:Obs_Metformine_BGR_850_AcidoseLactique,
-        po:Obs_Metformine_BGR_850_TroublesDigestifs ;
-    po:provoque po:AcidoseLactique,
-        po:TroublesDigestifs .
+po:Obs_Advil_400_TroublesDigestifs a po:ObservationEffet .
 
 po:Obs_Amoxicilline_BGR_1g_Diarrhee a po:ObservationEffet .
 
@@ -83,4 +103,105 @@ po:Obs_Glucophage_850_TroublesDigestifs a po:ObservationEffet .
 po:Obs_Metformine_BGR_850_AcidoseLactique a po:ObservationEffet .
 
 po:Obs_Metformine_BGR_850_TroublesDigestifs a po:ObservationEffet .
+
+po:Patient_P001 a po:AdulteMoyenAge,
+        po:Patient,
+        po:PatientAvecMaladieChronique .
+
+po:Patient_P002 a po:AdulteMoyenAge,
+        po:Patient .
+
+po:Patient_P003 a po:AdulteJeune,
+        po:Patient .
+
+po:Patient_P005 a po:Adulte,
+        po:Patient,
+        po:PatientAvecMaladieChronique .
+
+po:AcidoseLactique a po:EffetMetabolique,
+        po:EffetSecondaire .
+
+po:Advil_400 a po:MedicamentAINS,
+        po:MedicamentAnalgesique,
+        po:MedicamentAntiInflammatoire,
+        po:MedicamentComprime,
+        po:MedicamentComprimeEnrobe,
+        po:MedicamentDerivePropionique,
+        po:MedicamentOral ;
+    po:aObservationEffet po:Obs_Advil_400_TroublesDigestifs ;
+    po:estPrisPar po:Patient_P002,
+        po:Patient_P004 ;
+    po:provoque po:TroublesDigestifs .
+
+po:Amoxicilline_BGR_1g a po:Medicament,
+        po:MedicamentAntiInfectieux,
+        po:MedicamentAntibacterien,
+        po:MedicamentAntibiotique,
+        po:MedicamentBetaLactamine,
+        po:MedicamentComprime,
+        po:MedicamentComprimeDispersible,
+        po:MedicamentOral,
+        po:MedicamentPenicilline,
+        po:MedicamentPenicillineLargeSpectre ;
+    po:aObservationEffet po:Obs_Amoxicilline_BGR_1g_Diarrhee ;
+    po:estPrisPar po:Patient_P003 ;
+    po:provoque po:Diarrhee .
+
+po:Clamoxyl_1g a po:Medicament,
+        po:MedicamentAntiInfectieux,
+        po:MedicamentAntibacterien,
+        po:MedicamentAntibiotique,
+        po:MedicamentBetaLactamine,
+        po:MedicamentComprime,
+        po:MedicamentComprimeDispersible,
+        po:MedicamentOral,
+        po:MedicamentPenicilline,
+        po:MedicamentPenicillineLargeSpectre ;
+    po:aObservationEffet po:Obs_Clamoxyl_1g_Diarrhee ;
+    po:provoque po:Diarrhee .
+
+po:Coumadine_5 a po:MedicamentAnticoagulant,
+        po:MedicamentAntithrombotique,
+        po:MedicamentAntivitamineK,
+        po:MedicamentComprime,
+        po:MedicamentComprimeSecable,
+        po:MedicamentOral ;
+    po:aObservationEffet po:Obs_Coumadine_5_Hemorragie ;
+    po:estPrisPar po:Patient_P004 ;
+    po:provoque po:Hemorragie .
+
+po:Diarrhee a po:EffetDigestif,
+        po:EffetSecondaire .
+
+po:Glucophage_850 a po:Medicament,
+        po:MedicamentAntidiabetique,
+        po:MedicamentBiguanide,
+        po:MedicamentComprime,
+        po:MedicamentComprimeEnrobe,
+        po:MedicamentComprimePellicule,
+        po:MedicamentOral ;
+    po:aObservationEffet po:Obs_Glucophage_850_AcidoseLactique,
+        po:Obs_Glucophage_850_TroublesDigestifs ;
+    po:estPrisPar po:Patient_P001 ;
+    po:provoque po:AcidoseLactique,
+        po:TroublesDigestifs .
+
+po:Metformine_BGR_850 a po:Medicament,
+        po:MedicamentAntidiabetique,
+        po:MedicamentBiguanide,
+        po:MedicamentComprime,
+        po:MedicamentComprimeEnrobe,
+        po:MedicamentComprimePellicule,
+        po:MedicamentOral ;
+    po:aObservationEffet po:Obs_Metformine_BGR_850_AcidoseLactique,
+        po:Obs_Metformine_BGR_850_TroublesDigestifs ;
+    po:estPrisPar po:Patient_P005 ;
+    po:provoque po:AcidoseLactique,
+        po:TroublesDigestifs .
+
+po:Patient_P004 a po:Adulte,
+        po:Patient,
+        po:PatientAvecPlusieursMedicaments .
+
+po:TroublesDigestifs a po:EffetSecondaire .
 

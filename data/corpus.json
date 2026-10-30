@@ -23,7 +23,9 @@
       ],
       "reference": null,
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
-      "scope": "Indication limitée aux conditions d’âge, de poids et de durée du RCP. Aucun statut de princeps affirmé : la fiche ne référence pas de groupe générique."
+      "scope": "Indication limitée aux conditions d’âge, de poids et de durée du RCP. Aucun statut de princeps affirmé : la fiche ne référence pas de groupe générique.",
+      "form_id": "FormeComprimeEnrobe",
+      "route_id": "AdministrationOrale"
     },
     {
       "id": "Clamoxyl_1g",
@@ -45,7 +47,9 @@
       ],
       "reference": null,
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait",
-      "scope": "Angine/pharyngite documentée à streptocoque, et non toute angine."
+      "scope": "Angine/pharyngite documentée à streptocoque, et non toute angine.",
+      "form_id": "FormeComprimeDispersible",
+      "route_id": "AdministrationOrale"
     },
     {
       "id": "Glucophage_850",
@@ -67,7 +71,9 @@
       ],
       "reference": null,
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait",
-      "scope": "850 mg de chlorhydrate correspondent à 662,9 mg de metformine base. Le modèle conserve la masse de la dénomination."
+      "scope": "850 mg de chlorhydrate correspondent à 662,9 mg de metformine base. Le modèle conserve la masse de la dénomination.",
+      "form_id": "FormeComprimePellicule",
+      "route_id": "AdministrationOrale"
     },
     {
       "id": "Coumadine_5",
@@ -87,7 +93,9 @@
       "contraindications": [],
       "reference": null,
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait",
-      "scope": "Indication modélisée : traitement des thromboses veineuses profondes et embolies pulmonaires. Les contre-indications ne sont pas exhaustivement saisies."
+      "scope": "Indication modélisée : traitement des thromboses veineuses profondes et embolies pulmonaires. Les contre-indications ne sont pas exhaustivement saisies.",
+      "form_id": "FormeComprimeSecable",
+      "route_id": "AdministrationOrale"
     },
     {
       "id": "Amoxicilline_BGR_1g",
@@ -109,7 +117,9 @@
       ],
       "reference": "Clamoxyl_1g",
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait",
-      "scope": "Appartenance au groupe AMOXICILLINE 1 g / CLAMOXYL 1 g selon la fiche officielle."
+      "scope": "Appartenance au groupe AMOXICILLINE 1 g / CLAMOXYL 1 g selon la fiche officielle.",
+      "form_id": "FormeComprimeDispersible",
+      "route_id": "AdministrationOrale"
     },
     {
       "id": "Metformine_BGR_850",
@@ -131,7 +141,9 @@
       ],
       "reference": "Glucophage_850",
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait",
-      "scope": "Groupe METFORMINE (CHLORHYDRATE DE) 850 mg / GLUCOPHAGE 850 mg. Masse exprimée en chlorhydrate."
+      "scope": "Groupe METFORMINE (CHLORHYDRATE DE) 850 mg / GLUCOPHAGE 850 mg. Masse exprimée en chlorhydrate.",
+      "form_id": "FormeComprimePellicule",
+      "route_id": "AdministrationOrale"
     }
   ],
   "actives": [
@@ -139,34 +151,38 @@
       "id": "Ibuprofene",
       "label": "Ibuprofène",
       "classes": [
-        "AntiInflammatoire",
+        "DeriveAcidePropionique",
         "Analgesique"
       ],
-      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
+      "classification_source": "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01"
     },
     {
       "id": "Amoxicilline",
       "label": "Amoxicilline",
       "classes": [
-        "Antibiotique"
+        "PenicillineLargeSpectre"
       ],
-      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait",
+      "classification_source": "https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04"
     },
     {
       "id": "Metformine",
       "label": "Metformine",
       "classes": [
-        "Antidiabetique"
+        "Biguanide"
       ],
-      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait",
+      "classification_source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
     },
     {
       "id": "Warfarine",
       "label": "Warfarine",
       "classes": [
-        "Anticoagulant"
+        "AntivitamineK"
       ],
-      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"
+      "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait",
+      "classification_source": "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03"
     }
   ],
   "conditions": [
@@ -174,7 +190,8 @@
       "id": "DiabeteType2",
       "label": "Diabète de type 2",
       "classes": [
-        "MaladieChronique"
+        "MaladieChronique",
+        "TroubleGlycemique"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
     },
@@ -182,7 +199,7 @@
       "id": "UlcereGastroduodenalEvolutif",
       "label": "Ulcère gastroduodénal en évolution",
       "classes": [
-        "Pathologie"
+        "AffectionUlcereuse"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
     },
@@ -190,7 +207,7 @@
       "id": "AngineStreptococcique",
       "label": "Angine documentée à streptocoque",
       "classes": [
-        "MaladieInfectieuse"
+        "InfectionORLBacterienne"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
     },
@@ -198,7 +215,7 @@
       "id": "DouleurAigue",
       "label": "Douleur aiguë",
       "classes": [
-        "Pathologie"
+        "SymptomeDouloureux"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait"
     },
@@ -206,7 +223,7 @@
       "id": "AllergiePenicillines",
       "label": "Allergie aux pénicillines",
       "classes": [
-        "Pathologie"
+        "HypersensibilitePenicillines"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait"
     },
@@ -214,7 +231,7 @@
       "id": "InsuffisanceRenaleSevere",
       "label": "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min",
       "classes": [
-        "Pathologie"
+        "DeficitRenalSevere"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait"
     },
@@ -222,7 +239,7 @@
       "id": "MaladieThromboembolique",
       "label": "Thrombose veineuse profonde ou embolie pulmonaire",
       "classes": [
-        "Pathologie"
+        "AffectionThromboembolique"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait"
     }
@@ -230,19 +247,31 @@
   "effects": [
     {
       "id": "TroublesDigestifs",
-      "label": "Troubles digestifs"
+      "label": "Troubles digestifs",
+      "classes": [
+        "EffetDigestif"
+      ]
     },
     {
       "id": "Diarrhee",
-      "label": "Diarrhée"
+      "label": "Diarrhée",
+      "classes": [
+        "TroubleTransit"
+      ]
     },
     {
       "id": "AcidoseLactique",
-      "label": "Acidose lactique"
+      "label": "Acidose lactique",
+      "classes": [
+        "TroubleAcidoBasique"
+      ]
     },
     {
       "id": "Hemorragie",
-      "label": "Hémorragie"
+      "label": "Hémorragie",
+      "classes": [
+        "EffetHemorragique"
+      ]
     }
   ],
   "contraindications": [
@@ -275,7 +304,7 @@
       "effect": "TroublesDigestifs",
       "frequency": "non quantifiée dans cet extrait",
       "classes": [
-        "ObservationEffet"
+        "ObservationFrequenceNonQuantifiee"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait",
       "label": "Advil_400 : TroublesDigestifs"
@@ -354,7 +383,8 @@
       "effect": "Hemorragie",
       "frequency": "non quantifiée dans cet extrait",
       "classes": [
-        "ObservationGrave"
+        "ObservationGrave",
+        "ObservationFrequenceNonQuantifiee"
       ],
       "source": "https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait",
       "label": "Coumadine_5 : Hemorragie"
@@ -443,5 +473,35 @@
         "Metformine_BGR_850"
       ]
     }
-  ]
+  ],
+  "forms": [
+    {
+      "id": "FormeComprimeEnrobe",
+      "class": "ComprimeEnrobe",
+      "label": "comprimé enrobé"
+    },
+    {
+      "id": "FormeComprimeDispersible",
+      "class": "ComprimeDispersible",
+      "label": "comprimé dispersible"
+    },
+    {
+      "id": "FormeComprimePellicule",
+      "class": "ComprimePellicule",
+      "label": "comprimé pelliculé"
+    },
+    {
+      "id": "FormeComprimeSecable",
+      "class": "ComprimeSecable",
+      "label": "comprimé sécable"
+    }
+  ],
+  "routes": [
+    {
+      "id": "AdministrationOrale",
+      "class": "VoieOrale",
+      "label": "voie orale"
+    }
+  ],
+  "classification_reviewed": "2026-10-30"
 }

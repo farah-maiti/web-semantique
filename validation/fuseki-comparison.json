@@ -60,6 +60,26 @@
     "same_answers": true
   },
   {
+    "query": "hierarchie",
+    "rows": 96,
+    "same_answers": true
+  },
+  {
+    "query": "familles_substances",
+    "rows": 5,
+    "same_answers": true
+  },
+  {
+    "query": "formes_voies",
+    "rows": 6,
+    "same_answers": true
+  },
+  {
+    "query": "profils_patients",
+    "rows": 8,
+    "same_answers": true
+  },
+  {
     "graph": "Patient_P001",
     "edges": 5,
     "same_answers": true,
@@ -88,5 +108,13 @@
     "edges": 7,
     "same_answers": true,
     "patient_isolated": true
+  },
+  {
+    "view": "ontology_explorer",
+    "same_answers": true
+  },
+  {
+    "view": "medicine_dossier",
+    "same_answers": true
   }
 ]

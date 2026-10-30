@@ -7,6 +7,7 @@ from scripts.build_ontology import ROOT
 from .queries import QUERIES,query
 from .semantic import execute,rows,health,BackendUnavailable,entity_graph
 from .nlp import translate,UnsupportedQuestion,EXAMPLES
+from .explorer import ontology_snapshot,medicine_detail
 
 @ensure_csrf_cookie
 @require_GET
@@ -26,7 +27,7 @@ def status(request):
 @require_GET
 def metadata(request):
     corpus=json.loads((ROOT/'data/corpus.json').read_text(encoding='utf-8'))
-    return JsonResponse({'counts':json.loads((ROOT/'validation/counts.json').read_text()),'examples':EXAMPLES,'queries':[{'id':k,'title':v[0]} for k,v in QUERIES.items()],'patients':[{'id':p['id'],'label':p['label']} for p in corpus['patients']],'consulted':corpus['consulted']})
+    return JsonResponse({'counts':json.loads((ROOT/'validation/counts.json').read_text()),'examples':EXAMPLES,'queries':[{'id':k,'title':v[0]} for k,v in QUERIES.items()],'patients':[{'id':p['id'],'label':p['label']} for p in corpus['patients']],'medicines':[{'id':m['id'],'name':m['name'],'active':m['active'],'form':m['form'],'cis':m['cis']} for m in corpus['medicines']],'consulted':corpus['consulted'],'classification_reviewed':corpus['classification_reviewed']})
 
 @require_GET
 def predefined(request,key):
@@ -52,3 +53,21 @@ def graph(request):
     try:return JsonResponse({'edges':entity_graph(request.GET.get('patient','Patient_P002'))})
     except ValueError as e:return JsonResponse({'error':str(e)},status=400)
     except BackendUnavailable as e:return JsonResponse({'error':str(e)},status=503)
+
+@require_GET
+def ontology(request):
+    try:return JsonResponse(ontology_snapshot())
+    except BackendUnavailable as e:return JsonResponse({'error':str(e)},status=503)
+
+@require_GET
+def medicine(request,identifier):
+    try:return JsonResponse(medicine_detail(identifier))
+    except ValueError as e:return JsonResponse({'error':str(e)},status=404)
+    except BackendUnavailable as e:return JsonResponse({'error':str(e)},status=503)
+
+@require_GET
+def download(request,kind):
+    files={'owl':'pharmaonto.owl','swrl':'pharmaonto-swrl.owl','turtle':'pharmaonto.ttl'}
+    if kind not in files:raise Http404
+    name=files[kind]
+    return FileResponse(open(ROOT/'ontology'/name,'rb'),as_attachment=True,filename=name)

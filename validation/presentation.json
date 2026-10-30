@@ -1,12 +1,12 @@
 {
-  "sha256": "a806ff2ec9edb4c3c3386e2d79ff3f51f56d5abdc51e45b7babe779fb12c4ef9",
-  "slides": 16,
+  "sha256": "923fcc54fe16c50db45082e7867c7a87bf86928bca839a0b32c4188a3f4be463",
+  "slides": 18,
   "package_integrity": "pass",
   "layout_findings": 0,
   "font_policy_passed": true,
   "import_passed": true,
-  "native_tables": 3,
-  "visually_reviewed_slides": 16,
+  "native_tables": 4,
+  "visually_reviewed_slides": 18,
   "native_powerpoint_execution": false,
-  "presentation_pdf": "Visual copy from verified slide renders; editable source is PPTX."
+  "presentation_pdf": "Visual backup from the reviewed slide renders; the PPTX remains editable."
 }

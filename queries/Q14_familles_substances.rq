@@ -1,0 +1,10 @@
+# Familles les plus précises des substances
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?actif ?molecule ?classe ?libelle WHERE {
+ ?actif a po:PrincipeActif, ?classe ; rdfs:label ?molecule .
+ ?classe rdfs:subClassOf+ po:PrincipeActif ; rdfs:label ?libelle .
+ FILTER NOT EXISTS { ?actif a ?fine . ?fine rdfs:subClassOf+ ?classe . FILTER(?fine != ?classe) }
+ } ORDER BY ?molecule ?libelle
+LIMIT 200

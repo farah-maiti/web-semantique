@@ -1,0 +1,9 @@
+# Hiérarchie des classes nommées
+PREFIX po: <http://www.esprit.tn/pharmaonto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?classe ?libelle ?parent ?libelleParent WHERE {
+ ?classe rdfs:subClassOf ?parent ; rdfs:label ?libelle .
+ ?parent rdfs:label ?libelleParent . FILTER(isIRI(?parent))
+ } ORDER BY ?libelleParent ?libelle
+LIMIT 200

@@ -3,3 +3,7 @@ __pycache__/
 .pytest_cache/
 runtime/
 *.log
+!validation/hermit.log
+!validation/hermit-swrl.log
+!validation/shacl.log
+!validation/tests.log

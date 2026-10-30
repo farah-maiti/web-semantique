@@ -22,7 +22,7 @@ def build():
         g.bind(prefix,ns)
     onto=URIRef(BASE)
     g.add((onto,RDF.type,OWL.Ontology))
-    g.add((onto,OWL.versionInfo,Literal('2.0.0')))
+    g.add((onto,OWL.versionInfo,Literal('3.0.0')))
     g.add((onto,RDFS.label,Literal('PharmaOnto',lang='fr')))
     g.add((onto,RDFS.comment,Literal('Projet pédagogique Web Sémantique, ESPRIT 5 TWIN 2026-2027. Corpus partiel français, patients fictifs. Les alertes illustrent le raisonnement et ne constituent pas un avis médical.',lang='fr')))
     for name in ['Ahmed Saidani','Fedi Ben Khalifa','Farah Maiti']:
@@ -30,52 +30,26 @@ def build():
     for ap in [DCT.source,DCT.creator,DCT.date,P.notePortee,P.donneeFictive]:
         g.add((ap,RDF.type,OWL.AnnotationProperty))
 
-    classes = {
-        'Medicament':(None,'Médicament','Spécialité pharmaceutique, à dosage et forme déterminés. Périmètre réglementaire français.'),
-        'PrincipeActif':(None,'Principe actif','Substance active. La masse déclarée peut correspondre à un sel précisé par substanceDosee.'),
-        'EffetSecondaire':(None,'Effet indésirable','Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet.'),
-        'ContreIndication':(None,'Contre-indication','Condition documentée pour une spécialité. Le corpus ne couvre pas toutes les conditions du RCP.'),
-        'Patient':(None,'Patient fictif','Personne fictive utilisée exclusivement dans les scénarios de démonstration.'),
-        'Pathologie':(None,'État clinique','Maladie, symptôme ou état clinique pertinent dans ce modèle simplifié.'),
-        'ObservationEffet':(None,'Association médicament effet','Association documentée entre une spécialité et un effet possible, avec fréquence contextualisée.'),
-        'Princeps':('Medicament','Médicament de référence','Référence du groupe générique considéré dans le corpus français.'),
-        'Generique':('Medicament','Médicament générique','Spécialité rattachée à exactement une référence dans ce corpus.'),
-        'SurOrdonnance':('Medicament','Sur ordonnance','Statut français relevé à la date de consultation.'),
-        'SansOrdonnance':('Medicament','Sans ordonnance obligatoire','Statut français relevé à la date de consultation.'),
-        'Antibiotique':('PrincipeActif','Antibiotique','Substance à activité antibactérienne dans ce corpus.'),
-        'Analgesique':('PrincipeActif','Analgésique','Substance utilisée pour soulager la douleur.'),
-        'AntiInflammatoire':('PrincipeActif','Anti-inflammatoire','Substance à activité anti-inflammatoire.'),
-        'Anticoagulant':('PrincipeActif','Anticoagulant','Substance anticoagulante.'),
-        'Antidiabetique':('PrincipeActif','Antidiabétique','Substance utilisée dans le traitement du diabète.'),
-        'ObservationFrequente':('ObservationEffet','Effet fréquent pour ce médicament','Fréquence entre 1/100 inclus et 1/10 exclu selon le RCP de cette spécialité.'),
-        'ObservationTresFrequente':('ObservationEffet','Effet très fréquent pour ce médicament','Fréquence au moins égale à 1/10 selon le RCP.'),
-        'ObservationRare':('ObservationEffet','Effet rare pour ce médicament','Fréquence entre 1/10000 inclus et 1/1000 exclu selon le RCP.'),
-        'ObservationTresRare':('ObservationEffet','Effet très rare pour ce médicament','Fréquence inférieure à 1/10000 selon le RCP.'),
-        'ObservationGrave':('ObservationEffet','Effet potentiellement grave','Gravité indépendante de la fréquence. Les catégories de gravité et fréquence peuvent se recouvrir.'),
-        'CIAbsolue':('ContreIndication','Contre-indication absolue','Situation explicitement présentée comme une contre-indication dans la source.'),
-        'CIRelative':('ContreIndication','Précaution relative','Catégorie conservée pour extension. Elle ne déclenche pas la règle de contre-indication absolue.'),
-        'Adulte':('Patient','Adulte','Patient âgé de 18 ans ou plus, selon la convention du projet.'),
-        'Enfant':('Patient','Enfant','Patient de moins de 18 ans, selon la convention du projet.'),
-        'PersonneAgee':('Adulte','Personne âgée','Patient âgé de 65 ans ou plus, convention de démonstration.'),
-        'FemmeEnceinte':('Patient','Patiente enceinte','Catégorie indépendante de la classe d’âge. Aucun scénario de grossesse dans le corpus.'),
-        'MaladieChronique':('Pathologie','Maladie chronique','Affection chronique.'),
-        'MaladieInfectieuse':('Pathologie','Maladie infectieuse','Affection infectieuse.'),
-        'MedicamentAntiInflammatoire':('Medicament','Médicament anti-inflammatoire','Classe définie par la présence d’un principe actif anti-inflammatoire.'),
-        'MedicamentAntibiotique':('Medicament','Médicament antibiotique','Classe définie par la présence d’un principe actif antibiotique.'),
-        'MedicamentAntidiabetique':('Medicament','Médicament antidiabétique','Classe définie par la présence d’un principe actif antidiabétique.'),
-    }
-    for key,(parent,label,comment) in classes.items():
-        g.add((P[key],RDF.type,OWL.Class));g.add((P[key],RDFS.label,Literal(label,lang='fr')))
-        g.add((P[key],RDFS.comment,Literal(comment,lang='fr')))
-        if parent:g.add((P[key],RDFS.subClassOf,P[parent]))
+    schema=json.loads((ROOT/'data/taxonomy.json').read_text(encoding='utf-8'))
+    classes=schema['classes']
+    for key,row in classes.items():
+        g.add((P[key],RDF.type,OWL.Class))
+        g.add((P[key],RDFS.label,Literal(row['label'],lang='fr')))
+        g.add((P[key],RDFS.comment,Literal(row['definition'],lang='fr')))
+        for parent in row['parents']:g.add((P[key],RDFS.subClassOf,P[parent]))
+        for source in row['sources']:g.add((P[key],DCT.source,URIRef(source)))
     def listnode(values):
         b=BNode();Collection(g,b,values);return b
     def disjoint(names):
         b=BNode();g.add((b,RDF.type,OWL.AllDisjointClasses));g.add((b,OWL.members,listnode([P[x] for x in names])))
-    disjoint([k for k,v in classes.items() if v[0] is None])
-    for names in [('Princeps','Generique'),('SurOrdonnance','SansOrdonnance'),('Adulte','Enfant'),('CIAbsolue','CIRelative'),('ObservationFrequente','ObservationTresFrequente','ObservationRare','ObservationTresRare')]:disjoint(names)
+    disjoint([k for k,v in classes.items() if not v['parents']])
+    for names in [('Princeps','Generique'),('SurOrdonnance','SansOrdonnance'),('Adulte','Enfant'),('CIAbsolue','CIRelative'),('ObservationFrequente','ObservationTresFrequente','ObservationRare','ObservationTresRare','ObservationPeuFrequente','ObservationFrequenceNonQuantifiee')]:disjoint(names)
 
     objects = [
+        ('aFormePharmaceutique','Medicament','FormePharmaceutique','a pour forme pharmaceutique',OWL.FunctionalProperty),
+        ('aVoieAdministration','Medicament','VoieAdministration','a pour voie d’administration',None),
+        ('estPrincipeActifDe','PrincipeActif','Medicament','est principe actif de',None),
+        ('estPrisPar','Medicament','Patient','est pris par',None),
         ('contientPrincipeActif','Medicament','PrincipeActif','contient le principe actif',None),
         ('traite','Medicament','Pathologie','a une indication documentée pour',None),
         ('estTraitePar','Pathologie','Medicament','a pour médicament indiqué',None),
@@ -96,6 +70,8 @@ def build():
         g.add((P[key],RDF.type,OWL.ObjectProperty));g.add((P[key],RDFS.domain,P[dom]));g.add((P[key],RDFS.range,P[rng]));g.add((P[key],RDFS.label,Literal(label,lang='fr')))
         if characteristic:g.add((P[key],RDF.type,characteristic))
     g.add((P.traite,OWL.inverseOf,P.estTraitePar));g.add((P.aObservationEffet,OWL.inverseOf,P.observationDe))
+    g.add((P.contientPrincipeActif,OWL.inverseOf,P.estPrincipeActifDe))
+    g.add((P.prend,OWL.inverseOf,P.estPrisPar))
     g.add((P.provoque,OWL.propertyChainAxiom,listnode([P.aObservationEffet,P.effetObserve])))
     datatypes=[
         ('nomCommercial','Medicament',XSD.string,'nom de la spécialité'),
@@ -115,8 +91,26 @@ def build():
         return b
     g.add((P.Generique,RDFS.subClassOf,restriction('estGeneriqueDe',OWL.qualifiedCardinality,Literal(1,datatype=XSD.nonNegativeInteger),'Princeps')))
     g.add((P.Medicament,RDFS.subClassOf,restriction('contientPrincipeActif',OWL.someValuesFrom,P.PrincipeActif)))
-    for klass,active in [('MedicamentAntiInflammatoire','AntiInflammatoire'),('MedicamentAntibiotique','Antibiotique'),('MedicamentAntidiabetique','Antidiabetique')]:
-        b=BNode();g.add((b,RDF.type,OWL.Class));g.add((b,OWL.intersectionOf,listnode([P.Medicament,restriction('contientPrincipeActif',OWL.someValuesFrom,P[active])])));g.add((P[klass],OWL.equivalentClass,b))
+    def equivalent(key,parts):
+        b=BNode();g.add((b,RDF.type,OWL.Class));g.add((b,OWL.intersectionOf,listnode(parts)))
+        g.add((P[key],OWL.equivalentClass,b))
+    for key,row in classes.items():
+        if row.get('equivalent_some'):
+            d=row['equivalent_some']
+            equivalent(key,[P[d['base']],restriction(d['property'],OWL.someValuesFrom,P[d['filler']])])
+        if row.get('age_range'):
+            lo,hi=row['age_range'];dt=BNode();g.add((dt,RDF.type,RDFS.Datatype));g.add((dt,OWL.onDatatype,XSD.integer))
+            facets=[]
+            for kind,value in [(XSD.minInclusive,lo),(XSD.maxInclusive,hi)]:
+                if value is not None:
+                    facet=BNode();g.add((facet,kind,Literal(value,datatype=XSD.integer)));facets.append(facet)
+            g.add((dt,OWL.withRestrictions,listnode(facets)))
+            equivalent(key,[P.Patient,restriction('age',OWL.someValuesFrom,dt)])
+        if row.get('min_takes'):
+            equivalent(key,[P.Patient,restriction('prend',OWL.minQualifiedCardinality,Literal(row['min_takes'],datatype=XSD.nonNegativeInteger),'Medicament')])
+    for group in [('AdulteJeune','AdulteMoyenAge','PersonneAgee'),('Adolescent','JeuneEnfant')]:disjoint(group)
+    g.add((P.Medicament,RDFS.subClassOf,restriction('aFormePharmaceutique',OWL.qualifiedCardinality,Literal(1,datatype=XSD.nonNegativeInteger),'FormePharmaceutique')))
+    g.add((P.Medicament,RDFS.subClassOf,restriction('aVoieAdministration',OWL.someValuesFrom,P.VoieAdministration)))
 
     data=json.loads((ROOT/'data/corpus.json').read_text(encoding='utf-8'))
     def individual(key,types,label,source=None,fake=False):
@@ -125,19 +119,24 @@ def build():
         if source:
             g.add((P[key],DCT.source,URIRef(source)));g.add((P[key],DCT.date,Literal(data['consulted'],datatype=XSD.date)))
         if fake:g.add((P[key],P.donneeFictive,Literal(True)))
-    for row in data['actives']:individual(row['id'],row['classes'],row['label'],row['source'])
+    for row in data['actives']:
+        individual(row['id'],row['classes'],row['label'],row['source'])
+        g.add((P[row['id']],DCT.source,URIRef(row['classification_source'])))
     for row in data['conditions']:individual(row['id'],row['classes'],row['label'],row.get('source'))
-    for row in data['effects']:individual(row['id'],['EffetSecondaire'],row['label'])
+    for row in data['effects']:individual(row['id'],row['classes'],row['label'])
     for row in data['contraindications']:
         individual(row['id'],[row['class']],row['label'],row['source'])
         g.add((P[row['id']],P.concerne,P[row['condition']]))
         g.add((P[row['id']],P.description,Literal(row['label'],datatype=XSD.string)))
+    for row in data['forms']+data['routes']:individual(row['id'],[row['class']],row['label'])
     for row in data['medicines']:
         s=P[row['id']];individual(row['id'],row['classes'],row['name'],row['source'])
         for key,field,dt in [('nomCommercial','name',XSD.string),('dosageMg','strength_mg',XSD.decimal),('substanceDosee','strength_substance',XSD.string),('formeGalenique','form',XSD.string),('codeCIS','cis',XSD.string)]:
             value=Decimal(row[field]).quantize(Decimal('0.0')) if dt==XSD.decimal else row[field]
             g.add((s,P[key],Literal(value,datatype=dt)))
         g.add((s,P.contientPrincipeActif,P[row['active']]))
+        g.add((s,P.aFormePharmaceutique,P[row['form_id']]))
+        g.add((s,P.aVoieAdministration,P[row['route_id']]))
         for field,prop in [('indications','traite'),('contraindications','aPourContreIndication')]:
             for value in row[field]:g.add((s,P[prop],P[value]))
         if row.get('reference'):g.add((s,P.estGeneriqueDe,P[row['reference']]))
@@ -173,7 +172,8 @@ def build():
     for prop,atoms in [(SWRL.body,body),(SWRL.head,[atom('IndividualPropertyAtom','estContreIndiquePour','m','p')])]:
         node=BNode();Collection(ext,node,atoms);ext.add((rule,prop,node))
     ext.serialize(ROOT/'ontology/pharmaonto-swrl.owl',format='xml')
-    counts={'classes':len(classes),'object_properties':len(objects),'data_properties':len(datatypes),'individuals':len(set(g.subjects(RDF.type,OWL.NamedIndividual))),'asserted_triples':len(g),'medicines':len(data['medicines']),'patients':len(data['patients'])}
+    def depth(key):return 1+max((depth(p) for p in classes[key]['parents']),default=0)
+    counts={'version':schema['version'],'max_hierarchy_depth':max(map(depth,classes)),'root_classes':sum(not r['parents'] for r in classes.values()),'defined_classes':sum(bool(r.get('equivalent_some') or r.get('age_range') or r.get('min_takes')) for r in classes.values()),'classes':len(classes),'object_properties':len(objects),'data_properties':len(datatypes),'individuals':len(set(g.subjects(RDF.type,OWL.NamedIndividual))),'asserted_triples':len(g),'medicines':len(data['medicines']),'patients':len(data['patients'])}
     (ROOT/'validation/counts.json').write_text(json.dumps(counts,indent=2),encoding='utf-8')
     print(json.dumps(counts))
     return g

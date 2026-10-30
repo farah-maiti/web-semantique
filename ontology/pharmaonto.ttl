@@ -17,61 +17,157 @@ dcterms:source a owl:AnnotationProperty .
         "Farah Maiti",
         "Fedi Ben Khalifa" ;
     rdfs:comment "Projet pédagogique Web Sémantique, ESPRIT 5 TWIN 2026-2027. Corpus partiel français, patients fictifs. Les alertes illustrent le raisonnement et ne constituent pas un avis médical."@fr ;
-    owl:versionInfo "2.0.0" .
+    owl:versionInfo "3.0.0" .
+
+po:CIDigestive a owl:Class ;
+    rdfs:label "Contre-indication digestive"@fr ;
+    rdfs:comment "Contre-indication absolue portant sur affection digestive."@fr ;
+    rdfs:subClassOf po:CIAbsolue ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:CIAbsolue [ a owl:Restriction ;
+                        owl:onProperty po:concerne ;
+                        owl:someValuesFrom po:AffectionDigestive ] ) ] .
+
+po:CIHypersensibilite a owl:Class ;
+    rdfs:label "Contre-indication d’hypersensibilité"@fr ;
+    rdfs:comment "Contre-indication absolue portant sur hypersensibilité médicamenteuse."@fr ;
+    rdfs:subClassOf po:CIAbsolue ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:CIAbsolue [ a owl:Restriction ;
+                        owl:onProperty po:concerne ;
+                        owl:someValuesFrom po:HypersensibiliteMedicamenteuse ] ) ] .
+
+po:CIRenale a owl:Class ;
+    rdfs:label "Contre-indication rénale"@fr ;
+    rdfs:comment "Contre-indication absolue portant sur affection rénale."@fr ;
+    rdfs:subClassOf po:CIAbsolue ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:CIAbsolue [ a owl:Restriction ;
+                        owl:onProperty po:concerne ;
+                        owl:someValuesFrom po:AffectionRenale ] ) ] .
 
 po:FemmeEnceinte a owl:Class ;
     rdfs:label "Patiente enceinte"@fr ;
     rdfs:comment "Catégorie indépendante de la classe d’âge. Aucun scénario de grossesse dans le corpus."@fr ;
     rdfs:subClassOf po:Patient .
 
-po:MedicamentAntiInflammatoire a owl:Class ;
-    rdfs:label "Médicament anti-inflammatoire"@fr ;
-    rdfs:comment "Classe définie par la présence d’un principe actif anti-inflammatoire."@fr ;
+po:MedicamentAnalgesique a owl:Class ;
+    rdfs:label "Médicament analgésique"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille analgésique. Classe définie : appartenance calculable par HermiT."@fr ;
     rdfs:subClassOf po:Medicament ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
                         owl:onProperty po:contientPrincipeActif ;
-                        owl:someValuesFrom po:AntiInflammatoire ] ) ] .
+                        owl:someValuesFrom po:Analgesique ] ) ] .
 
-po:MedicamentAntibiotique a owl:Class ;
-    rdfs:label "Médicament antibiotique"@fr ;
-    rdfs:comment "Classe définie par la présence d’un principe actif antibiotique."@fr ;
-    rdfs:subClassOf po:Medicament ;
+po:MedicamentAntivitamineK a owl:Class ;
+    rdfs:label "Médicament antivitamine K"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille antivitamine k. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAnticoagulant ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
                         owl:onProperty po:contientPrincipeActif ;
-                        owl:someValuesFrom po:Antibiotique ] ) ] .
+                        owl:someValuesFrom po:AntivitamineK ] ) ] .
 
-po:MedicamentAntidiabetique a owl:Class ;
-    rdfs:label "Médicament antidiabétique"@fr ;
-    rdfs:comment "Classe définie par la présence d’un principe actif antidiabétique."@fr ;
-    rdfs:subClassOf po:Medicament ;
+po:MedicamentBiguanide a owl:Class ;
+    rdfs:label "Médicament biguanide"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille biguanide. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntidiabetique ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
                         owl:onProperty po:contientPrincipeActif ;
-                        owl:someValuesFrom po:Antidiabetique ] ) ] .
+                        owl:someValuesFrom po:Biguanide ] ) ] .
+
+po:MedicamentComprimeDispersible a owl:Class ;
+    rdfs:label "Médicament en comprimé dispersible"@fr ;
+    rdfs:comment "Classe définie par la voie orale et la forme pharmaceutique."@fr ;
+    rdfs:subClassOf po:MedicamentComprime ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:MedicamentOral [ a owl:Restriction ;
+                        owl:onProperty po:aFormePharmaceutique ;
+                        owl:someValuesFrom po:ComprimeDispersible ] ) ] .
+
+po:MedicamentComprimePellicule a owl:Class ;
+    rdfs:label "Médicament en comprimé pelliculé"@fr ;
+    rdfs:comment "Classe définie par la voie orale et la forme pharmaceutique."@fr ;
+    rdfs:subClassOf po:MedicamentComprimeEnrobe ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:MedicamentOral [ a owl:Restriction ;
+                        owl:onProperty po:aFormePharmaceutique ;
+                        owl:someValuesFrom po:ComprimePellicule ] ) ] .
+
+po:MedicamentComprimeSecable a owl:Class ;
+    rdfs:label "Médicament en comprimé sécable"@fr ;
+    rdfs:comment "Classe définie par la voie orale et la forme pharmaceutique."@fr ;
+    rdfs:subClassOf po:MedicamentComprime ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:MedicamentOral [ a owl:Restriction ;
+                        owl:onProperty po:aFormePharmaceutique ;
+                        owl:someValuesFrom po:ComprimeSecable ] ) ] .
+
+po:MedicamentDerivePropionique a owl:Class ;
+    rdfs:label "Médicament à dérivé propionique"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille dérivé de l’acide propionique. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAINS ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:DeriveAcidePropionique ] ) ] .
+
+po:MedicamentPenicillineLargeSpectre a owl:Class ;
+    rdfs:label "Médicament pénicilline à spectre élargi"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille pénicilline à spectre élargi. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentPenicilline ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:PenicillineLargeSpectre ] ) ] .
+
+po:PatientAvecMaladieChronique a owl:Class ;
+    rdfs:label "Patient avec maladie chronique"@fr ;
+    rdfs:comment "Profil défini par au moins un état clinique appartenant à MaladieChronique."@fr ;
+    rdfs:subClassOf po:Patient ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:souffreDe ;
+                        owl:someValuesFrom po:MaladieChronique ] ) ] .
+
+po:PatientAvecPlusieursMedicaments a owl:Class ;
+    rdfs:label "Patient avec plusieurs médicaments"@fr ;
+    rdfs:comment "Profil de démonstration : au moins deux spécialités distinctes enregistrées. Ce seuil ne prétend pas définir la polymédication clinique."@fr ;
+    rdfs:subClassOf po:Patient ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                        owl:onClass po:Medicament ;
+                        owl:onProperty po:prend ] ) ] .
+
+po:PersonneTresAgee a owl:Class ;
+    rdfs:label "Personne de 80 ans ou plus"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 80 ans ou plus. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:PersonneAgee ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 80 ] ) ] ] ) ] .
 
 po:aPourContreIndication a owl:ObjectProperty ;
     rdfs:label "a pour contre-indication"@fr ;
     rdfs:domain po:Medicament ;
     rdfs:range po:ContreIndication .
 
-po:age a owl:DatatypeProperty,
-        owl:FunctionalProperty ;
-    rdfs:label "âge fictif en années"@fr ;
-    rdfs:domain po:Patient ;
-    rdfs:range xsd:integer .
-
 po:codeCIS a owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:label "code CIS français"@fr ;
     rdfs:domain po:Medicament ;
     rdfs:range xsd:string .
-
-po:concerne a owl:ObjectProperty ;
-    rdfs:label "concerne l’état clinique"@fr ;
-    rdfs:domain po:ContreIndication ;
-    rdfs:range po:Pathologie .
 
 po:description a owl:DatatypeProperty,
         owl:FunctionalProperty ;
@@ -118,21 +214,11 @@ po:nomCommercial a owl:DatatypeProperty,
 
 po:notePortee a owl:AnnotationProperty .
 
-po:prend a owl:ObjectProperty ;
-    rdfs:label "prend dans le scénario"@fr ;
-    rdfs:domain po:Patient ;
-    rdfs:range po:Medicament .
-
 po:provoque a owl:ObjectProperty ;
     rdfs:label "peut provoquer"@fr ;
     rdfs:domain po:Medicament ;
     rdfs:range po:EffetSecondaire ;
     owl:propertyChainAxiom ( po:aObservationEffet po:effetObserve ) .
-
-po:souffreDe a owl:ObjectProperty ;
-    rdfs:label "présente l’état clinique"@fr ;
-    rdfs:domain po:Patient ;
-    rdfs:range po:Pathologie .
 
 po:substanceDosee a owl:DatatypeProperty,
         owl:FunctionalProperty ;
@@ -146,37 +232,240 @@ po:traite a owl:ObjectProperty ;
     rdfs:range po:Pathologie ;
     owl:inverseOf po:estTraitePar .
 
-po:Analgesique a owl:Class ;
-    rdfs:label "Analgésique"@fr ;
-    rdfs:comment "Substance utilisée pour soulager la douleur."@fr ;
-    rdfs:subClassOf po:PrincipeActif .
+po:Adolescent a owl:Class ;
+    rdfs:label "Adolescent"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 12 à 17 ans. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Enfant ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 12 ] [ xsd:maxInclusive 17 ] ) ] ] ) ] .
 
-po:Anticoagulant a owl:Class ;
-    rdfs:label "Anticoagulant"@fr ;
-    rdfs:comment "Substance anticoagulante."@fr ;
-    rdfs:subClassOf po:PrincipeActif .
+po:AdulteJeune a owl:Class ;
+    rdfs:label "Adulte de 18 à 44 ans"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 18 à 44 ans. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Adulte ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 18 ] [ xsd:maxInclusive 44 ] ) ] ] ) ] .
+
+po:AdulteMoyenAge a owl:Class ;
+    rdfs:label "Adulte de 45 à 64 ans"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 45 à 64 ans. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Adulte ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 45 ] [ xsd:maxInclusive 64 ] ) ] ] ) ] .
+
+po:AffectionGastroDuodenale a owl:Class ;
+    rdfs:label "Affection gastroduodénale"@fr ;
+    rdfs:comment "Affection de l’estomac ou du duodénum."@fr ;
+    rdfs:subClassOf po:AffectionDigestive .
+
+po:AffectionMetabolique a owl:Class ;
+    rdfs:label "Affection métabolique"@fr ;
+    rdfs:comment "État clinique affectant le métabolisme."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:AffectionThromboembolique a owl:Class ;
+    rdfs:label "Affection thromboembolique"@fr ;
+    rdfs:comment "Affection liée à un thrombus ou une embolie."@fr ;
+    rdfs:subClassOf po:AffectionVasculaire .
+
+po:AffectionUlcereuse a owl:Class ;
+    rdfs:label "Affection ulcéreuse gastroduodénale"@fr ;
+    rdfs:comment "Atteinte ulcéreuse gastroduodénale."@fr ;
+    rdfs:subClassOf po:AffectionGastroDuodenale .
+
+po:AffectionVasculaire a owl:Class ;
+    rdfs:label "Affection vasculaire"@fr ;
+    rdfs:comment "Affection des vaisseaux ou de la circulation."@fr ;
+    rdfs:subClassOf po:Pathologie .
 
 po:CIRelative a owl:Class ;
     rdfs:label "Précaution relative"@fr ;
     rdfs:comment "Catégorie conservée pour extension. Elle ne déclenche pas la règle de contre-indication absolue."@fr ;
     rdfs:subClassOf po:ContreIndication .
 
-po:Enfant a owl:Class ;
-    rdfs:label "Enfant"@fr ;
-    rdfs:comment "Patient de moins de 18 ans, selon la convention du projet."@fr ;
-    rdfs:subClassOf po:Patient .
+po:DeficitFonctionRenale a owl:Class ;
+    rdfs:label "Déficit de fonction rénale"@fr ;
+    rdfs:comment "Altération de la fonction rénale."@fr ;
+    rdfs:subClassOf po:AffectionRenale .
 
-po:MaladieChronique a owl:Class ;
-    rdfs:label "Maladie chronique"@fr ;
-    rdfs:comment "Affection chronique."@fr ;
-    rdfs:subClassOf po:Pathologie .
+po:DeficitRenalSevere a owl:Class ;
+    rdfs:label "Déficit rénal sévère"@fr ;
+    rdfs:comment "Catégorie accueillant le scénario de DFG inférieur à 30 mL/min du corpus."@fr ;
+    rdfs:subClassOf po:DeficitFonctionRenale .
+
+po:EffetHemorragique a owl:Class ;
+    rdfs:label "Effet hémorragique"@fr ;
+    rdfs:comment "Effet indésirable caractérisé par un saignement."@fr ;
+    rdfs:subClassOf po:EffetSecondaire .
+
+po:EffetMetabolique a owl:Class ;
+    rdfs:label "Effet métabolique"@fr ;
+    rdfs:comment "Effet indésirable touchant le métabolisme."@fr ;
+    rdfs:subClassOf po:EffetSecondaire .
+
+po:FormeSolide a owl:Class ;
+    rdfs:label "Forme solide"@fr ;
+    rdfs:comment "Forme pharmaceutique solide."@fr ;
+    rdfs:subClassOf po:FormePharmaceutique .
+
+po:HypersensibiliteBetaLactamines a owl:Class ;
+    rdfs:label "Hypersensibilité aux bêta-lactamines"@fr ;
+    rdfs:comment "Hypersensibilité documentée à une bêta-lactamine ; ne généralise pas les réactions croisées."@fr ;
+    rdfs:subClassOf po:HypersensibiliteMedicamenteuse .
+
+po:HypersensibilitePenicillines a owl:Class ;
+    rdfs:label "Hypersensibilité aux pénicillines"@fr ;
+    rdfs:comment "Hypersensibilité spécifiquement documentée aux pénicillines."@fr ;
+    rdfs:subClassOf po:HypersensibiliteBetaLactamines .
+
+po:InfectionBacterienne a owl:Class ;
+    rdfs:label "Infection bactérienne"@fr ;
+    rdfs:comment "Affection infectieuse attribuée à une bactérie."@fr ;
+    rdfs:subClassOf po:MaladieInfectieuse .
+
+po:InfectionORLBacterienne a owl:Class ;
+    rdfs:label "Infection ORL bactérienne"@fr ;
+    rdfs:comment "Infection bactérienne de la sphère ORL ; l’angine streptococcique du corpus en est un exemple."@fr ;
+    rdfs:subClassOf po:InfectionBacterienne .
+
+po:JeuneEnfant a owl:Class ;
+    rdfs:label "Enfant de moins de 12 ans"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 0 à 11 ans. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Enfant ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] [ xsd:maxInclusive 11 ] ) ] ] ) ] .
 
 po:MaladieInfectieuse a owl:Class ;
     rdfs:label "Maladie infectieuse"@fr ;
     rdfs:comment "Affection infectieuse."@fr ;
     rdfs:subClassOf po:Pathologie .
 
-po:Obs_Advil_400_TroublesDigestifs a po:ObservationEffet,
+po:MedicamentAINS a owl:Class ;
+    rdfs:label "Médicament AINS"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille anti-inflammatoire non stéroïdien. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntiInflammatoire ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:AntiInflammatoireNonSteroidien ] ) ] .
+
+po:MedicamentAntiInfectieux a owl:Class ;
+    rdfs:label "Médicament anti-infectieux"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille anti-infectieux. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:AntiInfectieux ] ) ] .
+
+po:MedicamentAntiInflammatoire a owl:Class ;
+    rdfs:label "Médicament anti-inflammatoire"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille anti-inflammatoire. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:AntiInflammatoire ] ) ] .
+
+po:MedicamentAntibacterien a owl:Class ;
+    rdfs:label "Médicament antibactérien"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille antibactérien. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntiInfectieux ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antibacterien ] ) ] .
+
+po:MedicamentAntibiotique a owl:Class ;
+    rdfs:label "Médicament antibiotique"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille antibiotique. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntibacterien ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antibiotique ] ) ] .
+
+po:MedicamentAnticoagulant a owl:Class ;
+    rdfs:label "Médicament anticoagulant"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille anticoagulant. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntithrombotique ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Anticoagulant ] ) ] .
+
+po:MedicamentAntidiabetique a owl:Class ;
+    rdfs:label "Médicament antidiabétique"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille antidiabétique. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antidiabetique ] ) ] .
+
+po:MedicamentAntithrombotique a owl:Class ;
+    rdfs:label "Médicament antithrombotique"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille antithrombotique. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Antithrombotique ] ) ] .
+
+po:MedicamentBetaLactamine a owl:Class ;
+    rdfs:label "Médicament bêta-lactamine"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille bêta-lactamine. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentAntibiotique ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:BetaLactamine ] ) ] .
+
+po:MedicamentComprimeEnrobe a owl:Class ;
+    rdfs:label "Médicament en comprimé enrobé"@fr ;
+    rdfs:comment "Classe définie par la voie orale et la forme pharmaceutique."@fr ;
+    rdfs:subClassOf po:MedicamentComprime ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:MedicamentOral [ a owl:Restriction ;
+                        owl:onProperty po:aFormePharmaceutique ;
+                        owl:someValuesFrom po:ComprimeEnrobe ] ) ] .
+
+po:MedicamentPenicilline a owl:Class ;
+    rdfs:label "Médicament pénicilline"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Spécialité contenant au moins une substance de la famille pénicilline. Classe définie : appartenance calculable par HermiT."@fr ;
+    rdfs:subClassOf po:MedicamentBetaLactamine ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:contientPrincipeActif ;
+                        owl:someValuesFrom po:Penicilline ] ) ] .
+
+po:Obs_Advil_400_TroublesDigestifs a po:ObservationFrequenceNonQuantifiee,
         owl:NamedIndividual ;
     rdfs:label "Advil_400 : TroublesDigestifs"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
@@ -203,7 +492,8 @@ po:Obs_Clamoxyl_1g_Diarrhee a po:ObservationFrequente,
     po:frequence "fréquent"^^xsd:string ;
     po:observationDe po:Clamoxyl_1g .
 
-po:Obs_Coumadine_5_Hemorragie a po:ObservationGrave,
+po:Obs_Coumadine_5_Hemorragie a po:ObservationFrequenceNonQuantifiee,
+        po:ObservationGrave,
         owl:NamedIndividual ;
     rdfs:label "Coumadine_5 : Hemorragie"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
@@ -249,6 +539,11 @@ po:Obs_Metformine_BGR_850_TroublesDigestifs a po:ObservationTresFrequente,
     po:effetObserve po:TroublesDigestifs ;
     po:frequence "très fréquent"^^xsd:string ;
     po:observationDe po:Metformine_BGR_850 .
+
+po:ObservationPeuFrequente a owl:Class ;
+    rdfs:label "Effet peu fréquent pour ce médicament"@fr ;
+    rdfs:comment "Fréquence entre 1/1000 inclus et 1/100 exclu. Catégorie disponible, non renseignée dans le corpus actuel."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
 
 po:ObservationRare a owl:Class ;
     rdfs:label "Effet rare pour ce médicament"@fr ;
@@ -299,6 +594,41 @@ po:Patient_P005 a po:PersonneAgee,
     po:souffreDe po:DiabeteType2,
         po:InsuffisanceRenaleSevere .
 
+po:Symptome a owl:Class ;
+    rdfs:label "Symptôme"@fr ;
+    rdfs:comment "Manifestation clinique ; Pathologie est utilisé ici au sens large d’état clinique."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:SymptomeDouloureux a owl:Class ;
+    rdfs:label "Symptôme douloureux"@fr ;
+    rdfs:comment "Symptôme caractérisé par une douleur."@fr ;
+    rdfs:subClassOf po:Symptome .
+
+po:TroubleAcidoBasique a owl:Class ;
+    rdfs:label "Trouble acido-basique"@fr ;
+    rdfs:comment "Effet métabolique portant sur l’équilibre acido-basique."@fr ;
+    rdfs:subClassOf po:EffetMetabolique .
+
+po:TroubleGlycemique a owl:Class ;
+    rdfs:label "Trouble glycémique"@fr ;
+    rdfs:comment "Affection métabolique portant sur la régulation de la glycémie."@fr ;
+    rdfs:subClassOf po:AffectionMetabolique .
+
+po:TroubleImmunitaire a owl:Class ;
+    rdfs:label "Trouble immunitaire"@fr ;
+    rdfs:comment "État clinique impliquant le système immunitaire."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:TroubleTransit a owl:Class ;
+    rdfs:label "Trouble du transit"@fr ;
+    rdfs:comment "Effet digestif portant sur le transit intestinal."@fr ;
+    rdfs:subClassOf po:EffetDigestif .
+
+po:VoieEnterale a owl:Class ;
+    rdfs:label "Voie entérale"@fr ;
+    rdfs:comment "Administration passant par le tube digestif."@fr ;
+    rdfs:subClassOf po:VoieAdministration .
+
 po:aObservationEffet a owl:ObjectProperty ;
     rdfs:label "a une association avec un effet"@fr ;
     rdfs:domain po:Medicament ;
@@ -317,6 +647,16 @@ po:estGeneriqueDe a owl:FunctionalProperty,
     rdfs:domain po:Generique ;
     rdfs:range po:Princeps .
 
+po:estPrincipeActifDe a owl:ObjectProperty ;
+    rdfs:label "est principe actif de"@fr ;
+    rdfs:domain po:PrincipeActif ;
+    rdfs:range po:Medicament .
+
+po:estPrisPar a owl:ObjectProperty ;
+    rdfs:label "est pris par"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:Patient .
+
 po:estTraitePar a owl:ObjectProperty ;
     rdfs:label "a pour médicament indiqué"@fr ;
     rdfs:domain po:Pathologie ;
@@ -334,20 +674,93 @@ po:observationDe a owl:FunctionalProperty,
     rdfs:domain po:ObservationEffet ;
     rdfs:range po:Medicament .
 
+po:prend a owl:ObjectProperty ;
+    rdfs:label "prend dans le scénario"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range po:Medicament ;
+    owl:inverseOf po:estPrisPar .
+
+po:souffreDe a owl:ObjectProperty ;
+    rdfs:label "présente l’état clinique"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range po:Pathologie .
+
+po:AffectionDigestive a owl:Class ;
+    rdfs:label "Affection digestive"@fr ;
+    rdfs:comment "État clinique du système digestif."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:AffectionRenale a owl:Class ;
+    rdfs:label "Affection rénale"@fr ;
+    rdfs:comment "État clinique affectant les reins."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:Analgesique a owl:Class ;
+    rdfs:label "Analgésique"@fr ;
+    rdfs:comment "Substance utilisée pour soulager la douleur."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:AntiInfectieux a owl:Class ;
+    rdfs:label "Anti-infectieux"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Substance active dirigée contre un agent infectieux."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
 po:AntiInflammatoire a owl:Class ;
     rdfs:label "Anti-inflammatoire"@fr ;
     rdfs:comment "Substance à activité anti-inflammatoire."@fr ;
     rdfs:subClassOf po:PrincipeActif .
 
+po:AntiInflammatoireNonSteroidien a owl:Class ;
+    rdfs:label "Anti-inflammatoire non stéroïdien"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01> ;
+    rdfs:comment "AINS : famille non stéroïdienne de substances anti-inflammatoires."@fr ;
+    rdfs:subClassOf po:AntiInflammatoire .
+
+po:Antibacterien a owl:Class ;
+    rdfs:label "Antibactérien"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Substance active dirigée contre les bactéries."@fr ;
+    rdfs:subClassOf po:AntiInfectieux .
+
 po:Antibiotique a owl:Class ;
     rdfs:label "Antibiotique"@fr ;
     rdfs:comment "Substance à activité antibactérienne dans ce corpus."@fr ;
-    rdfs:subClassOf po:PrincipeActif .
+    rdfs:subClassOf po:Antibacterien .
+
+po:Anticoagulant a owl:Class ;
+    rdfs:label "Anticoagulant"@fr ;
+    rdfs:comment "Substance anticoagulante."@fr ;
+    rdfs:subClassOf po:Antithrombotique .
 
 po:Antidiabetique a owl:Class ;
     rdfs:label "Antidiabétique"@fr ;
     rdfs:comment "Substance utilisée dans le traitement du diabète."@fr ;
     rdfs:subClassOf po:PrincipeActif .
+
+po:Antithrombotique a owl:Class ;
+    rdfs:label "Antithrombotique"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03> ;
+    rdfs:comment "Substance intervenant dans la prévention ou le traitement des thromboses."@fr ;
+    rdfs:subClassOf po:PrincipeActif .
+
+po:AntivitamineK a owl:Class ;
+    rdfs:label "Antivitamine K"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03> ;
+    rdfs:comment "Anticoagulant antagoniste de la vitamine K ; comprend la warfarine."@fr ;
+    rdfs:subClassOf po:Anticoagulant .
+
+po:BetaLactamine a owl:Class ;
+    rdfs:label "Bêta-lactamine"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    rdfs:comment "Famille d’antibiotiques à noyau bêta-lactame."@fr ;
+    rdfs:subClassOf po:Antibiotique .
+
+po:Biguanide a owl:Class ;
+    rdfs:label "Biguanide"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    rdfs:comment "Famille antidiabétique comprenant la metformine."@fr ;
+    rdfs:subClassOf po:Antidiabetique .
 
 po:CI_UlcereEvolutif a po:CIAbsolue,
         owl:NamedIndividual ;
@@ -357,35 +770,97 @@ po:CI_UlcereEvolutif a po:CIAbsolue,
     po:concerne po:UlcereGastroduodenalEvolutif ;
     po:description "Ulcère gastroduodénal en évolution"^^xsd:string .
 
-po:Hemorragie a po:EffetSecondaire,
+po:ComprimeDispersible a owl:Class ;
+    rdfs:label "Comprimé dispersible"@fr ;
+    rdfs:comment "Comprimé destiné à être dispersé selon les conditions de son RCP."@fr ;
+    rdfs:subClassOf po:Comprime .
+
+po:ComprimePellicule a owl:Class ;
+    rdfs:label "Comprimé pelliculé"@fr ;
+    rdfs:comment "Comprimé avec un enrobage sous forme de film."@fr ;
+    rdfs:subClassOf po:ComprimeEnrobe .
+
+po:ComprimeSecable a owl:Class ;
+    rdfs:label "Comprimé sécable"@fr ;
+    rdfs:comment "Forme décrite comme sécable dans la fiche ; ne présume pas une adaptation de dose."@fr ;
+    rdfs:subClassOf po:Comprime .
+
+po:DeriveAcidePropionique a owl:Class ;
+    rdfs:label "Dérivé de l’acide propionique"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01> ;
+    rdfs:comment "Sous-famille des AINS comprenant l’ibuprofène."@fr ;
+    rdfs:subClassOf po:AntiInflammatoireNonSteroidien .
+
+po:EffetDigestif a owl:Class ;
+    rdfs:label "Effet digestif"@fr ;
+    rdfs:comment "Effet indésirable touchant le système digestif."@fr ;
+    rdfs:subClassOf po:EffetSecondaire .
+
+po:FormeComprimeEnrobe a po:ComprimeEnrobe,
+        owl:NamedIndividual ;
+    rdfs:label "comprimé enrobé"@fr .
+
+po:FormeComprimeSecable a po:ComprimeSecable,
+        owl:NamedIndividual ;
+    rdfs:label "comprimé sécable"@fr .
+
+po:Hemorragie a po:EffetHemorragique,
         owl:NamedIndividual ;
     rdfs:label "Hémorragie"@fr .
 
-po:PersonneAgee a owl:Class ;
-    rdfs:label "Personne âgée"@fr ;
-    rdfs:comment "Patient âgé de 65 ans ou plus, convention de démonstration."@fr ;
-    rdfs:subClassOf po:Adulte .
+po:HypersensibiliteMedicamenteuse a owl:Class ;
+    rdfs:label "Hypersensibilité médicamenteuse"@fr ;
+    rdfs:comment "État d’hypersensibilité à un médicament ou à une famille."@fr ;
+    rdfs:subClassOf po:TroubleImmunitaire .
+
+po:MaladieChronique a owl:Class ;
+    rdfs:label "Maladie chronique"@fr ;
+    rdfs:comment "Affection chronique."@fr ;
+    rdfs:subClassOf po:Pathologie .
+
+po:Penicilline a owl:Class ;
+    rdfs:label "Pénicilline"@fr ;
+    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    rdfs:comment "Sous-famille des antibiotiques bêta-lactamines."@fr ;
+    rdfs:subClassOf po:BetaLactamine .
+
+po:PenicillineLargeSpectre a owl:Class ;
+    rdfs:label "Pénicilline à spectre élargi"@fr ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04> ;
+    rdfs:comment "Sous-famille comprenant l’amoxicilline dans la classification de référence."@fr ;
+    rdfs:subClassOf po:Penicilline .
 
 po:SansOrdonnance a owl:Class ;
     rdfs:label "Sans ordonnance obligatoire"@fr ;
     rdfs:comment "Statut français relevé à la date de consultation."@fr ;
     rdfs:subClassOf po:Medicament .
 
-po:AcidoseLactique a po:EffetSecondaire,
+po:VoieOrale a owl:Class ;
+    rdfs:label "Voie orale"@fr ;
+    rdfs:comment "Administration par la bouche selon le RCP de la spécialité."@fr ;
+    rdfs:subClassOf po:VoieEnterale .
+
+po:aVoieAdministration a owl:ObjectProperty ;
+    rdfs:label "a pour voie d’administration"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:VoieAdministration .
+
+po:AcidoseLactique a po:TroubleAcidoBasique,
         owl:NamedIndividual ;
     rdfs:label "Acidose lactique"@fr .
 
-po:AllergiePenicillines a po:Pathologie,
+po:AllergiePenicillines a po:HypersensibilitePenicillines,
         owl:NamedIndividual ;
     rdfs:label "Allergie aux pénicillines"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
 
-po:Amoxicilline a po:Antibiotique,
+po:Amoxicilline a po:PenicillineLargeSpectre,
         owl:NamedIndividual ;
     rdfs:label "Amoxicilline"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
-    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=J01CA04>,
+        <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
 
 po:Amoxicilline_BGR_1g a po:Generique,
         po:SurOrdonnance,
@@ -393,7 +868,9 @@ po:Amoxicilline_BGR_1g a po:Generique,
     rdfs:label "AMOXICILLINE BGR 1 g"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/66511789/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimeDispersible ;
     po:aPourContreIndication po:CI_AllergiePenicillines ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "66511789"^^xsd:string ;
     po:contientPrincipeActif po:Amoxicilline ;
     po:dosageMg 1000.0 ;
@@ -426,7 +903,9 @@ po:Clamoxyl_1g a po:Princeps,
     rdfs:label "CLAMOXYL 1 g"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimeDispersible ;
     po:aPourContreIndication po:CI_AllergiePenicillines ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "64539416"^^xsd:string ;
     po:contientPrincipeActif po:Amoxicilline ;
     po:dosageMg 1000.0 ;
@@ -436,12 +915,19 @@ po:Clamoxyl_1g a po:Princeps,
     po:substanceDosee "amoxicilline"^^xsd:string ;
     po:traite po:AngineStreptococcique .
 
+po:ComprimeEnrobe a owl:Class ;
+    rdfs:label "Comprimé enrobé"@fr ;
+    rdfs:comment "Comprimé avec enrobage ; la nature de l’enrobage n’est pas présumée."@fr ;
+    rdfs:subClassOf po:Comprime .
+
 po:Coumadine_5 a po:Medicament,
         po:SurOrdonnance,
         owl:NamedIndividual ;
     rdfs:label "COUMADINE 5 mg"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimeSecable ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "63245753"^^xsd:string ;
     po:contientPrincipeActif po:Warfarine ;
     po:dosageMg 5.0 ;
@@ -451,41 +937,75 @@ po:Coumadine_5 a po:Medicament,
     po:substanceDosee "warfarine sodique"^^xsd:string ;
     po:traite po:MaladieThromboembolique .
 
-po:Diarrhee a po:EffetSecondaire,
+po:Diarrhee a po:TroubleTransit,
         owl:NamedIndividual ;
     rdfs:label "Diarrhée"@fr .
 
-po:DouleurAigue a po:Pathologie,
+po:DouleurAigue a po:SymptomeDouloureux,
         owl:NamedIndividual ;
     rdfs:label "Douleur aiguë"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> .
 
+po:Enfant a owl:Class ;
+    rdfs:label "Enfant"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 0 à 17 ans. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Patient ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 0 ] [ xsd:maxInclusive 17 ] ) ] ] ) ] .
+
+po:FormeComprimeDispersible a po:ComprimeDispersible,
+        owl:NamedIndividual ;
+    rdfs:label "comprimé dispersible"@fr .
+
+po:FormeComprimePellicule a po:ComprimePellicule,
+        owl:NamedIndividual ;
+    rdfs:label "comprimé pelliculé"@fr .
+
 po:Ibuprofene a po:Analgesique,
-        po:AntiInflammatoire,
+        po:DeriveAcidePropionique,
         owl:NamedIndividual ;
     rdfs:label "Ibuprofène"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
-    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01>,
+        <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
     po:interagitAvec po:Warfarine .
 
-po:InsuffisanceRenaleSevere a po:Pathologie,
+po:InsuffisanceRenaleSevere a po:DeficitRenalSevere,
         owl:NamedIndividual ;
     rdfs:label "Insuffisance rénale sévère avec DFG inférieur à 30 mL/min"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> .
 
-po:MaladieThromboembolique a po:Pathologie,
+po:MaladieThromboembolique a po:AffectionThromboembolique,
         owl:NamedIndividual ;
     rdfs:label "Thrombose veineuse profonde ou embolie pulmonaire"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> .
 
-po:Metformine a po:Antidiabetique,
+po:MedicamentComprime a owl:Class ;
+    rdfs:label "Médicament en comprimé oral"@fr ;
+    rdfs:comment "Spécialité orale possédant une forme appartenant à Comprime."@fr ;
+    rdfs:subClassOf po:MedicamentOral ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:MedicamentOral [ a owl:Restriction ;
+                        owl:onProperty po:aFormePharmaceutique ;
+                        owl:someValuesFrom po:Comprime ] ) ] .
+
+po:Metformine a po:Biguanide,
         owl:NamedIndividual ;
     rdfs:label "Metformine"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> .
+
+po:ObservationFrequenceNonQuantifiee a owl:Class ;
+    rdfs:label "Fréquence non quantifiée dans le corpus"@fr ;
+    rdfs:comment "La fréquence n’est pas chiffrée dans l’extrait retenu ; ce statut n’est pas une catégorie réglementaire de fréquence."@fr ;
+    rdfs:subClassOf po:ObservationEffet .
 
 po:ObservationFrequente a owl:Class ;
     rdfs:label "Effet fréquent pour ce médicament"@fr ;
@@ -507,11 +1027,16 @@ po:ObservationTresRare a owl:Class ;
     rdfs:comment "Fréquence inférieure à 1/10000 selon le RCP."@fr ;
     rdfs:subClassOf po:ObservationEffet .
 
-po:UlcereGastroduodenalEvolutif a po:Pathologie,
+po:UlcereGastroduodenalEvolutif a po:AffectionUlcereuse,
         owl:NamedIndividual ;
     rdfs:label "Ulcère gastroduodénal en évolution"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> .
+
+po:concerne a owl:ObjectProperty ;
+    rdfs:label "concerne l’état clinique"@fr ;
+    rdfs:domain po:ContreIndication ;
+    rdfs:range po:Pathologie .
 
 po:Advil_400 a po:Medicament,
         po:SansOrdonnance,
@@ -519,7 +1044,9 @@ po:Advil_400 a po:Medicament,
     rdfs:label "ADVIL 400 mg"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimeEnrobe ;
     po:aPourContreIndication po:CI_UlcereEvolutif ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "63646874"^^xsd:string ;
     po:contientPrincipeActif po:Ibuprofene ;
     po:dosageMg 400.0 ;
@@ -529,16 +1056,20 @@ po:Advil_400 a po:Medicament,
     po:substanceDosee "ibuprofène"^^xsd:string ;
     po:traite po:DouleurAigue .
 
-po:AngineStreptococcique a po:MaladieInfectieuse,
+po:AngineStreptococcique a po:InfectionORLBacterienne,
         owl:NamedIndividual ;
     rdfs:label "Angine documentée à streptocoque"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/64539416/extrait> .
 
-po:CIAbsolue a owl:Class ;
-    rdfs:label "Contre-indication absolue"@fr ;
-    rdfs:comment "Situation explicitement présentée comme une contre-indication dans la source."@fr ;
-    rdfs:subClassOf po:ContreIndication .
+po:Comprime a owl:Class ;
+    rdfs:label "Comprimé"@fr ;
+    rdfs:comment "Unité pharmaceutique solide sous forme de comprimé."@fr ;
+    rdfs:subClassOf po:FormeSolide .
+
+po:FormePharmaceutique a owl:Class ;
+    rdfs:label "Forme pharmaceutique"@fr ;
+    rdfs:comment "Concept de forme du médicament, distinct de la spécialité."@fr .
 
 po:Generique a owl:Class ;
     rdfs:label "Médicament générique"@fr ;
@@ -555,7 +1086,9 @@ po:Metformine_BGR_850 a po:Generique,
     rdfs:label "METFORMINE BGR 850 mg"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/60754492/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimePellicule ;
     po:aPourContreIndication po:CI_InsuffisanceRenaleSevere ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "60754492"^^xsd:string ;
     po:contientPrincipeActif po:Metformine ;
     po:dosageMg 850.0 ;
@@ -566,27 +1099,34 @@ po:Metformine_BGR_850 a po:Generique,
     po:substanceDosee "chlorhydrate de metformine"^^xsd:string ;
     po:traite po:DiabeteType2 .
 
-po:TroublesDigestifs a po:EffetSecondaire,
+po:PersonneAgee a owl:Class ;
+    rdfs:label "Personne âgée"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 65 ans ou plus. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Adulte ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 65 ] ) ] ] ) ] .
+
+po:TroublesDigestifs a po:EffetDigestif,
         owl:NamedIndividual ;
     rdfs:label "Troubles digestifs"@fr .
 
-po:Warfarine a po:Anticoagulant,
+po:VoieAdministration a owl:Class ;
+    rdfs:label "Voie d’administration"@fr ;
+    rdfs:comment "Concept de voie d’administration ; n’est pas une recommandation au patient."@fr .
+
+po:Warfarine a po:AntivitamineK,
         owl:NamedIndividual ;
     rdfs:label "Warfarine"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
-    dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> .
-
-po:contientPrincipeActif a owl:ObjectProperty ;
-    rdfs:label "contient le principe actif"@fr ;
-    rdfs:domain po:Medicament ;
-    rdfs:range po:PrincipeActif .
-
-po:Adulte a owl:Class ;
-    rdfs:label "Adulte"@fr ;
-    rdfs:comment "Patient âgé de 18 ans ou plus, selon la convention du projet."@fr ;
-    rdfs:subClassOf po:Patient .
+    dcterms:source <https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03>,
+        <https://base-donnees-publique.medicaments.gouv.fr/medicament/63245753/extrait> .
 
 po:DiabeteType2 a po:MaladieChronique,
+        po:TroubleGlycemique,
         owl:NamedIndividual ;
     rdfs:label "Diabète de type 2"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
@@ -598,7 +1138,9 @@ po:Glucophage_850 a po:Princeps,
     rdfs:label "GLUCOPHAGE 850 mg"@fr ;
     dcterms:date "2026-10-29"^^xsd:date ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/67547090/extrait> ;
+    po:aFormePharmaceutique po:FormeComprimePellicule ;
     po:aPourContreIndication po:CI_InsuffisanceRenaleSevere ;
+    po:aVoieAdministration po:AdministrationOrale ;
     po:codeCIS "67547090"^^xsd:string ;
     po:contientPrincipeActif po:Metformine ;
     po:dosageMg 850.0 ;
@@ -617,18 +1159,55 @@ po:ContreIndication a owl:Class ;
     rdfs:label "Contre-indication"@fr ;
     rdfs:comment "Condition documentée pour une spécialité. Le corpus ne couvre pas toutes les conditions du RCP."@fr .
 
+po:EffetSecondaire a owl:Class ;
+    rdfs:label "Effet indésirable"@fr ;
+    rdfs:comment "Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet."@fr .
+
+po:MedicamentOral a owl:Class ;
+    rdfs:label "Médicament par voie orale"@fr ;
+    rdfs:comment "Spécialité ayant une voie d’administration appartenant à VoieOrale."@fr ;
+    rdfs:subClassOf po:Medicament ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Medicament [ a owl:Restriction ;
+                        owl:onProperty po:aVoieAdministration ;
+                        owl:someValuesFrom po:VoieOrale ] ) ] .
+
 po:SurOrdonnance a owl:Class ;
     rdfs:label "Sur ordonnance"@fr ;
     rdfs:comment "Statut français relevé à la date de consultation."@fr ;
     rdfs:subClassOf po:Medicament .
 
-po:EffetSecondaire a owl:Class ;
-    rdfs:label "Effet indésirable"@fr ;
-    rdfs:comment "Concept d’effet possible, sans fréquence universelle. La fréquence dépend du médicament via ObservationEffet."@fr .
+po:aFormePharmaceutique a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "a pour forme pharmaceutique"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:FormePharmaceutique .
 
-po:Patient a owl:Class ;
-    rdfs:label "Patient fictif"@fr ;
-    rdfs:comment "Personne fictive utilisée exclusivement dans les scénarios de démonstration."@fr .
+po:AdministrationOrale a po:VoieOrale,
+        owl:NamedIndividual ;
+    rdfs:label "voie orale"@fr .
+
+po:Adulte a owl:Class ;
+    rdfs:label "Adulte"@fr ;
+    rdfs:comment "Classe définie par l’âge entier : 18 ans ou plus. Convention pédagogique du projet, sans règle de prescription."@fr ;
+    rdfs:subClassOf po:Patient ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( po:Patient [ a owl:Restriction ;
+                        owl:onProperty po:age ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:minInclusive 18 ] ) ] ] ) ] .
+
+po:age a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "âge fictif en années"@fr ;
+    rdfs:domain po:Patient ;
+    rdfs:range xsd:integer .
+
+po:CIAbsolue a owl:Class ;
+    rdfs:label "Contre-indication absolue"@fr ;
+    rdfs:comment "Situation explicitement présentée comme une contre-indication dans la source."@fr ;
+    rdfs:subClassOf po:ContreIndication .
 
 po:PrincipeActif a owl:Class ;
     rdfs:label "Principe actif"@fr ;
@@ -642,21 +1221,38 @@ po:Pathologie a owl:Class ;
     rdfs:label "État clinique"@fr ;
     rdfs:comment "Maladie, symptôme ou état clinique pertinent dans ce modèle simplifié."@fr .
 
+po:contientPrincipeActif a owl:ObjectProperty ;
+    rdfs:label "contient le principe actif"@fr ;
+    rdfs:domain po:Medicament ;
+    rdfs:range po:PrincipeActif ;
+    owl:inverseOf po:estPrincipeActifDe .
+
+po:Patient a owl:Class ;
+    rdfs:label "Patient fictif"@fr ;
+    rdfs:comment "Personne fictive utilisée exclusivement dans les scénarios de démonstration."@fr .
+
 po:Medicament a owl:Class ;
     rdfs:label "Médicament"@fr ;
     rdfs:comment "Spécialité pharmaceutique, à dosage et forme déterminés. Périmètre réglementaire français."@fr ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass po:FormePharmaceutique ;
+            owl:onProperty po:aFormePharmaceutique ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty po:aVoieAdministration ;
+            owl:someValuesFrom po:VoieAdministration ],
+        [ a owl:Restriction ;
             owl:onProperty po:contientPrincipeActif ;
             owl:someValuesFrom po:PrincipeActif ] .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( po:Adulte po:Enfant ) .
-
-[] a owl:AllDifferent ;
-    owl:distinctMembers ( po:AcidoseLactique po:Advil_400 po:AllergiePenicillines po:Amoxicilline po:Amoxicilline_BGR_1g po:AngineStreptococcique po:CI_AllergiePenicillines po:CI_InsuffisanceRenaleSevere po:CI_UlcereEvolutif po:Clamoxyl_1g po:Coumadine_5 po:DiabeteType2 po:Diarrhee po:DouleurAigue po:Glucophage_850 po:Hemorragie po:Ibuprofene po:InsuffisanceRenaleSevere po:MaladieThromboembolique po:Metformine po:Metformine_BGR_850 po:Obs_Advil_400_TroublesDigestifs po:Obs_Amoxicilline_BGR_1g_Diarrhee po:Obs_Clamoxyl_1g_Diarrhee po:Obs_Coumadine_5_Hemorragie po:Obs_Glucophage_850_AcidoseLactique po:Obs_Glucophage_850_TroublesDigestifs po:Obs_Metformine_BGR_850_AcidoseLactique po:Obs_Metformine_BGR_850_TroublesDigestifs po:Patient_P001 po:Patient_P002 po:Patient_P003 po:Patient_P004 po:Patient_P005 po:TroublesDigestifs po:UlcereGastroduodenalEvolutif po:Warfarine ) .
+    owl:members ( po:CIAbsolue po:CIRelative ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( po:SurOrdonnance po:SansOrdonnance ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:AdulteJeune po:AdulteMoyenAge po:PersonneAgee ) .
 
 [] a owl:Axiom ;
     dcterms:source <https://base-donnees-publique.medicaments.gouv.fr/medicament/63646874/extrait> ;
@@ -665,14 +1261,20 @@ po:Medicament a owl:Class ;
     owl:annotatedTarget po:Warfarine .
 
 [] a owl:AllDisjointClasses ;
-    owl:members ( po:Medicament po:PrincipeActif po:EffetSecondaire po:ContreIndication po:Patient po:Pathologie po:ObservationEffet ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( po:ObservationFrequente po:ObservationTresFrequente po:ObservationRare po:ObservationTresRare ) .
-
-[] a owl:AllDisjointClasses ;
-    owl:members ( po:CIAbsolue po:CIRelative ) .
+    owl:members ( po:ObservationFrequente po:ObservationTresFrequente po:ObservationRare po:ObservationTresRare po:ObservationPeuFrequente po:ObservationFrequenceNonQuantifiee ) .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( po:Princeps po:Generique ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Adolescent po:JeuneEnfant ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Adulte po:Enfant ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( po:AcidoseLactique po:AdministrationOrale po:Advil_400 po:AllergiePenicillines po:Amoxicilline po:Amoxicilline_BGR_1g po:AngineStreptococcique po:CI_AllergiePenicillines po:CI_InsuffisanceRenaleSevere po:CI_UlcereEvolutif po:Clamoxyl_1g po:Coumadine_5 po:DiabeteType2 po:Diarrhee po:DouleurAigue po:FormeComprimeDispersible po:FormeComprimeEnrobe po:FormeComprimePellicule po:FormeComprimeSecable po:Glucophage_850 po:Hemorragie po:Ibuprofene po:InsuffisanceRenaleSevere po:MaladieThromboembolique po:Metformine po:Metformine_BGR_850 po:Obs_Advil_400_TroublesDigestifs po:Obs_Amoxicilline_BGR_1g_Diarrhee po:Obs_Clamoxyl_1g_Diarrhee po:Obs_Coumadine_5_Hemorragie po:Obs_Glucophage_850_AcidoseLactique po:Obs_Glucophage_850_TroublesDigestifs po:Obs_Metformine_BGR_850_AcidoseLactique po:Obs_Metformine_BGR_850_TroublesDigestifs po:Patient_P001 po:Patient_P002 po:Patient_P003 po:Patient_P004 po:Patient_P005 po:TroublesDigestifs po:UlcereGastroduodenalEvolutif po:Warfarine ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( po:Medicament po:PrincipeActif po:EffetSecondaire po:ContreIndication po:Patient po:Pathologie po:ObservationEffet po:FormePharmaceutique po:VoieAdministration ) .
 
