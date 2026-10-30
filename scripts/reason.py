@@ -5,7 +5,7 @@ import owlready2
 from rdflib import Graph, RDF, OWL
 from .build_ontology import ROOT,P
 
-
+/////////////////////////////////////////////////////////////////////////////////////
 def java_paths():
     folder=Path(owlready2.__file__).parent/'hermit'
     jar=folder/'HermiT.jar'
